@@ -8,7 +8,7 @@ Toda la información está disponible en el [sitio Moodle de P1](https://moodle2
 ### Datos académicos de la asignatura
 
 **Departamento de Ciencia de la Computación e Inteligencia Artificial**  
-**6 créditos ECTS**: 1 clase de teoría de 2 h. y 1 clase de 
+**6 créditos ECTS**: 1 clase de teoría de 2 h. y 1 clase de
 prácticas de 2 h. a la semana  
 
 **Profesores**:  
@@ -40,9 +40,9 @@ prácticas de 2 h. a la semana
 
 **Competencias**:
 
-* Interpretar el funcionamiento del código fuente de un programa. 
-* Definir los tipos de datos necesarios para la representación de la información. 
-* Diseñar algoritmos y codificarlos con distintas técnicas de programación, especialmente en sistemas robóticos. 
+* Interpretar el funcionamiento del código fuente de un programa.
+* Definir los tipos de datos necesarios para la representación de la información.
+* Diseñar algoritmos y codificarlos con distintas técnicas de programación, especialmente en sistemas robóticos.
 * Verificar el correcto funcionamiento de un programa.
 
 ### Temario
@@ -57,7 +57,7 @@ prácticas de 2 h. a la semana
 
 * Tema 5. **Recursión**: Definición. Esquema básico. Codificación en C. Características
 
-* Tema 6. **Tipos de datos estructurados: Arrays**: Concepto de dato estructurado. El tipo array. Arrays unidimensionales, bidimensionales y multidimensionales. Cadenas de caracteres 
+* Tema 6. **Tipos de datos estructurados: Arrays**: Concepto de dato estructurado. El tipo array. Arrays unidimensionales, bidimensionales y multidimensionales. Cadenas de caracteres
 
 * Tema 7. **Punteros y memoria dinámica**: Memoria estática vs. dinámica. Creación, inicialización, asignación y liberación de memoria. Conversión de tipos.
 
@@ -68,11 +68,11 @@ prácticas de 2 h. a la semana
 
 ### Prácticas
 
-Durante las horas prácticas se realizarán de forma **individual** ejercicios de programación relacionados con los conceptos que se están estudiando en ese momento que servirán para reforzar y profundizar en las competencias de la asignatura. 
+Durante las horas prácticas se realizarán de forma **individual** ejercicios de programación relacionados con los conceptos que se están estudiando en ese momento que servirán para reforzar y profundizar en las competencias de la asignatura.
 
-Se realizarán 2 prácticas: 
+Se realizarán 2 prácticas:
 
-* La primera práctica será guiada, distribuida en sesiones de forma incremental para que semana a semana se vaya construyendo una solución parcial hasta llegar a la implementación total. 
+* La primera práctica será guiada, distribuida en sesiones de forma incremental para que semana a semana se vaya construyendo una solución parcial hasta llegar a la implementación total.
 * La segunda práctica será un problema a desarrollar por el alumno
 
 ### Horarios
@@ -94,8 +94,8 @@ En la convocatoria ordinaria (enero) se realizará una evaluación continua con 
      - *Control de teoría*: pondera un 10% de la nota final
      - *Examen de teoría*: pondera un 50% de la nota final. Se realizará en la fecha oficial asignada al examen final de la convocatoria de enero
 
-     
-La calificación final de la asignatura se obtiene mediante la suma ponderada de todas las pruebas. 
+
+La calificación final de la asignatura se obtiene mediante la suma ponderada de todas las pruebas.
 
 En las pruebas se valora especialmente el diseño de los programas y el correcto estilo de programación así como la ausencia de errores.
 
@@ -107,7 +107,7 @@ Para la convocatoria extraordinaria de julio se podrán realizar las actividades
 
 - **Examen teórico**: pondera un 60% de la nota final
 - **Examen práctico**: pondera un 40% de la nota final
- 
+
 En esta convocatoria sólo se realizará la parte (teoría o práctica) que no se haya aprobado en la convocatoria ordinaria. Es decir, si la parte teórica (control teoría * 0.1 + prueba escrita * 0.5) >= 3, se guarda la nota (un 5 mínimo sin ponderar). Lo mismo sucede con la parte práctica, si (control prácticas 1 * 0.1 + control prácticas 2 * 0.3) >= 2, se guarda la nota (un 5 mínimo sin ponderar). En estos casos sólo habría que hacer la parte no aprobada.
 
 #### Plagios
@@ -120,7 +120,7 @@ En Moodle se publican los apuntes de la asignatura, con ejercicios, explicacione
 
 Para consultar o ampliar algunos conceptos se recomienda alguno de los siguientes libros:
 
-<img src="imagenes/kochan-cover.jpg" width="170px"/> 
+<img src="imagenes/kochan-cover.jpg" width="170px"/>
 
 * KOCHAN, Stephen G. Programming in C. Fourth Edition, 2015. ISBN: 978-0321776419
 
@@ -135,11 +135,6 @@ Para consultar o ampliar algunos conceptos se recomienda alguno de los siguiente
 <img src="imagenes/gottfried-cover.jpg" width="170px"/>
 
 * GOTTFRIED, Byron S., et al. Programación en C. McGraw-Hill, 1991. ISBN: 9788448110680
-
-<img src="imagenes/carballeira-cover.jpg" width="170px"/>
-
-* CARBALLEIRA, Félix García, et al. El lenguaje de programación C: diseño e implementación de programas. Pearson Educación, 2002. ISBN: 9788420531786
-
 
 
 ----
