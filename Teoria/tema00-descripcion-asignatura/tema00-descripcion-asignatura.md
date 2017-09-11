@@ -118,7 +118,7 @@ Los trabajos teórico/prácticos realizados han de ser originales. La detección
 
 En Moodle se publican los apuntes de la asignatura, con ejercicios, explicaciones y ejemplos de todos los conceptos estudiados, tanto en teoría como en práctica.
 
-Para consultar o ampliar algunos conceptos se recomienda alguno de los siguientes libros:
+Los apuntes de la asignatura se han confeccionado utilizando la siguiente bibliografía, que podéis utilizar para consultar o ampliar algunos conceptos:
 
 <img src="imagenes/kochan-cover.jpg" width="170px"/>
 
