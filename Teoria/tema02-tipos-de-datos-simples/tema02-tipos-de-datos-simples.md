@@ -1,27 +1,27 @@
 
 # Tema 2: Tipos de datos simples
 
-## Contenidos 
+## Contenidos
 
 - [1. Tipos de datos](#1)
 - [2. Identificadores](#2)
 - [3. Variables y constantes](#3)
-	- [3-1. Variables](#3-1) 
-	- [3-2. Constantes](#3-2) 
+	- [3-1. Variables](#3-1)
+	- [3-2. Constantes](#3-2)
 - [4. Tipos de datos simples](#4)
-	- [4-1. Enteros](#4-1) 
-	- [4-2. Reales](#4-2) 
-	- [4-3. Carácter](#4-3) 
-	- [4-4. Lógico](#4-4) 
-	- [4-5. Enumerados](#4-5) 
+	- [4-1. Enteros](#4-1)
+	- [4-2. Reales](#4-2)
+	- [4-3. Carácter](#4-3)
+	- [4-4. Lógico](#4-4)
+	- [4-5. Enumerados](#4-5)
 - [5. Sentencias de entrada / salida](#5)
-	- [5-1. Salida `printf`](#5-1) 
-	- [5-2. Entrada `scanf`](#5-2) 
+	- [5-1. Salida `printf`](#5-1)
+	- [5-2. Entrada `scanf`](#5-2)
 
 ## <a name="1"/> 1. Tipos de datos
-Todos los programas manejan datos. Los *datos* son los elementos que manipulan los programas. 
+Los *datos* son los elementos que manipulan los programas. 
 
-En un programa podemos distinguir entre: 
+En un programa podemos distinguir entre:
 
 - datos de entrada / salida: usados como punto de partida o resultado
 - datos internos / auxiliares: usados por el programa para obtener el resultado
@@ -33,7 +33,7 @@ Por ejemplo, en un programa que calcula la longitud de una circunferencia ( Dia�
 - Dato de salida: longitud de la circunferencia
 - Datos internos: diámetro de la circunferencia, que toma como valor 2*radio de la circunferencia
 
-El lenguaje C es **fuertemente tipeado**, eso significa que tenemos que asignar explícitamente un tipo a cada dato. El tipo de un dato es el conjunto de valores que puede tomar durante el programa. 
+El lenguaje C es **fuertemente tipeado**, eso significa que tenemos que asignar explícitamente un tipo a cada dato. El tipo de un dato es el conjunto de valores que puede tomar durante el programa.
 
  La asignación de tipos a los datos tiene cuatro objetivos principales:
 
@@ -71,7 +71,7 @@ Ejemplo de identificadores válidos:
 
 ~~~c
 X		Y12		sum_1		_temperature
-names 	area 	tax_rate 	TABLE 
+names 	area 	tax_rate 	TABLE
 ~~~
 
 Ejemplo de identificadores **no** válidos:
@@ -91,7 +91,7 @@ numero$2		/* Carácter no válido ($) */
 	casa		mi-casa		mi*casa		micasa1
 	_MES		MES_1		MES%1		mes$1
 	a980		890a		_890		$a890
-	
+
 >Solución: Son inválidos `mi-casa mi*casa MES%1 mes$1 $a89 890a`
 
 Las *palabras reservadas* son identificadores que tienen un significado especial para el compilador. Las palabras reservadas no se pueden usar como identificadores. Todas las palabras reservadas en C se escriben en minúsculas.
@@ -99,7 +99,7 @@ Las *palabras reservadas* son identificadores que tienen un significado especial
 Palabras reservadas en C:
 
 ~~~c
-auto			else		long 		 	typedef 
+auto			else		long 		 	typedef
 break			enum		register	 	union
 case			extern		return		 	unsigned
 char			float	 	short		 	void
@@ -123,7 +123,7 @@ El tamaño de la zona de memoria, en bytes, dependerá del tipo de dato que se a
 Sintaxis:
 
 	<tipo_de_datos> <nombre1> [,<nombre2>,...];
-	
+
 Ejemplo:
 
 ~~~c
@@ -135,7 +135,7 @@ double nota1, nota2;	// variables tipo double
 
 ### <a name="3-2"/> 3.2. Constantes
 
-Una constante representa un valor determinado que no cambia a lo largo del programa. 
+Una constante representa un valor determinado que no cambia a lo largo del programa.
 
 #### Constantes con `#define`
 
@@ -145,7 +145,7 @@ En C se definen mediante macros a través de la directiva `#define` mediante la 
  #define <nombre> <valor>
 ~~~
 
-La palabra reservada `define`indica que la constante tiene un valor fijo durante toda la ejecución del programa. El preprocesador debe sustituir las ocurrencias de `nombre` por su `valor`. 
+La palabra reservada `define`indica que la constante tiene un valor fijo durante toda la ejecución del programa. El preprocesador debe sustituir las ocurrencias de `nombre` por su `valor`.
 
 Se suelen escribir en mayúsculas.
 
@@ -160,7 +160,7 @@ Ejemplo:
 
 #### Constantes con `const`
 
-Otra forma de definir constantes es mediante la instrucción `const`. 
+Otra forma de definir constantes es mediante la instrucción `const`.
 
 Sintaxis:
 
@@ -192,7 +192,7 @@ Los tipos de datos que permiten representar números enteros en C son:
 
 ~~~c
 short
-int 
+int
 long
 ~~~
 
@@ -230,7 +230,7 @@ int main(void)
   printf("Un long ocupa %d bytes\n", sizeof(long));
   printf("Un unsigned long ocupa %d bytes\n",
 				sizeof(unsigned long));
-	
+
   return(0);
 }
 ~~~
@@ -255,10 +255,10 @@ double | 8 | -10<sup>308</sup> | +10<sup>308</sup> | 15 cifras decimales
 
 #### Operaciones con números enteros y reales
 
-Operadores aritméticos. 
+Operadores aritméticos.
 
-Operador  | Significado 
------ | ----- 
+Operador  | Significado
+----- | -----
 = | Asignación
 * | Multiplicación
 / | División
@@ -283,7 +283,7 @@ Los caracteres válidos son los que están incluidos en la tabla del estándar A
 
 ### <a name="4-4"/> 4.4. Lógico
 
-A diferencia de otros lenguajes, C no tiene un tipo booleano nativo. Necesitamos añadir la cabecera: 
+A diferencia de otros lenguajes, C no tiene un tipo booleano nativo. Necesitamos añadir la cabecera:
 
 ~~~c
 #include <stdbool.h>
@@ -293,25 +293,25 @@ Se maneja como número de 1 byte (un bit sería suficiente). Válido para ope
 
 #### Operaciones con booleanos
 
-Operadores lógicos. 
+Operadores lógicos.
 
-Operador | Significado 
------ | ----- 
+Operador | Significado
+----- | -----
 &&    | AND lógico
 \|\|  | OR lógico
 !     | NOT lógico
 
 ~~~c
-// Ejemplo 
+// Ejemplo
 bool a = true, b = false;a && b; // devuelve false
 a || b; // devuelve true!a; // devuelve false
 
 ~~~
 
-Operadores relacionales: el resultado es un booleano 
+Operadores relacionales: el resultado es un booleano
 
-Operador | Significado 
------ | ----- 
+Operador | Significado
+----- | -----
 < <=  | menor o menor/igual
 > >=  | mayor o mayor/igual
 ==    | comparación
@@ -371,8 +371,8 @@ int main(void)
 
 Precedencia de los operadores
 
-Precedencia | Operador  | Asociatividad 
------ | ----- | ----- 
+Precedencia | Operador  | Asociatividad
+----- | ----- | -----
 0	| ()[] -> . |	izq. a derecha
 1 |	sizeof (tipo) ! ~ ++ -- signo* &	| derecha a izq.
 2	| * / %	| izq. a derecha
@@ -400,7 +400,7 @@ int main(void)
 {
 	enum DiasSemana {lunes, martes, miercoles, jueves,
 			viernes, sabado, domingo};
-	enum DiasSemana dia; // variable tipo enum 
+	enum DiasSemana dia; // variable tipo enum
 	dia = lunes;
 	printf ("Primer dÌa de la semana: %d\n", dia); //0
 	dia = martes;
@@ -438,20 +438,20 @@ Las sentencias de entrada permiten asociar a las variables valores aportados por
 
 ### <a name="5-1"/> 5.1. Salida: `printf`
 
-Permite imprimir en la pantalla en un formato determinado: 
+Permite imprimir en la pantalla en un formato determinado:
 
 - cadenas de caracteres que se mostrarán conforme se hayan introducido- variables que mostrarán su valor en base a un tipo indicadoLas cadena de caracteres puede incluir valores especiales para introducir saltos de linea usando `\n`
 
 ####Sintaxis
-~~~cprintf(cadena de control, val1, val2, ..., valN); 
+~~~cprintf(cadena de control, val1, val2, ..., valN);
 ~~~
 
 La cadena de control debe ir entre comillas dobles. Ejemplo: `“Hola mundo”`Si queremos mostrar el valor de una variable o valor, haremos uso de especificadores de formato (marcas) dentro de la cadena de control. Por cada marca debemos añadir una variable o valor. La marca determina cómo visualizar la variable (número, basedel numero, cifras decimales, etc). El valor puede ser el resultado de una operación
 
 Las marcas se definen usando `%tipo`:
-- Números enteros en base 10 → d, i 
-- Números reales → f, g- Número en base hexadecimal → x 
-- Número real con notación científica → e 
+- Números enteros en base 10 → d, i
+- Números reales → f, g- Número en base hexadecimal → x
+- Número real con notación científica → e
 - Carácter → c
 
 Ejemplos:
@@ -461,8 +461,8 @@ int operandoA = 2;float operandoB = 5.4;printf("La suma de %d + %f es: %f\n",
 ~~~
 
 ~~~c
-char inicial = 'g';printf("El apellido más común es %carcia\n", inicial);// El apellido más común es garciaprintf("El apellido más común es \n\n%carcia\n", inicial); 
-// El apellido más común es 
+char inicial = 'g';printf("El apellido más común es %carcia\n", inicial);// El apellido más común es garciaprintf("El apellido más común es \n\n%carcia\n", inicial);
+// El apellido más común es
 
 // garcia
 ~~~
@@ -521,19 +521,19 @@ Fijaros en el siguiente código. ¿Qué sucede?
 int main(void)
 {
     char c;
-     
+
     printf("Input No.1\n");
     scanf("%c", &c);
     printf("c = %c\n", c);
-     
+
     printf("Input No.2\n");
     scanf("%c", &c);
     printf("c = %c\n", c);
-     
+
     printf("Input No.3\n");
     scanf("%c", &c);
     printf("c = %c\n", c);
-     
+
     return 0;
 }
 ~~~
