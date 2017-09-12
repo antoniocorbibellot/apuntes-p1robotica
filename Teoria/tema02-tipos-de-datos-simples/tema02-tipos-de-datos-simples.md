@@ -19,7 +19,7 @@
 	- [5-2. Entrada `scanf`](#5-2)
 
 ## <a name="1"/> 1. Tipos de datos
-Los *datos* son los elementos que manipulan los programas. 
+Los *datos* son los elementos que manipulan los programas.
 
 En un programa podemos distinguir entre:
 
@@ -100,14 +100,14 @@ Palabras reservadas en C:
 
 ~~~c
 auto			else		long 		 	typedef
-break			enum		register	 	union
-case			extern		return		 	unsigned
+break			enum		register	union
+case			extern	return		unsigned
 char			float	 	short		 	void
-const			for		 	signed		 	volatile
-continue		goto		sizeof			while
-default			if			static			_Bool
-do				inline	 	struct			_Complex
-double			int		 	switch			_Imaginary
+const			for		 	signed		volatile
+continue	goto		sizeof		while
+default		if			static		_Bool
+do				inline	struct		_Complex
+double		int		 	switch		_Imaginary
 ~~~
 
 ## <a name="3"/> 3. Variables y constantes
