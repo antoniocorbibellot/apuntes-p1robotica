@@ -396,7 +396,7 @@ Un tipo enumerado permite definir un conjunto de constantes simbólicas con valo
 ~~~c
 // Programa que hace operaciones con días de la semana
 
-int main(void)
+int main()
 {
 	enum DiasSemana {lunes, martes, miercoles, jueves,
 			viernes, sabado, domingo};
@@ -466,7 +466,9 @@ printf("La suma de %d + %f es: %e\n", operandoA, operandoB, operandoA + operando
 ~~~
 
 ~~~c
-char inicial = 'g';printf("El apellido más común es %carcia\n", inicial);// El apellido más común es garciaprintf("El apellido más común es \n\n%carcia\n", inicial);
+char inicial = 'g';
+printf("El apellido más común es %carcia\n", inicial);// El apellido más común es garcia
+printf("El apellido más común es \n\n%carcia\n", inicial);
 // El apellido más común es
 
 // garcia
@@ -502,7 +504,7 @@ Ejemplo:
 ~~~c
 #include <stdio.h>
 
-int main(void) {
+int main() {
 	char letra;
 	char siguiente;
 
@@ -521,7 +523,7 @@ Ejemplo:
 ~~~c
 // Cálculo el índice de masa corporal IMC de una persona
 
-double peso, imc;
+	double peso, imc;
 	int altura;
 	char nom, ap1, ap2;
 
@@ -545,35 +547,34 @@ Tenemos que tener cuidado cuando leamos caracteres utilizando `scanf`.
 Fijaros en el siguiente código. ¿Qué sucede?
 
 ~~~c
-int main(void)
+int main()
 {
     char c;
 
-    printf("Input No.1\n");
+    printf("letra 1:\n");
     scanf("%c", &c);
     printf("c = %c\n", c);
 
-    printf("Input No.2\n");
+    printf("letra 2:\n");
     scanf("%c", &c);
     printf("c = %c\n", c);
 
-    printf("Input No.3\n");
+    printf("letra 3:\n");
     scanf("%c", &c);
     printf("c = %c\n", c);
 
-    return 0;
 }
 ~~~
 
 Si observamos la salida por pantalla, obtenemos:
 
 ~~~c
-Input No.1
+letra 1:
 s
 c = s
-Input No.2
+letra 2:
 c =  
-Input No.3
+letra 3:
 a
 c = a
 ~~~
@@ -597,25 +598,24 @@ void limpiarBuffer() {
 	while (getchar() != '\n');
 }
 
-int main(void)
+int main()
 {
 	char c;
 
-	printf("Input No.1\n");
+	printf("letra 1:\n");
 	scanf("%c", &c);
 	printf("c = %c\n", c);
 
-	printf("Input No.2\n");
+	printf("letra 2:\n");
 	limpiarBuffer();
 	scanf("%c", &c);
 	printf("c = %c\n", c);
 
-	printf("Input No.3\n");
+	printf("letra 3:\n");
 	limpiarBuffer();
 	scanf("%c", &c);
 	printf("c = %c\n", c);
 
-    return 0;
 }
 
 ----
