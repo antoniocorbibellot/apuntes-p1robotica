@@ -85,14 +85,14 @@ numero%1		/* Carácter no válido (%) */
 numero$2		/* Carácter no válido ($) */
 ~~~
 
->**Ejercicio**:
->Indica qué identificadores son válidos en C:
->
+**Ejercicio**:
+Indica qué identificadores son válidos en C:
+
 	casa		mi-casa		mi*casa		micasa1
 	_MES		MES_1		MES%1		mes$1
 	a980		890a		_890		$a890
 
->Solución: Son inválidos `mi-casa mi*casa MES%1 mes$1 $a89 890a`
+Solución: Son inválidos `mi-casa mi*casa MES%1 mes$1 $a89 890a`
 
 Las *palabras reservadas* son identificadores que tienen un significado especial para el compilador. Las palabras reservadas no se pueden usar como identificadores. Todas las palabras reservadas en C se escriben en minúsculas.
 
@@ -443,21 +443,26 @@ Permite imprimir en la pantalla en un formato determinado:
 - cadenas de caracteres que se mostrarán conforme se hayan introducido- variables que mostrarán su valor en base a un tipo indicadoLas cadena de caracteres puede incluir valores especiales para introducir saltos de linea usando `\n`
 
 ####Sintaxis
-~~~cprintf(cadena de control, val1, val2, ..., valN);
+~~~c
+printf(cadena de control, val1, val2, ..., valN);
 ~~~
 
 La cadena de control debe ir entre comillas dobles. Ejemplo: `“Hola mundo”`Si queremos mostrar el valor de una variable o valor, haremos uso de especificadores de formato (marcas) dentro de la cadena de control. Por cada marca debemos añadir una variable o valor. La marca determina cómo visualizar la variable (número, basedel numero, cifras decimales, etc). El valor puede ser el resultado de una operación
 
 Las marcas se definen usando `%tipo`:
 - Números enteros en base 10 → d, i
-- Números reales → f, g- Número en base hexadecimal → x
+- Números reales → f, g
+- Número en base hexadecimal → x
 - Número real con notación científica → e
 - Carácter → c
 
 Ejemplos:
 
 ~~~c
-int operandoA = 2;float operandoB = 5.4;printf("La suma de %d + %f es: %f\n", operandoA, operandoB, operandoA + operandoB);// La suma de 2 + 5.400000 es: 7.400000printf("La suma de %d + %f es: %e\n", operandoA, operandoB, operandoA + operandoB);// La suma de 2 + 5.400000 es: 7.400000e+00
+int operandoA = 2;
+float operandoB = 5.4;
+printf("La suma de %d + %f es: %f\n", operandoA, operandoB, operandoA + operandoB);// La suma de 2 + 5.400000 es: 7.400000
+printf("La suma de %d + %f es: %e\n", operandoA, operandoB, operandoA + operandoB);// La suma de 2 + 5.400000 es: 7.400000e+00
 ~~~
 
 ~~~c
@@ -470,7 +475,10 @@ char inicial = 'g';printf("El apellido más común es %carcia\n", inicial);
 Ejemplo con tipo char:
 
 ~~~c
-char valorImprimir = 65;printf("El valor de valorImprimir es: %c\n", valorImprimir);// El valor de valorImprimir es: Achar valorImprimir = 'A';printf("El valor de valorImprimir es: %d\n", valorImprimir);// El valor de valorImprimir es: 65
+char valorImprimir = 65;
+printf("El valor de valorImprimir es: %c\n", valorImprimir);// El valor de valorImprimir es: A
+char valorImprimir = 'A';
+printf("El valor de valorImprimir es: %d\n", valorImprimir);// El valor de valorImprimir es: 65
 ~~~
 
 
@@ -488,6 +496,25 @@ Su **sintaxis** es similar a `printf`:
 - La ejecución se detendrá cuando que el usuario haya introducido valores paras las N variables solicitadas
 
 Respecto a las marcas, utilizaremos los tipos usados con `printf` excepto en el tipo `double` que debemos usar `%lf`. El resto se mantienen: `%c` para `char`, `%d` para `int` y `%f` para `float`.
+
+Ejemplo:
+
+~~~c
+#include <stdio.h>
+
+int main(void) {
+	char letra;
+	char siguiente;
+
+	printf("Introduce una letra: ");
+	scanf("%c", &letra);
+
+	printf("El valor de letra es %c\n", letra);
+	siguiente = letra + 1;
+	printf("La siguiente letra es %c\n", siguiente);
+}
+~~~
+
 
 Ejemplo:
 
@@ -590,14 +617,6 @@ int main(void)
 
     return 0;
 }
-
-~~~
-
-
-## 6. Bibliografía
-
-* *Programming in C*, *Stephen G. Kochan*
-* Fundamentos de programación, Jesús Carretero Pérez y otros
 
 ----
 
