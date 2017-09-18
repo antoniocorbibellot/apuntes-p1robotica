@@ -45,7 +45,7 @@ La **estructura secuencial** es aquella en la que las instrucciones o sentencias
 >
 > ~~~c
 > int valorA = 11, valorB = 4, resultado; resultado = valorA / valorB;valorA = valorA + 1; // resultado = 2
-~~~>No es lo mismo que:
+~~~> No es lo mismo que:
 >
 ~~~c
 int valorA = 11, valorB = 4, resultado; valorA = valorA + 1;resultado = valorA / valorB; // resultado = 3
