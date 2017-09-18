@@ -26,12 +26,12 @@
 >
 > - Algoritmo: multiplicar la base del triángulo por la altura del mismo y dividirla entre dos
 > - Programa:
->
-> ~~~c
-> int base = 3, altura = 5;
+
+~~~c
+int base = 3, altura = 5;
 double area = base * altura / 2.0;
 printf("El area de un triángulo de base %d y altura %d es %g\n", base, altura, area);
-> ~~~
+~~~
 
 En un determinado instante, el **estado de un programa** queda definido por el valor que tienen sus variables. El estado de un programa es dinámico, y puede cambiar con la ejecución de sentencias dentro del mismo. Es **imprescindible realizar las sentencias adecuadas en el orden adecuado**.
 
