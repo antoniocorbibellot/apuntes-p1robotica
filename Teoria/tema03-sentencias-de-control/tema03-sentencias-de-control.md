@@ -1,12 +1,12 @@
 
-# Tema 3: Sentencias de control 
+# Tema 3: Sentencias de control
 
-## Contenidos 
-	
+## Contenidos
+
 - [1. Programas y algoritmos](#1)
 - [2. Estructuras de selección](#2)
-	- [2-1. Sentencia `if`](#2-1) 
-	- [2-2. Sentencia `if-else`](#2-2) 
+	- [2-1. Sentencia `if`](#2-1)
+	- [2-2. Sentencia `if-else`](#2-2)
 	- [2-3. Sentencias `if`anidadas](#2-3)
 	- [2-4. Operador `?`](#2-4)
 	- [2-5. Sentencias `switch`](#2-5)
@@ -19,16 +19,18 @@
 
 ## <a name="1"/> 1. Programas y algoritmos
 
-- Un **algoritmo** es un conjunto de instrucciones que permiten hallar la solución a un determinado problema. 
-- Un **programa** es un conjunto de sentencias escritas en un lenguaje determinado para que un ordenador lleve a cabo una tarea. Los programas codifican algoritmos. 
+- Un **algoritmo** es un conjunto de instrucciones que permiten hallar la solución a un determinado problema.
+- Un **programa** es un conjunto de sentencias escritas en un lenguaje determinado para que un ordenador lleve a cabo una tarea. Los programas codifican algoritmos.
 
 > Ejemplo. Tarea: Obtener el área de un triángulo
-> 
+>
 > - Algoritmo: multiplicar la base del triángulo por la altura del mismo y dividirla entre dos
-> - Programa: 
-> 
+> - Programa:
+>
 > ~~~c
-> int base = 3, altura = 5;double area = base * altura / 2.0;printf("El area de un triángulo de base %d y altura %d es %g\n", base, altura, area);
+> int base = 3, altura = 5;
+double area = base * altura / 2.0;
+printf("El area de un triángulo de base %d y altura %d es %g\n", base, altura, area);
 > ~~~
 
 En un determinado instante, el **estado de un programa** queda definido por el valor que tienen sus variables. El estado de un programa es dinámico, y puede cambiar con la ejecución de sentencias dentro del mismo. Es **imprescindible realizar las sentencias adecuadas en el orden adecuado**.
@@ -40,7 +42,7 @@ En un determinado instante, el **estado de un programa** queda definido por el v
 La **estructura secuencial** es aquella en la que las instrucciones o sentencias se ejecutan una a una en el orden establecido.
 
 > Ejemplo:
-> 
+>
 > ~~~c
 > int valorA = 11, valorB = 4, resultado; resultado = valorA / valorB;valorA = valorA + 1; // resultado = 2
 ~~~>No es lo mismo que:
@@ -63,12 +65,12 @@ condición.
 
 Permiten que el programa determine las sentencias a ejecutar en base a determinadas **condiciones**.
 
-Las condiciones se presentan como operadores relacionales, integrando como operandos valores, variables o constantes. 
+Las condiciones se presentan como operadores relacionales, integrando como operandos valores, variables o constantes.
 
 Suponen una **bifurcación** en la secuencia de ejecución de las instrucciones de un programa
 
 > Ejemplos donde se utilizan estructuras de selección:
-> 
+>
 > - Si el robot no tiene batería: ir a la zona de carga
 > - Si el robot está cerca de un obstáculo: reducir su velocidad
 > - Si el semáforo esta en rojo: detenernos, en cualquier otro caso: continuar
@@ -110,21 +112,21 @@ bool fumador = true;double dineroAhorrado = 500;...if (fumador)	dineroAhorra
 El uso de llaves es opcional si la instrucción a ejecutar tiene una única sentencia y es obligatorio si la instrucción tiene dos o más sentencias. Si no se añaden llaves, solamente la primera instrucción después del `if (condicion_a_cumplir)` será condicional: la segunda y sucesivas se ejecutarán siempre.
 
 ~~~c
-bool condicionCumplida = false; 
+bool condicionCumplida = false;
 
-if (condicionCumplida)	printf("Primera instrucción \n"); 
+if (condicionCumplida)	printf("Primera instrucción \n");
 printf("Segunda instrucción \n"); // se ejecuta siempre
-printf("Tercera instrucción \n"); // se ejecuta siempreif (condicionCumplida) {	printf("Primera instrucción \n"); 
-	printf("Segunda instrucción \n"); 
+printf("Tercera instrucción \n"); // se ejecuta siempreif (condicionCumplida) {	printf("Primera instrucción \n");
+	printf("Segunda instrucción \n");
 	printf("Tercera instrucción \n");}
 ~~~
-La `condicion_a_cumplir` puede obtenerse mediante la combinación (usando operadores lógicos) de diferentes (sub)condiciones.Precedencia de operadores: 
+La `condicion_a_cumplir` puede obtenerse mediante la combinación (usando operadores lógicos) de diferentes (sub)condiciones.Precedencia de operadores:
 
 	1. ()	2. *, /, %	3. +, -	4. <, <=, >, >= – ==, !=	5. &&	6. ||
-Ejemplo: 
+Ejemplo:
 
 ~~~c++
-bool oscuridad = true, 
+bool oscuridad = true,
 	bateriaAgotada = false,
 	prioridad = false,
 	camaraEncendida = true;
@@ -136,8 +138,8 @@ if(oscuridad || bateriaAgotada || (tiempoEnEspera>60 && !prioridad))	cameraEnce
 Un programa con sentencias `if` puede visualizarse como un diagrama de la siguiente forma:
 
 ~~~cinstruccion_a;
- 
-if(condicion)	instruccionSiSeCumpleCondicion; 
+
+if(condicion)	instruccionSiSeCumpleCondicion;
 
 instruccion_b;instruccion_c;
 ~~~
@@ -152,7 +154,7 @@ La sentencia `if-else`es una forma ampliada de la sentencia `if`. La utilizamos 
 La **sintaxis** de la sentencia `if-else`es:
 
 ~~~c
-if (condicion_a_cumplir) {	instruccion(es)_a_ejecutar_condicion_verdadera; 
+if (condicion_a_cumplir) {	instruccion(es)_a_ejecutar_condicion_verdadera;
 }else {	instruccion(es)_a_ejecutar_condicion_falsa;
 }
 ~~~
@@ -174,9 +176,9 @@ int dineroAhorrado = 25500;int precioCoche = 15000;
 Diagrama de sentencias `if-else`:
 
 ~~~cinstruccion_a;
- 
-if(condicion)	instruccionSiSeCumpleCondicion; 
-else	instruccionSiNoSeCumpleCondicion; 
+
+if(condicion)	instruccionSiSeCumpleCondicion;
+else	instruccionSiNoSeCumpleCondicion;
 
 instruccion_b;instruccion_c;
 ~~~
@@ -185,10 +187,10 @@ instruccion_b;instruccion_c;
 
 ###<a name="2-3"/> 2.3  Sentencias `if` anidadas
 
-Podemos anidar condiciones usando la combinación `else if`: 
+Podemos anidar condiciones usando la combinación `else if`:
 
 ~~~c
-double distancia;...if(distancia<500)	printf("Cerca \n"); 
+double distancia;...if(distancia<500)	printf("Cerca \n");
 else if(distancia<1500)	printf("Distancia media \n");else  printf("Lejos\n");
 ~~~
 
@@ -198,7 +200,7 @@ Diagrama sentencia `if anidada`:
 
 ###<a name="2-4"/> 2.4  Operador `?`
 
-Es una herramienta útil para evaluar expresiones condicionales de forma abreviada. 
+Es una herramienta útil para evaluar expresiones condicionales de forma abreviada.
 
 Su **sintaxis** general es la siguiente:
 
@@ -211,7 +213,7 @@ expresión1 ? expresión2 : expresión3;
 Si la `expresión1` es cierta, entonces se evalúa la `expresión2`, en
 otro caso se evalúa la `expresión3`.
 
-Ejemplo: 
+Ejemplo:
 
 ~~~c
 a = b < 0 ? -b : b;
@@ -231,11 +233,11 @@ La sentencia `switch`permite seleccionar entre múltiples opciones.
 La **sintaxis** de la sentencia `switch`es:
 
 ~~~c
-switch (variable_entera_a_evaluar) {	case resultado_a: 
-		instruccion_a_realizar_resultado_a; 
-		break;	case resultado_b: 
-		instruccion_a_realizar_resultado_b; 
-		break;	default : 
+switch (variable_entera_a_evaluar) {	case resultado_a:
+		instruccion_a_realizar_resultado_a;
+		break;	case resultado_b:
+		instruccion_a_realizar_resultado_b;
+		break;	default :
 		instruccion_a_realizar_resultado_diferente_a_b;}
 ~~~
 
@@ -252,14 +254,14 @@ Diagrama:
 Ejemplo sentencia `switch-case`:
 
 ~~~c
-int numHermanos = 6; // Prueba a usar 0,1,2,3,4 ... 
+int numHermanos = 6; // Prueba a usar 0,1,2,3,4 ...
 
 switch (numHermanos) {	case 0:       printf("Hijo/a único\n");       break;	case 1:       printf("Pareja \n");       break;
    case 2:       printf("Familia numerosa \n");       break;   default :
    		printf("Familia muy numerosa \n"); }
 ~~~
 
-Cada bloque de sentencias `case`debe terminar con un `break`. Si no es así, el compilador entiende que también debe ejecutarse el bloque del case siguiente y lo engloba como el mismo bloque. Ejemplo: 
+Cada bloque de sentencias `case`debe terminar con un `break`. Si no es así, el compilador entiende que también debe ejecutarse el bloque del case siguiente y lo engloba como el mismo bloque. Ejemplo:
 
 ~~~c
 // Sentencias case sin break (no recomendable)
@@ -275,15 +277,15 @@ switch (contador) {
 Ejemplo de enumeraciones y `switch`:
 
 ~~~c
-enum paloPoker{pica, corazon, trebol, diamante }; 
-enum paloPoker miCarta = pica;switch (miCarta) {	case diamante:		printf("Diamante \n"); 
-		break;	case trebol:		printf("Trébol \n"); 
-		break;	case corazon:		printf("Corazón \n"); 
-		break;	case pica:		printf("Pica \n"); 
+enum paloPoker{pica, corazon, trebol, diamante };
+enum paloPoker miCarta = pica;switch (miCarta) {	case diamante:		printf("Diamante \n");
+		break;	case trebol:		printf("Trébol \n");
+		break;	case corazon:		printf("Corazón \n");
+		break;	case pica:		printf("Pica \n");
 		break;	default :		printf("La carta no es de poker \n"); }
 ~~~
 
-___ 
+___
 
 
 ## <a name="3"/> 3. Estructuras de iteración
@@ -302,12 +304,12 @@ Se pueden agrupar en dos tipos, dependiendo si conocemos de antemano el número 
 
 ###<a name="3-1"/> 3.1  Bucle `while`
 
-Permite repetir **cero** o más veces la ejecución de una secuencia de sentencias mientras la condición sea verdadera. 
+Permite repetir **cero** o más veces la ejecución de una secuencia de sentencias mientras la condición sea verdadera.
 
 **Sintaxis:**
 
 ~~~c
-while (condicion_a_cumplir) {	secuencia_de_instrucciones; 
+while (condicion_a_cumplir) {	secuencia_de_instrucciones;
 }
 ~~~
 
@@ -323,7 +325,7 @@ Ejemplo:
 ~~~c
 int cargaBateria = 0;
 
-while (cargaBateria < 100) {	cargaBateria = cargaBateria + 1; 
+while (cargaBateria < 100) {	cargaBateria = cargaBateria + 1;
 }
 ~~~
 
@@ -347,7 +349,7 @@ printf("Te he dado %d caramelos\n", caramelos);
 
 ###<a name="3-2"/> 3.2.  Bucle `do-while`
 
-Permite repetir **una** o más veces la ejecución de una secuencia de sentencias mientras la condición sea verdadera. 
+Permite repetir **una** o más veces la ejecución de una secuencia de sentencias mientras la condición sea verdadera.
 
 **Sintaxis**:
 
@@ -387,7 +389,7 @@ Es un bucle determinado porque conocemos de antemano el número de iteraciones.
 **Sintaxis**:
 
 ~~~c
-for (inicialización_contador; condicion; modificación_contador){ 
+for (inicialización_contador; condicion; modificación_contador){
 	secuencia_de_instrucciones;
 }
 ~~~
@@ -412,7 +414,7 @@ for (i = 0; i < 10; i++) {
 Cualquier bucle `for`se puede escribir con un bucle `while`:
 
 ~~~c
-for (expresión_1; expresión_2; expresión_3) { 
+for (expresión_1; expresión_2; expresión_3) {
 	secuencia de sentencias;}
 ~~~
 
@@ -446,20 +448,20 @@ lista termina cuando se introduce el número cero */
 void main() {
 	int total = 0;
 	float num = 0, media = 0;
-	
+
 	printf(“Dime un número: ”);
 	scanf(“%f”, &num);
-	
+
 	while(num != 0) {
 		media = media + num;
 		total++;
 		printf(“Dime otro número: ”);
 		scanf(“%f”, &num);
 	}
-	
+
 	if(total != 0)
 		printf(“La media es %f.\n”, media/total);
-	else 
+	else
 		printf(“No hay media.\n”);
 }
 ~~~
@@ -474,17 +476,17 @@ o cero. */
 
 void main() {
 	int num, max = 0;
-	
+
 	do {
 		printf(“Dame un número: ”);
 		scanf(“%d”, &num);
 		if(num > max)
 			max = num;
 	} while(num>0);
-	
+
 	if(max != 0)
 		printf(“El número más grande es %d.\n”, max);
-	else 
+	else
 		printf(“No hay máximo.\n”);
 }
 ~~~
@@ -534,12 +536,12 @@ void main() {
 	res=0;
 	for (i = 1; i <= 10; i++) {
 		res += i * i;
-	}	
+	}
 	printf("%d\n", res);
 }
 ~~~
 > Para realizar la traza tenemos que hacer una tabla de este estilo:
-> 
+>
 i   | i * i | res
 --- | --- | ---
 1   | 1   | 1
@@ -558,19 +560,19 @@ i   | i * i | res
 Veamos otro ejemplo:
 
 > Todos los días paso por una librería y me compro una serie de libros siguiendo este patrón
-> - día 1 → 1 libro 
-- día 2 → 2 libros 
-- día N → N libros 
+> - día 1 → 1 libro
+- día 2 → 2 libros
+- día N → N libros
 
 >Si tengo una estantería donde caben M libros¿ qué día llegaré a casa y no podré poner todos los libros que he comprado ?
 
 >Programa:
 >
 ~~~c
-int capacidadMaxima = 15, 
-    capacidadActual = 0, 
-    dia = 0; 
-do {	dia = dia + 1;	capacidadActual = capacidadActual + dia; 
+int capacidadMaxima = 15,
+    capacidadActual = 0,
+    dia = 0;
+do {	dia = dia + 1;	capacidadActual = capacidadActual + dia;
 } while(capacidadActual <= capacidadMaxima);printf("Rebasamos la capacidad el día %d", dia);
 ~~~
 >
@@ -583,14 +585,14 @@ Iteración | dia | capacidadActual
 3   | 3   | 3 + 3 = 6
 4   | 4   | 6 + 4 = 10
 5   | 5   | 10 + 5 = 15
-6   | 6   | 15 + 6 = **21** 
-  
+6   | 6   | 15 + 6 = **21**
+
 ---
 ##<a name="5"/> 5.  Ejercicios resueltos
 
 #### Ejercicio 1
-Escribe un programa que lea cantidades y precios y al final indique el total de la factura. Primero se pregunta la cantidad vendida, tras lo cual el usuario introducirá un número entero positivo.Después se pregunta el precio que será un número decimal positivo. La lectura termina cuando en la cantidad se introduzca un cero. Si es así se escribirá el total.~~~cint main(){	int n;	double precio, total=0;	do{		do{			printf("\nIntroduzca la cantidad vendida: ");			scanf("%d",&n);			if(n<0) 
-				printf("Cantidad no valida");		}while(n<0); 		if (n>0){			printf("Introduzca el precio: ");			do{				scanf("%lf",&precio);				if(precio<0) 
+Escribe un programa que lea cantidades y precios y al final indique el total de la factura. Primero se pregunta la cantidad vendida, tras lo cual el usuario introducirá un número entero positivo.Después se pregunta el precio que será un número decimal positivo. La lectura termina cuando en la cantidad se introduzca un cero. Si es así se escribirá el total.~~~cint main(){	int n;	double precio, total=0;	do{		do{			printf("\nIntroduzca la cantidad vendida: ");			scanf("%d",&n);			if(n<0)
+				printf("Cantidad no valida");		}while(n<0); 		if (n>0){			printf("Introduzca el precio: ");			do{				scanf("%lf",&precio);				if(precio<0)
 					printf("Precio no valido");				else total+=n*precio;			}while(precio<0);		}	}while(n!=0); 	printf("Total vendido = %.2f", total);}~~~
 
 #### Ejercicio 2
@@ -610,7 +612,7 @@ Escribe un programa que lea un número entero y positivo y que escriba tres colu
 int main(){
   int col1 = 1, col2 = 1, col3 = 1;
   int n;
-  
+
   printf("Introduce un número: ");
   scanf("%d",&n);
 
@@ -636,9 +638,9 @@ Escribe un programa que muestre un menú como este:
 1. Salir2. Sumatorio3. Factorial
 Tras mostrar el menú, el programa debe leer un número del 1 al 3:
 
-- si se elige 1, el programa acaba. 
-- si se elige 2 se calcula el sumatorio del número 
-- si se elige 3 se calcula el factorial 
+- si se elige 1, el programa acaba.
+- si se elige 2 se calcula el sumatorio del número
+- si se elige 3 se calcula el factorial
 
 En las opciones 2 y 3 el programa pedirá el número sobre el que se calcula el sumatorio o el factorial. Tras calcular el sumatorio o el factorial e indicar el resultado, el programa volverá a mostrar el menú y así sucesivamente.~~~cint main(){
 	int seleccion;
@@ -707,7 +709,7 @@ int main(){
 
 ##<a name="6"/> 6.  Ejercicios propuestos
 
-1. Escribe un programa que muestre todos los multiplos de un número dado en el rango [0, 100] – Pedir el número por teclado2. Escribe un programa que muestre todos los divisores de un número dado 
+1. Escribe un programa que muestre todos los multiplos de un número dado en el rango [0, 100] – Pedir el número por teclado2. Escribe un programa que muestre todos los divisores de un número dado
 	– Pedir el número por consola	– Uso del operando módulo %3. Hacer las trazas de los ejercicios 1 (valor de entrada 40) y 2 (valor de entrada 16)
 4. Escribir un programa que pida dos números y muestre un menú como este:
 	1. Suma	2. Resta	3. Multiplicación
