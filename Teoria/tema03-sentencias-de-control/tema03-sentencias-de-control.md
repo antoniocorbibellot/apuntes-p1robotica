@@ -50,6 +50,7 @@ La **estructura secuencial** es aquella en la que las instrucciones o sentencias
 ~~~c
 int valorA = 11, valorB = 4, resultado; valorA = valorA + 1;resultado = valorA / valorB; // resultado = 3
 ~~~
+>
 
 Se puede alterar esa secuencialidad usando estructuras no secuenciales, que permiten variar el flujo de control del programa dependiendo de ciertas condiciones. Las estructuras no secuenciales son:
 
