@@ -41,16 +41,16 @@ En un determinado instante, el **estado de un programa** queda definido por el v
 
 La **estructura secuencial** es aquella en la que las instrucciones o sentencias se ejecutan una a una en el orden establecido.
 
-> Ejemplo:
->
-> ~~~c
-> int valorA = 11, valorB = 4, resultado; resultado = valorA / valorB;valorA = valorA + 1; // resultado = 2
-~~~> No es lo mismo que:
->
+Ejemplo:
+
+~~~c
+int valorA = 11, valorB = 4, resultado; resultado = valorA / valorB;valorA = valorA + 1; // resultado = 2
+~~~No es lo mismo que:
+
 ~~~c
 int valorA = 11, valorB = 4, resultado; valorA = valorA + 1;resultado = valorA / valorB; // resultado = 3
 ~~~
->
+
 
 Se puede alterar esa secuencialidad usando estructuras no secuenciales, que permiten variar el flujo de control del programa dependiendo de ciertas condiciones. Las estructuras no secuenciales son:
 
