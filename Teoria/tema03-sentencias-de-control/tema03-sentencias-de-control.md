@@ -611,9 +611,21 @@ Escribe un programa que lea cantidades y precios y al final indique el total de 
 
 #### Ejercicio 2
 
-Escribe un programa que escriba la tabla de multiplicar del número 1 al número 15~~~c
-const int TAMANIO = 15;
-int main(){	int fil, col;	for(fil = 1; i <= TAMANIO; fil++){		for(col = 1; col <= TAMANIO; col++){			printf("%4d",fil * col);		}		printf("\n");	}}
+Escribe un programa que escriba la tabla de multiplicar de un número pedido entre 1 y 10
+
+~~~c
+int main() {
+	int num, i;
+
+	do {
+		printf("Introduce un num entre 1 y 10: ");
+		scanf("%d", &num);
+	}while(num < 1 || num > 10);
+
+	for(i = 1; i <= 10; i++) {
+		printf("%d x %d = %d\n", i, num, i * num);		
+	}
+}
 ~~~
 
 #### Ejercicio 3
