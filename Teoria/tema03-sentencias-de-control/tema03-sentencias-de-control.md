@@ -438,6 +438,19 @@ Para saber qué tipo de bucle hay que usar:
 	- Si no sabemos de antemano el número de iteraciones: `while`
 	- Si sabemos el número de iteraciones (usamos un contador): `for`
 
+### Variables en los bucles
+
+En los bucles se suelen utilizar algunas variables para unas tareas específicas, son los contadores, acumuladores o interruptores.
+
+- **Contadores**: son variables destinadas a contener un valor que se irá incrementando o decrementando en una cantidad fija. Se suelen utilizar para el control de procesos repetitivos.
+- **Acumuladores**: Son variables destinadas a contener distintas cantidades provenientes de los resultados obtenidos en operaciones aritméticas previamente analizadas de manera sucesiva, lo que nos permitirá obtener el total acumulado de dichas cantidades. A diferencia de los contadores, no controlan los procesos repetitivos. Su inicialización depende de en qué operación matemática van a ser utilizados.
+- **Interruptores** (switches): también denominados conmutadores o indicadores, son variables que pueden tomar dos únicos valores considerados como lógicos y opuestos entre sí a lo largo de todo el programa (0 ó 1, 1 ó -1, Verdadero o Falso, on/off, etc.).
+Su objetivo es recordar en un determinado lugar del programa un suceso determinado o hacer que dos acciones diferentes se ejecuten alternativamente en un proceso repetitivo. También deben ser inicializados. No se debe abusar de su utilización cuando no sea necesario.
+
+Ejercicio:
+
+Implementa un programa que lea números que el usuario introduzca por teclado hasta que introduzca el cero. El programa tiene que imprimir la suma de todos los números introducidos y el número de números que se han introducido.
+
 ###<a name="3-4"/> 3.4. Ejemplos de bucles
 
 Ejemplo con bucle `while`. Utilizamos el bucle indeterminado `while`porque no sabemos de antemano el número de iteraciones: el bucle terminará cuando el usuario introduzca un cero.
