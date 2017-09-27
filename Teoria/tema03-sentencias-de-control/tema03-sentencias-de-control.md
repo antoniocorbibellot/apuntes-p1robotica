@@ -440,7 +440,7 @@ Para saber qué tipo de bucle hay que usar:
 
 ### Variables en los bucles
 
-En los bucles se suelen utilizar algunas variables para unas tareas específicas, son los contadores, acumuladores o interruptores.
+En los bucles se suelen utilizar variables para unas tareas específicas:
 
 - **Contadores**: son variables destinadas a contener un valor que se irá incrementando o decrementando en una cantidad fija. Se suelen utilizar para el control de procesos repetitivos.
 - **Acumuladores**: Son variables destinadas a contener distintas cantidades provenientes de los resultados obtenidos en operaciones aritméticas previamente analizadas de manera sucesiva, lo que nos permitirá obtener el total acumulado de dichas cantidades. A diferencia de los contadores, no controlan los procesos repetitivos. Su inicialización depende de en qué operación matemática van a ser utilizados.
