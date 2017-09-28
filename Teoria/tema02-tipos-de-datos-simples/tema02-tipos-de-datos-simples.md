@@ -430,13 +430,52 @@ Otro ejemplo:
 enum paloPoker{pica, corazon, trebol, diamante };enum paloPoker paloCarta; //variable tipo enumpaloCarta = corazon;paloCarta = espada; // Error! espada no definida en enum
 ~~~
 
-## <a name="3"/> 3. Sentencias de entrada / salida
+## <a name="3"/> 3. Definición de tipos con `typedef`
+
+
+C permite que el programador defina sus propios tipos de datos mediante la palabra clave `typedef`. Esta palabra puede tener distintos usos, los iremos viendo conforme vayamos aprendiendo los distintos tipos de datos.
+
+Su función es asignar un nombre alternativo (alias) a tipos existentes, a menudo cuando su declaración normal es aparatosa, o potencialmente confusa.
+
+La sintaxis es:
+
+~~~c
+typedef declaración;
+~~~
+
+Ejemplo básico con `int`:
+
+~~~c
+int notas;
+notas = 100;
+~~~
+
+Le damos un alias a `int`:
+
+~~~c
+typedef int nota_alumno_t;
+nota_alumno_t notas;
+notas = 100;
+~~~
+
+Ambas secciones de código hacen lo mismo: crean un tipo `int` (notas) y le dan un valor de 100. La segunda sección es más legible.
+
+Es más útil usarlo con definiciones de tipos más complejas, como `enum`:
+
+~~~c
+typedef enum {pica, corazon, trebol, diamante }TPaloPoker;
+TPaloPoker paloCarta; //variable tipo TPaloPoker
+paloCarta = corazon;
+~~~
+
+
+## <a name="4"/> 4. Sentencias de entrada / salida
 
 Las sentencias de entrada permiten asociar a las variables valores aportados por el usuario.Por ejemplo, un programa que pida al usuario un precio en euros para convertirlo a pesetas. Las veremos más adelante.Las sentencias de salida permiten mostrar datos al usuario, incluyendo el valor de las variables.Por ejemplo, mostrar el precio una vez convertido a pesetas.
 
 
 
-### <a name="5-1"/> 5.1. Salida: `printf`
+### <a name="4-1"/> 4.1. Salida: `printf`
 
 Permite imprimir en la pantalla en un formato determinado:
 
@@ -484,7 +523,7 @@ printf("El valor de valorImprimir es: %d\n", valorImprimir);// El valor de valo
 ~~~
 
 
-### <a name="5-2"/> 5.2. `scanf`
+### <a name="4-2"/> 4.2. `scanf`
 
 La sentencia `scanf` nos permite leer un dato que ha introducido el usuario desde teclado y almacenarlo en una variable.Se utilizan una serie de marcas, de forma análoga a `printf`, para dar formato a la entrada en base a los tipos base.
 
@@ -497,7 +536,7 @@ Su **sintaxis** es similar a `printf`:
 - Ejemplo: `"%d %c"`: Esperamos que el usuario introduzca un entero y un carácter simple- Cada variable debe ir precedida de `&`, usado para el manejo de punteros (se verá en futuros temas)
 - La ejecución se detendrá cuando que el usuario haya introducido valores paras las N variables solicitadas
 
-Respecto a las marcas, utilizaremos los tipos usados con `printf` excepto en el tipo `double` que debemos usar `%lf`. El resto se mantienen: `%c` para `char`, `%d` para `int` y `%f` para `float`.
+Respecto a las marcas, utilizaremos los tipos usados con `printf` excepto en el tipo `double` que debemos usar `%lf` y el `%u` para enumerados. El resto se mantienen: `%c` para `char`, `%d` para `int` y `%f` para `float`.
 
 Ejemplo:
 
