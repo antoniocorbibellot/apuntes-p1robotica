@@ -583,7 +583,15 @@ c = a
 
 El `scanf` funciona mediante un buffer. Cuando tecleamos cualquier valor en el teclado y pulsamos 'intro', el `\n` también es un carácter ASCII y se queda almacenado en el buffer. De forma que si lo que leemos a continuación es otro carácter, se recoge el `\n` que estaba en el buffer y se salta a la siguiente instrucción. Esto no sucede si lo que leemos es un entero u otro tipo de dato.
 
-Para solucionarlo, tendríamos que limpiar el buffer antes de leer cualquier carácter. Para ello podríamos usar la siguiente función:
+Para solucionarlo, tendríamos que quitar del buffer el `\n` antes de leer cualquier carácter. Lo podemos hacer de varias formas:
+
+- La forma más sencilla consiste en poner un `\n` en el `scanf` antes del `%c`:
+
+~~~c
+	scanf("\n%c", &c);
+~~~
+
+- Otra forma consiste en usar la siguiente función definida por nosotros, que vacía el buffer:
 
 ~~~c
 void limpiarBuffer() {
@@ -591,7 +599,7 @@ void limpiarBuffer() {
 }
 ~~~
 
-Modificamos ahora el programa anterior utilizando la función `limpiarBuffer`:
+Modificamos ahora el programa anterior llamando a la función antes de leer el `char`:
 
 ~~~c
 void limpiarBuffer() {
