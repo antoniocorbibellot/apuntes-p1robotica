@@ -430,39 +430,39 @@ void dibujaT(int tam);
 // Función principal
 ///////////
 int main() {
-  int n;
+   int n;
 
-	n = pedirDato();
-	dibujaT(n);
+   n = pedirDato();
+   dibujaT(n);
 
- }
+}
 
 //////////
 // Definiciones de funciones
 /////////
 int pedirDato() {
-	int n;
+   int n;
 
-	do {
-		printf("Introduce un num impar: ");
-		scanf("%d", &n);
-	} while(n % 2 == 0);
+   do {
+      printf("Introduce un num impar: ");
+      scanf("%d", &n);
+   } while(n % 2 == 0);
 
-	return n;
+   return n;
 }
 
 void dibujaT(int tam) {
-  int fil, col;
+   int fil, col;
 
-	for (fil = 1; fil <= tam; fil++) {
-		 for (col = 1; col <= tam; col++) {
-			 if (col == tam/2+1 || fil == 1)
-					printf("*");
-			 else
-					printf(" ");
-		 }
-		 printf("\n");
-	 }
+   for (fil = 1; fil <= tam; fil++) {
+      for (col = 1; col <= tam; col++) {
+         if (col == tam/2+1 || fil == 1)
+            printf("*");
+         else
+            printf(" ");
+      }
+      printf("\n");
+   }
 }
 
 ~~~
@@ -479,41 +479,41 @@ void sumaYCuenta(int, int, int*, int*);
 // Función principal
 ///////////
 int main() {
- 	int n1, n2;
-	int suma = 0, cuenta = 0;
+   int n1, n2;
+   int suma = 0, cuenta = 0;
 
-	pedirDatos(&n1, &n2);
- 	sumaYCuenta(n1, n2, &suma, &cuenta);
- 	printf("La suma entre %d y %d es: %d y hay %d números\n", n1, n2, suma, cuenta);
- }
+   pedirDatos(&n1, &n2);
+   sumaYCuenta(n1, n2, &suma, &cuenta);
+   printf("La suma entre %d y %d es: %d y hay %d números\n", n1, n2, suma, cuenta);
+}
 
 //////////
 // Definiciones de funciones
 /////////
 void pedirDatos(int *n1, int *n2) {
 
-	do {
-		printf("Introduce un num entre 1 y 100: ");
-		scanf("%d", n1);
-	} while(*n1 < 1 || *n1 > 100);
+   do {
+      printf("Introduce un num entre 1 y 100: ");
+      scanf("%d", n1);
+   } while(*n1 < 1 || *n1 > 100);
 
-	do {
-		printf("Introduce un num impar y mayor que %d: ", *n1);
-		scanf("%d", n2);
-	} while(*n2 % 2 == 0 || *n2 < *n1);
+   do {
+      printf("Introduce un num impar y mayor que %d: ", *n1);
+      scanf("%d", n2);
+   } while(*n2 % 2 == 0 || *n2 < *n1);
 
 }
 
 void sumaYCuenta(int n1, int n2, int *suma, int *cuenta) {
-	int i;
+   int i;
 
-	*suma = 0;
-	*cuenta = 0;
+   *suma = 0;
+   *cuenta = 0;
 
-	for (i = n1; i < n2; i++) {
-		*suma += i;
-		*cuenta += 1;
-	}
+   for (i = n1; i < n2; i++) {
+      *suma += i;
+      *cuenta += 1;
+   }
 }
 
 ~~~
@@ -531,54 +531,56 @@ float fahrenheit_to_Celsius(float);
 // Función principal
 ///////////
 int main(){
-    int opcion;
-    float celsius, fahr;
+   int opcion;
+   float celsius, fahr;
 
-    do{
+   do{
       mostrar_menu();
       printf("Opción: ");
       scanf("%d", &opcion);
 
       switch(opcion){
-      	case 1:
-					printf("Introduzca la temperatura en grados Celsius:");
-					scanf("%f",&celsius);
-      		fahr = celsius_to_Fahrenheit(celsius);
-      		printf("La temperatura en grados Fahrenheit es: %.2f\n", fahr);
-      		break;
-				case 2: printf("Introduzca la temperatura en grados faherenheit: ");
-      		scanf("%f",&fahr);
-      		celsius = fahrenheit_to_Celsius(fahr);
-      		printf("La temperatura en grados Celsius es: %.2f\n", celsius);
-      		break;
-				case 3:
-					printf("Ha seleccionado la opción Salir\n");
-     			break;
-				default: printf("Debe introducir una opción de 1 a 3\n");
-			}
-    } while(opcion!=3);
+         case 1:
+            printf("Introduzca la temperatura en grados Celsius:");
+            scanf("%f",&celsius);
+            fahr = celsius_to_Fahrenheit(celsius);
+            printf("La temperatura en grados Fahrenheit es: %.2f\n", fahr);
+            break;
+         case 2:
+            printf("Introduzca la temperatura en grados faherenheit: ");
+            scanf("%f",&fahr);
+            celsius = fahrenheit_to_Celsius(fahr);
+            printf("La temperatura en grados Celsius es: %.2f\n", celsius);
+            break;
+         case 3:
+            printf("Ha seleccionado la opción Salir\n");
+            break;
+         default:
+            printf("Debe introducir una opción de 1 a 3\n");
+      }
+   } while(opcion!=3);
 }
 
 //////////
 // Definiciones de funciones
 /////////
 void mostrar_menu() {
-    printf("Seleccione qué tipo de conversión desea realizar:\n");
-    printf("1. Convertir grados Celsius a Fahrenheit.\n");
-    printf("2. Convertir grados Fahrenheit a Celsius.\n");
-    printf("3. Terminar el programa.\n");
+   printf("Seleccione qué tipo de conversión desea realizar:\n");
+   printf("1. Convertir grados Celsius a Fahrenheit.\n");
+   printf("2. Convertir grados Fahrenheit a Celsius.\n");
+   printf("3. Terminar el programa.\n");
 }
 
 float celsius_to_Fahrenheit(float cel) {
-	float fah;
-	fah = cel * 1.8 + 32;
- 	return(fah);
+   float fah;
+   fah = cel * 1.8 + 32;
+   return(fah);
 }
 
 float fahrenheit_to_Celsius(float fah) {
-	float cel;
- 	cel = (fah-32)/1.8;
- 	return (cel);
+   float cel;
+   cel = (fah-32)/1.8;
+   return (cel);
 }
 
 ~~~
@@ -635,17 +637,17 @@ void calculosCifras(int, int, int*, int*);
 // Función principal
 ///////////
 int main() {
-	int num, cifras, cifra_i, i;
+   int num, cifras, cifra_i, i;
 
-	printf("Introduce un número: ");
-	scanf("%d", &num);
-	printf("Introduce un índice pra obtener la cifra-iesima: ");
-	scanf("%d", &i);
+   printf("Introduce un número: ");
+   scanf("%d", &num);
+   printf("Introduce un índice pra obtener la cifra-iesima: ");
+   scanf("%d", &i);
 
-	calculosCifras(num, i, &cifras, &cifra_i);
+   calculosCifras(num, i, &cifras, &cifra_i);
 
-	printf("El numero %d tiene %d cifras\n", num, cifras);
-	printf("La cifra con índice %d es %d\n", i, cifra_i);
+   printf("El numero %d tiene %d cifras\n", num, cifras);
+   printf("La cifra con índice %d es %d\n", i, cifra_i);
 }
 
 //////////
@@ -654,26 +656,26 @@ int main() {
 //Función que calcula la cantidad de cifras
 void calculosCifras(int num, int i, int *contador, int *cifra)
 {
-	 int numero = num, posicion;
+   int numero = num, posicion;
    *contador = 1;
 
-	 // Cálculo del número de cifras
+   // Cálculo del número de cifras
    while(numero >= 10) {
       numero = numero / 10;
-			(*contador)++;
+      (*contador)++;
    }
 
-	 *cifra = 0;
-	 numero = num;
-	 posicion = 1;
+   *cifra = 0;
+   numero = num;
+   posicion = 1;
 
-	 // Cálculo de la cifra i-ésima
-	 *cifra = numero % 10;
+   // Cálculo de la cifra i-ésima
+   *cifra = numero % 10;
    while(numero > 9 && posicion < i) {
-  		numero = numero / 10;
+      numero = numero / 10;
       *cifra = numero % 10;
-			posicion++;
-	 }
+      posicion++;
+   }
 }
 ~~~
 
