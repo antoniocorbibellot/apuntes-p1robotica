@@ -1,18 +1,28 @@
 
 # Tema 4: Descomposición modular
 
+## Contenidos
+
+- [1. Descomposición modular](#1)
+- [2. Funciones](#2)
+- [3. Ámbito de las variables](#3)
+- [4. Paso de parámetros por valor y por referencia](#4)
+- [5. Estructura de un programa en C](#5)
+- [6. Bibliotecas del lenguaje C](#6)
+- [7. Ejercicios](#7)
+
 
 ## <a name="1"/> 1. Descomposición modular
 
 Ya hemos visto que en C se utilizan funciones de biblioteca (como `printf` o `scanf`). También hemos utilizado la función `main`, que es la función principal del programa. Sin embargo, también es posible que el programador pueda definir sus propias funciones que realicen determinadas tareas.
 
-El uso de funciones definidas por el programador permite dividir un programa grande en un cierto número de componentes más pequeñas, cada una de las cuales con un propósito único e identificable. Por tanto, un programa en C se puede modularizar en subproblemas (programar de forma estructurada) mediante el uso adecuado de funciones. 
+El uso de funciones definidas por el programador permite dividir un programa grande en un cierto número de componentes más pequeñas, cada una de las cuales con un propósito único e identificable. Por tanto, un programa en C se puede modularizar en subproblemas (programar de forma estructurada) mediante el uso adecuado de funciones.
 
 Una de las habilidades fundamentales del pensamiento computacional es la **abstracción**: definir subproblemas que creen nueva semántica, dividir un problema grande en pequeños problemas (funciones), ... Esto hace el código más fácil de entender, probar, modificar, compartir, reutilizar.
 
 Ventajas de modularizar un programa:
 
-- **Generalización**: si un programa tiene instrucciones repetidas en distintas partes, esas instrucciones repetidas se pueden agrupar en una sola función, a la que acceder cuando sea necesario. 
+- **Generalización**: si un programa tiene instrucciones repetidas en distintas partes, esas instrucciones repetidas se pueden agrupar en una sola función, a la que acceder cuando sea necesario.
 - **Claridad lógica**: programas más fáciles de escribir y depurar. La estructura lógica es más fácil de entender.
 - También permite al programador construir bibliotecas de funciones de **uso frecuente**. Evita la reescritura del código.
 - Favorece la **portabilidad**.
@@ -22,11 +32,11 @@ Ventajas de modularizar un programa:
 - Facilita la detección y corrección de errores
 - Facilita el **mantenimiento** del programa
 
-Cuando empezamos a abordar un problema, lo mejor es ir dividiéndolo en subproblemas. 
+Cuando empezamos a abordar un problema, lo mejor es ir dividiéndolo en subproblemas.
 
 >Por ejemplo: guiado de un robot desde la clase hasta la puerta de salida
 >Subproblemas:
->- Encontrar la puerta del aula y salir- Guiado por el pasillo hasta encontrar las escaleras 
+>- Encontrar la puerta del aula y salir- Guiado por el pasillo hasta encontrar las escaleras
 - Bajar las escaleras- Encontrar la puerta de salida y salirCada subproblema puede ser tratado por separado: analizado, dividido a su vez en subproblemas, probado de manera independiente, y tenemos la posibilidad de reutilizar código ya hecho
 
 ## <a name="2"/> 2. Funciones
@@ -36,12 +46,12 @@ herramientas para modularizar: procedimientos y funciones. En el lenguaje C sól
 
 Un programa en C está estructurado en funciones. De hecho, `main()` es una función, es la función principal.
 
-Las funciones en programación son similares a las funciones matemáticas, pudiendo tener argumentos o parámetros. 
+Las funciones en programación son similares a las funciones matemáticas, pudiendo tener argumentos o parámetros.
 
 Ejemplo:
 
 > Definición de una función en matemáticas: f(x) = x + 5;
-> 
+>
 - f es el nombre de la función que tiene un argumento formal: x.
 - La función f, una vez definida, puede usarse o llamarse en algunas expresiones: y = f(4) + 1;
 - Para descubrir el valor de f(4) hay que sustituir el argumento formal x por el valor 4 (argumento actual), f(4) = 4+5 = 9, de donde obtenemos que y = 9 + 1 = 10.
@@ -64,7 +74,7 @@ del valor que se devuelve (tipo de la función).
 Ejemplo: implementamos en C la función matemática anterior
 
 ~~~c
-/*int f: Tipo del valor que devuelve la función (tipo de la función). 
+/*int f: Tipo del valor que devuelve la función (tipo de la función).
 Debe coincidir con el tipo de la expresión que hay después de la palabra return
 f: nombre de la función
 (int x): argumento formal y su tipo*/
@@ -85,14 +95,14 @@ int f (int x);  // Prototipo de la función f
 
 void main() {
 	int num1, num2 num3;
-	
+
 	printf("\n- Introduzca un número: ");
 	scanf("%d", &num1);
-	
+
 	num2 = f(5);
 	num2 = f(num1) + num1 - num2;
 	num3 = f(num2+1);
-	
+
 	printf("\n- Valores: %d, %d y %d.", num1, num2, f(num3));
 }
 
@@ -111,9 +121,9 @@ Cuando se llama a la función `f(5)`, el argumento **formal** `x` toma el valor 
 }
 ~~~
 
-- El `<tipo_devuelto>` indica el tipo del valor que devuelve la función. En el caso del ejemplo de la función `mínimo`, el tipo de retorno es `int`. Es posible que la función no devuelva nada, en ese caso el tipo de devuelto es `void`. 
+- El `<tipo_devuelto>` indica el tipo del valor que devuelve la función. En el caso del ejemplo de la función `mínimo`, el tipo de retorno es `int`. Es posible que la función no devuelva nada, en ese caso el tipo de devuelto es `void`.
 - El `<nombre_función>`, en nuestro ejemplo `minimo`. Debe ser indicativo de la funcionalidad desarrollada. Usaremos la misma norma que para las variables
-- `<argumentos formales>`: es una lista con la declaración de todos los argumentos formales (tipo y nombre), separados por comas. Puede estar vacía. Los argumentos formales permiten que se transfiera información desde el punto del programa en donde se llama a la función a ésta. Cada argumento formal debe ser del mismo tipo que el dato que recibe desde el punto de llamada. 
+- `<argumentos formales>`: es una lista con la declaración de todos los argumentos formales (tipo y nombre), separados por comas. Puede estar vacía. Los argumentos formales permiten que se transfiera información desde el punto del programa en donde se llama a la función a ésta. Cada argumento formal debe ser del mismo tipo que el dato que recibe desde el punto de llamada.
 - El `<cuerpo de la función>`  contiene las instrucciones que realizan la tarea concreta de la función. Es la implementación de la función.
 	- Pueden declararse variables locales a la función.
 	- Puede contener la sentencia `return` para devolver el valor que corresponda.
@@ -134,7 +144,7 @@ Sintaxis:
 - El resto es como la sintaxis de definición de una función, pero sin el cuerpo.
 
 El prototipo, también llamado declaración de una función o cabecera (*header*) sirve para especificar o declarar que existe una función con cierto número
-y tipo de argumentos y que devuelve un determinado tipo de datos. 
+y tipo de argumentos y que devuelve un determinado tipo de datos.
 
 El prototipo no define el proceso que se realiza, el cual se especifica en la definición de la función.
 El prototipo de una función debe ser coherente con
@@ -143,12 +153,12 @@ la cabecera de su definición.
 Ejemplo de prototipos de funciones:
 
 ~~~c
-int sumaValores (int valorA, int valorB); 
-void muestraResultados (int); 
-bool estaDentroLimites (int x, int y); 
+int sumaValores (int valorA, int valorB);
+void muestraResultados (int);
+bool estaDentroLimites (int x, int y);
 char preguntaUsuario ();
 ~~~
-	
+
 #### Variables locales a una función
 
 Las **variables locales** son aquellas que se declaran dentro de una función. Las variables de sus argumentos formales son locales a la función:
@@ -175,7 +185,7 @@ Otros ejemplos de funciones:
 
 ~~~c
 // Esta función recibe dos argumentos y devuelve el menor de ellos
-int minimo(int a, int b) {	int menor; // el menor de dos números	menor = a;	if (b < menor)		menor = b; 
+int minimo(int a, int b) {	int menor; // el menor de dos números	menor = a;	if (b < menor)		menor = b;
 
 	return(menor);}
 ~~~
@@ -197,10 +207,10 @@ Otros ejemplos de funciones:
 Ejemplos:
 
 ~~~c
-int main() {	int a = 1; 
+int main() {	int a = 1;
 
 	if(a > 0) {		int b = 8; // variable local al if
-	}	printf("El valor de la variable es: %d", b); //Error, variable no definida	return 0; 
+	}	printf("El valor de la variable es: %d", b); //Error, variable no definida	return 0;
 }
 ~~~
 
@@ -228,7 +238,7 @@ Cuando se produce la llamada a una función, se transfiere la ejecución del pro
 
 1. Se declaran las variables de los argumentos formales.
 2. Se copia el valor de los argumentos actuales en las
-variables de los argumentos formales. 
+variables de los argumentos formales.
 	- Esta copia se hace por orden: el primer argumento actual en
 el primer argumento formal, el segundo en el segundo...
 	Esta copia no se hace por el nombre de los respectivos argumentos formales y actuales.
@@ -250,13 +260,13 @@ float func (float x, float y); // prototipo
 
 void main(){
 	float x, y, z;
-	
+
 	printf("\n- Introduzca un número: ");
 	scanf("%f",&x);
-	
+
 	y = x + x;
 	z = func(y,x);
-   
+
 	printf("\n- Valores: %.1f, %.1f y %.1f.", x, y, z);
 }
 
@@ -269,7 +279,7 @@ float func (float x, float y){
 ~~~
 
 #### Paso de parámetros por referencia
- 
+
 En el paso de argumentos **por valor**, si los argumentos formales se modifican, los argumentos actuales no cambian.
 
 Sin embargo, a veces resulta muy útil poder modificar en una función los argumentos actuales. Esto se consigue usando el paso de argumentos **por referencia**:
@@ -350,12 +360,12 @@ Ejemplo 3:
 
 ~~~c
 int elevarAlCuadrado(int entrada); // prototipo
-int main() {	int valor = 7, resultado; 
-	
+int main() {	int valor = 7, resultado;
+
 	resultado = elevarAlCuadrado(valor);
 		printf("El resultado es: %d \n", resultado);}
 
-int elevarAlCuadrado(int entrada) { // definición	return entrada * entrada; 
+int elevarAlCuadrado(int entrada) { // definición	return entrada * entrada;
 }
 
 ~~~
@@ -364,7 +374,7 @@ Por lo general, usaremos funciones con paso de parámetros **por valor** cuando 
 
 ## <a name="5"/> 5. Estructura de un programa en C
 
-1. Comentarios: En primer lugar se deben incluir unos comentarios indicando qué hace el programa, requisitos, autor, fecha... 
+1. Comentarios: En primer lugar se deben incluir unos comentarios indicando qué hace el programa, requisitos, autor, fecha...
 2. Inclusión de las Bibliotecas:
 	- Las del sistema (como stdio.h, math.h, etc.) van entre ángulos: <...>.
 	- Las creadas por el programador van entre comillas dobles: "...".
@@ -372,7 +382,7 @@ Por lo general, usaremos funciones con paso de parámetros **por valor** cuando 
 	- Como norma general, **NO DEBEN USARSE VARIABLES GLOBALES**.
 4. Prototipos de las Funciones.
 5. Implementación de las funciones, incluida `main()`, que puede ponerse la primera o la última. Las demás funciones deberían ponerse en el mismo orden que sus prototipos para que sea fácil localizarlas.
-	- Antes de cada función debe incluirse un comentario indicando qué hace la función, significado de sus argumentos, etc. 
+	- Antes de cada función debe incluirse un comentario indicando qué hace la función, significado de sus argumentos, etc.
 	- Si se escriben antes las funciones que son llamadas por otras, poniendo `main()` al
 final, los prototipos no son estrictamente necesarios.
 
@@ -382,7 +392,7 @@ La comunicación entre funciones debe realizarse a través de parámetros, y 
 ## <a name="6"/> 6. Bibliotecas del lenguaje C
 
 La mayoría de lenguajes de programación proporcionan una colección de procedimientos y funciones de uso común (bibliotecas o librerías). En lenguaje C, para hacer uso de los módulos incluidos en una biblioteca se utiliza la directiva del compilador `#include`.
-Existe una gran variedad de bibliotecas disponibles: 
+Existe una gran variedad de bibliotecas disponibles:
   - Funciones matemáticas
   - Manejo de caracteres y de cadenas de caracteres
   - Manejo de entrada y salida de datos
@@ -396,16 +406,16 @@ La mayoría de lenguajes de programación proporcionan una colección de proc
 ## <a name="7"/> 7. Ejercicios
 
 
-1. Define un programa que pida un número impar y dibuje una T de ese tamaño. Define las funciones que consideres necesarias. 
+1. Define un programa que pida un número impar y dibuje una T de ese tamaño. Define las funciones que consideres necesarias.
 <img src="imagenes/dibujaT.png" width="200px"/>
 
-2. Define un programa que permita leer y validar dos datos de entrada de manera que en uno de ellos el valor sea mayor que 0 y menor que 100 y el otro impar y mayor que el número anterior. El programa imprime la suma y la cuenta de los números entre los dos valores. 
+2. Define un programa que permita leer y validar dos datos de entrada de manera que en uno de ellos el valor sea mayor que 0 y menor que 100 y el otro impar y mayor que el número anterior. El programa imprime la suma y la cuenta de los números entre los dos valores.
 
 3. Escribe un programa en C que permita convertir grados Celsius a Fahrenheit y viceversa. El programa debe mostrar un menú para poder seleccionar qué opciónse desea (más la opción terminar) y preguntar la temperatura que desea convertir. **Cada una de las conversiones se debe realizar en una función distinta**.	- La conversión de grados Celsius a grados Fahrenheit se obtiene multiplicando la temperatura en Celsius por 1,8 y sumando 32.	- La conversión de grados Fahrenheit a grados Celsius se obtiene restándole 32 a la temperatura en grados Fahrenheit y dividiéndolo por 1,8.
 
 4. Escribe la función `binarioADecimal` que reciba como parámetro un número en binario y devuelva su correspondiente número en decimal. Después, pruébala desde `main`.
 5. Escribe un programa que realice dos operaciones a partir de un número entero n. Las operaciones se calcularán en una misma función. La función `main`se encargará de mostrar los resultados por pantalla. Las operaciones a realizar son:
- - Calcular de cuántas cifras se compone y 
+ - Calcular de cuántas cifras se compone y
  - mostrar la cifra i-ésima de dicho número (la posición i debe pedirse al usuario).
 
 #### Solución ejercicio 1
@@ -664,7 +674,7 @@ void calculosCifras(int num, int i, int *contador, int *cifra)
 	 }
 }
 ~~~
- 
+
 
 
 ----
