@@ -540,20 +540,22 @@ int main(){
       scanf("%d", &opcion);
 
       switch(opcion){
-      	case 1: printf("Introduzca la temperatura en grados Celsius:");
-      			scanf("%f",&celsius);
-      			fahr = celsius_to_Fahrenheit(celsius);
-      			printf("La temperatura en grados Fahrenheit es: %.2f\n", fahr);
-      			break;
-		case 2: printf("Introduzca la temperatura en grados faherenheit: ");
-      			scanf("%f",&fahr);
-      			celsius = fahrenheit_to_Celsius(fahr);
-      			printf("La temperatura en grados Celsius es: %.2f\n", celsius);
-      			break;
-		case 3: printf("Ha seleccionado la opción Salir\n");
+      	case 1:
+					printf("Introduzca la temperatura en grados Celsius:");
+					scanf("%f",&celsius);
+      		fahr = celsius_to_Fahrenheit(celsius);
+      		printf("La temperatura en grados Fahrenheit es: %.2f\n", fahr);
+      		break;
+				case 2: printf("Introduzca la temperatura en grados faherenheit: ");
+      		scanf("%f",&fahr);
+      		celsius = fahrenheit_to_Celsius(fahr);
+      		printf("La temperatura en grados Celsius es: %.2f\n", celsius);
+      		break;
+				case 3:
+					printf("Ha seleccionado la opción Salir\n");
      			break;
-		default: printf("Debe introducir una opción de 1 a 3\n");
-				}
+				default: printf("Debe introducir una opción de 1 a 3\n");
+			}
     } while(opcion!=3);
 }
 
