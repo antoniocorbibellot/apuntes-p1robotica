@@ -222,16 +222,16 @@ Una forma de comprobar el tamaño que ocupa cada tipo en memoria es usar el oper
 int main(void)
 {
 
-  printf("Un int ocupa %d bytes\n", sizeof(int));
-  printf("Un unsigned int ocupa %d bytes \n", sizeof(unsigned int));
-  printf("Un short ocupa %d bytes \n", sizeof(short));
-  printf("Un unsigned short ocupa %d bytes\n",
-			sizeof(unsigned short));
-  printf("Un long ocupa %d bytes\n", sizeof(long));
-  printf("Un unsigned long ocupa %d bytes\n",
-				sizeof(unsigned long));
+   printf("Un int ocupa %d bytes\n", sizeof(int));
+   printf("Un unsigned int ocupa %d bytes \n", sizeof(unsigned int));
+   printf("Un short ocupa %d bytes \n", sizeof(short));
+   printf("Un unsigned short ocupa %d bytes\n",
+   sizeof(unsigned short));
+   printf("Un long ocupa %d bytes\n", sizeof(long));
+   printf("Un unsigned long ocupa %d bytes\n",
+   sizeof(unsigned long));
 
-  return(0);
+   return(0);
 }
 ~~~
 
@@ -333,13 +333,13 @@ Guía operaciones lógicas:
 /* Algunas operaciones lógicas */
 int main(void)
 {
-	printf("Operaciones lógicas:");
-	printf("!true es %d\n", !true);
-	printf("!false es %d\n", !false);
-	printf("true AND false es %d\n", true && false);
-	printf("false OR true es %d\n", false || true);
+   printf("Operaciones lógicas:");
+   printf("!true es %d\n", !true);
+   printf("!false es %d\n", !false);
+   printf("true AND false es %d\n", true && false);
+   printf("false OR true es %d\n", false || true);
 
-	return(0);
+   return(0);
 }
 ~~~
 
@@ -398,23 +398,23 @@ Un tipo enumerado permite definir un conjunto de constantes simbólicas con valo
 
 int main()
 {
-	enum DiasSemana {lunes, martes, miercoles, jueves,
-			viernes, sabado, domingo};
-	enum DiasSemana dia; // variable tipo enum
-	dia = lunes;
-	printf ("Primer dÌa de la semana: %d\n", dia); //0
-	dia = martes;
-	printf ("Segundo dÌa de la semana: %d\n", dia); //1
-	dia = miercoles;
-	printf ("Tercer dÌa de la semana: %d\n", dia); //2
-	dia = jueves;
-	printf ("Cuarto dÌa de la semana: %d\n", dia); //3
-	dia = viernes;
-	printf ("Quinto dÌa de la semana: %d\n", dia); //4
-	dia = sabado;
-	printf ("Sexto dÌa de la semana: %d\n", dia); //5
-	dia = domingo;
-	printf ("Ultimo dÌa de la semana: %d\n", dia); //6
+   enum DiasSemana {lunes, martes, miercoles, jueves,
+      viernes, sabado, domingo};
+   enum DiasSemana dia; // variable tipo enum
+   dia = lunes;
+   printf ("Primer dÌa de la semana: %d\n", dia); //0
+   dia = martes;
+   printf ("Segundo dÌa de la semana: %d\n", dia); //1
+   dia = miercoles;
+   printf ("Tercer dÌa de la semana: %d\n", dia); //2
+   dia = jueves;
+   printf ("Cuarto dÌa de la semana: %d\n", dia); //3
+   dia = viernes;
+   printf ("Quinto dÌa de la semana: %d\n", dia); //4
+   dia = sabado;
+   printf ("Sexto dÌa de la semana: %d\n", dia); //5
+   dia = domingo;
+   printf ("Ultimo dÌa de la semana: %d\n", dia); //6
 }
 ~~~
 
@@ -544,15 +544,15 @@ Ejemplo:
 #include <stdio.h>
 
 int main() {
-	char letra;
-	char siguiente;
+   char letra;
+   char siguiente;
 
-	printf("Introduce una letra: ");
-	scanf("%c", &letra);
+   printf("Introduce una letra: ");
+   scanf("%c", &letra);
 
-	printf("El valor de letra es %c\n", letra);
-	siguiente = letra + 1;
-	printf("La siguiente letra es %c\n", siguiente);
+   printf("El valor de letra es %c\n", letra);
+   siguiente = letra + 1;
+   printf("La siguiente letra es %c\n", siguiente);
 }
 ~~~
 
@@ -562,23 +562,23 @@ Ejemplo:
 ~~~c
 // Cálculo el índice de masa corporal IMC de una persona
 
-	double peso, imc;
-	int altura;
-	char nom, ap1, ap2;
+   double peso, imc;
+   int altura;
+   char nom, ap1, ap2;
 
-	printf("Introduce tus iniciales \n");
-	scanf("%c %c %c", &nom, &ap1, &ap2);
+   printf("Introduce tus iniciales \n");
+   scanf("%c %c %c", &nom, &ap1, &ap2);
 
-	printf("Introduce tu altura en centímetros\n");
-	scanf("%d", &altura);
+   printf("Introduce tu altura en centímetros\n");
+   scanf("%d", &altura);
 
-	printf("Introduce tu peso en kilos\n");
-	scanf("%lf", &peso);
+   printf("Introduce tu peso en kilos\n");
+   scanf("%lf", &peso);
 
-	printf("Peso: %g kilogramos y Altura: %d,%d metros\n", peso, (altura/100), altura%100);
+   printf("Peso: %g kilogramos y Altura: %d,%d metros\n", peso, (altura/100), altura%100);
 
-	imc = peso / ((altura/100.0) * (altura/100.0));
-	printf("El IMC de %c%c%c es %g\n", nom, ap1, ap2, imc );
+   imc = peso / ((altura/100.0) * (altura/100.0));
+   printf("El IMC de %c%c%c es %g\n", nom, ap1, ap2, imc );
 ~~~
 
 Tenemos que tener cuidado cuando leamos caracteres utilizando `scanf`.
@@ -627,14 +627,14 @@ Para solucionarlo, tendríamos que quitar del buffer el `\n` antes de leer cualq
 - La forma más sencilla consiste en poner un `\n` en el `scanf` antes del `%c`:
 
 ~~~c
-	scanf("\n%c", &c);
+scanf("\n%c", &c);
 ~~~
 
 - Otra forma consiste en usar la siguiente función definida por nosotros, que vacía el buffer:
 
 ~~~c
 void limpiarBuffer() {
-	while (getchar() != '\n');
+   while (getchar() != '\n');
 }
 ~~~
 
@@ -642,26 +642,26 @@ Modificamos ahora el programa anterior llamando a la función antes de leer el `
 
 ~~~c
 void limpiarBuffer() {
-	while (getchar() != '\n');
+   while (getchar() != '\n');
 }
 
 int main()
 {
-	char c;
+   char c;
 
-	printf("letra 1:\n");
-	scanf("%c", &c);
-	printf("c = %c\n", c);
+   printf("letra 1:\n");
+   scanf("%c", &c);
+   printf("c = %c\n", c);
 
-	printf("letra 2:\n");
-	limpiarBuffer();
-	scanf("%c", &c);
-	printf("c = %c\n", c);
-
-	printf("letra 3:\n");
-	limpiarBuffer();
-	scanf("%c", &c);
-	printf("c = %c\n", c);
+   printf("letra 2:\n");
+   limpiarBuffer();
+   scanf("%c", &c);
+   printf("c = %c\n", c);
+   
+   printf("letra 3:\n");
+   limpiarBuffer();
+   scanf("%c", &c);
+   printf("c = %c\n", c);
 
 }
 

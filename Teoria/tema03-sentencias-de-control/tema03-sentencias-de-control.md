@@ -115,11 +115,16 @@ El uso de llaves es opcional si la instrucción a ejecutar tiene una única sen
 ~~~c
 bool condicionCumplida = false;
 
-if (condicionCumplida)	printf("Primera instrucción \n");
+if (condicionCumplida)
+   printf("Primera instrucción \n");
 printf("Segunda instrucción \n"); // se ejecuta siempre
-printf("Tercera instrucción \n"); // se ejecuta siempreif (condicionCumplida) {	printf("Primera instrucción \n");
-	printf("Segunda instrucción \n");
-	printf("Tercera instrucción \n");}
+printf("Tercera instrucción \n"); // se ejecuta siempre
+
+if (condicionCumplida) {
+   printf("Primera instrucción \n");
+   printf("Segunda instrucción \n");
+   printf("Tercera instrucción \n");
+}
 ~~~
 La `condicion_a_cumplir` puede obtenerse mediante la combinación (usando operadores lógicos) de diferentes (sub)condiciones.Precedencia de operadores:
 
@@ -128,9 +133,9 @@ La `condicion_a_cumplir` puede obtenerse mediante la combinación (usando opera
 
 ~~~c++
 bool oscuridad = true,
-	bateriaAgotada = false,
-	prioridad = false,
-	camaraEncendida = true;
+bateriaAgotada = false,
+prioridad = false,
+camaraEncendida = true;
 int tiempoEnEspera = 100;
 ...
 if(oscuridad || bateriaAgotada || (tiempoEnEspera>60 && !prioridad))	cameraEncendida = false;
@@ -138,7 +143,8 @@ if(oscuridad || bateriaAgotada || (tiempoEnEspera>60 && !prioridad))	cameraEnce
 
 Un programa con sentencias `if` puede visualizarse como un diagrama de la siguiente forma:
 
-~~~cinstruccion_a;
+~~~c
+instruccion_a;
 
 if(condicion)	instruccionSiSeCumpleCondicion;
 
@@ -155,8 +161,11 @@ La sentencia `if-else`es una forma ampliada de la sentencia `if`. La utilizamos 
 La **sintaxis** de la sentencia `if-else`es:
 
 ~~~c
-if (condicion_a_cumplir) {	instruccion(es)_a_ejecutar_condicion_verdadera;
-}else {	instruccion(es)_a_ejecutar_condicion_falsa;
+if (condicion_a_cumplir) {
+   instruccion(es)_a_ejecutar_condicion_verdadera;
+}
+else {
+   instruccion(es)_a_ejecutar_condicion_falsa;
 }
 ~~~
 
@@ -171,17 +180,25 @@ Ejemplo de `if-else`:
 
 ~~~c
 int dineroAhorrado = 25500;int precioCoche = 15000;
-    if (dineroAhorrado < precioCoche)	printf("Necesitas ahorrar, sólo tienes %d euros \n", dineroAhorrado);else	printf("Ya puedes comprarte el coche de %d euros \n", precioCoche);
+
+if (dineroAhorrado < precioCoche)
+   printf("Necesitas ahorrar, sólo tienes %d euros \n", dineroAhorrado);
+else
+   printf("Ya puedes comprarte el coche de %d euros \n", precioCoche);
 ~~~
 
 Diagrama de sentencias `if-else`:
 
-~~~cinstruccion_a;
+~~~c
+instruccion_a;
 
-if(condicion)	instruccionSiSeCumpleCondicion;
-else	instruccionSiNoSeCumpleCondicion;
+if(condicion)
+   instruccionSiSeCumpleCondicion;
+else
+   instruccionSiNoSeCumpleCondicion;
 
-instruccion_b;instruccion_c;
+instruccion_b;
+instruccion_c;
 ~~~
 
 <img src="imagenes/if-else.png" width="600px"/>
@@ -191,8 +208,12 @@ instruccion_b;instruccion_c;
 Podemos anidar condiciones usando la combinación `else if`:
 
 ~~~c
-double distancia;...if(distancia<500)	printf("Cerca \n");
-else if(distancia<1500)	printf("Distancia media \n");else  printf("Lejos\n");
+double distancia;
+...if(distancia<500)
+   printf("Cerca \n");
+else if(distancia<1500)
+   printf("Distancia media \n");
+else  printf("Lejos\n");
 ~~~
 
 Diagrama sentencia `if anidada`:
@@ -234,12 +255,16 @@ La sentencia `switch`permite seleccionar entre múltiples opciones.
 La **sintaxis** de la sentencia `switch`es:
 
 ~~~c
-switch (variable_entera_a_evaluar) {	case resultado_a:
-		instruccion_a_realizar_resultado_a;
-		break;	case resultado_b:
-		instruccion_a_realizar_resultado_b;
-		break;	default :
-		instruccion_a_realizar_resultado_diferente_a_b;}
+switch (variable_entera_a_evaluar) {
+   case resultado_a:
+      instruccion_a_realizar_resultado_a;
+      break;
+   case resultado_b:
+      instruccion_a_realizar_resultado_b;
+      break;
+   default :
+      instruccion_a_realizar_resultado_diferente_a_b;
+}
 ~~~
 
 La **semántica** de la sentencia `switch`es:
@@ -257,9 +282,19 @@ Ejemplo sentencia `switch-case`:
 ~~~c
 int numHermanos = 6; // Prueba a usar 0,1,2,3,4 ...
 
-switch (numHermanos) {	case 0:       printf("Hijo/a único\n");       break;	case 1:       printf("Pareja \n");       break;
-   case 2:       printf("Familia numerosa \n");       break;   default :
-   		printf("Familia muy numerosa \n"); }
+switch (numHermanos) {
+   case 0:       
+      printf("Hijo/a único\n");       
+      break;
+   case 1:       
+      printf("Pareja \n");       
+      break;
+   case 2:       
+      printf("Familia numerosa \n");       
+      break;   
+   default :
+   	printf("Familia muy numerosa \n");
+}
 ~~~
 
 Cada bloque de sentencias `case`debe terminar con un `break`. Si no es así, el compilador entiende que también debe ejecutarse el bloque del case siguiente y lo engloba como el mismo bloque. Ejemplo:
@@ -268,10 +303,10 @@ Cada bloque de sentencias `case`debe terminar con un `break`. Si no es así, el 
 // Sentencias case sin break (no recomendable)
 // Si contador vale 1 se ejecutarán las dos sentencias `printf`:
 switch (contador) {
-	case 1:
-		printf("Opcion 1");
-	case 2:
-		printf("Opcion 2");
+   case 1:
+      printf("Opcion 1");
+   case 2:
+      printf("Opcion 2");
 }
 ~~~
 
@@ -279,11 +314,24 @@ Ejemplo de enumeraciones y `switch`:
 
 ~~~c
 enum paloPoker{pica, corazon, trebol, diamante };
-enum paloPoker miCarta = pica;switch (miCarta) {	case diamante:		printf("Diamante \n");
-		break;	case trebol:		printf("Trébol \n");
-		break;	case corazon:		printf("Corazón \n");
-		break;	case pica:		printf("Pica \n");
-		break;	default :		printf("La carta no es de poker \n"); }
+enum paloPoker miCarta = pica;
+
+switch (miCarta) {
+   case diamante:
+      printf("Diamante \n");
+      break;
+   case trebol:
+      printf("Trébol \n");
+      break;
+   case corazon:
+      printf("Corazón \n");
+      break;
+   case pica:
+      printf("Pica \n");
+      break;
+   default :
+      printf("La carta no es de poker \n");
+}
 ~~~
 
 ___
@@ -340,9 +388,9 @@ printf("¿Quieres un caramelo (s/n)?:");
 scanf("%c", &res);
 
 while (res == 'S' || res == 's') {
-	caramelos = caramelos + 1;
-	printf("¿Quieres otro caramelo? (s/n):");
-	scanf("\n%c", &res); //"\n" es para que res ignore el intro
+   caramelos = caramelos + 1;
+   printf("¿Quieres otro caramelo? (s/n):");
+   scanf("\n%c", &res); //"\n" es para que res ignore el intro
 } // fin de la sentencia while
 
 printf("Te he dado %d caramelos\n", caramelos);
@@ -371,9 +419,9 @@ int num;
 int suma = 0;
 
 do {
-	printf("Introduzca un número: (0 para finalizar)");
-	scanf("%d", &num);
-	suma += num;
+   printf("Introduzca un número: (0 para finalizar)");
+   scanf("%d", &num);
+   suma += num;
 }while (num != 0);
 
 printf("La suma de todos los números introducidos es: %d\n", suma);
@@ -391,7 +439,7 @@ Es un bucle determinado porque conocemos de antemano el número de iteraciones.
 
 ~~~c
 for (inicialización_contador; condicion; modificación_contador){
-	secuencia_de_instrucciones;
+   secuencia_de_instrucciones;
 }
 ~~~
 
@@ -408,7 +456,7 @@ Ejemplo:
 
 ~~~c
 for (i = 0; i < 10; i++) {
-	printf ("Esta es la iteración %d", i);
+   printf ("Esta es la iteración %d", i);
 }
 ~~~
 
@@ -416,19 +464,26 @@ Cualquier bucle `for`se puede escribir con un bucle `while`:
 
 ~~~c
 for (expresión_1; expresión_2; expresión_3) {
-	secuencia de sentencias;}
+   secuencia de sentencias;}
 ~~~
 
 Es equivalente a:
-~~~cexpresión_1 ;while (expresión_2) {	secuencia de sentencias;	expresión_3;}
+~~~c
+expresión_1 ;
+while (expresión_2) {
+   secuencia de sentencias;
+   expresión_3;
+}
 ~~~
 
 El equivalente usando `while` del ejemplo anterior es:
 
 ~~~c
 i = 0;
-while(i < 10) {	printf ("Esta es la iteración %d", i);
-	i++;}
+while(i < 10) {
+   printf ("Esta es la iteración %d", i);
+   i++;
+}
 ~~~
 
 Para saber qué tipo de bucle hay que usar:
@@ -460,23 +515,23 @@ Ejemplo con bucle `while`. Utilizamos el bucle indeterminado `while`porque no sa
 lista termina cuando se introduce el número cero */
 
 void main() {
-	int total = 0;
-	float num = 0, media = 0;
+   int total = 0;
+   float num = 0, media = 0;
 
-	printf(“Dime un número: ”);
-	scanf(“%f”, &num);
+   printf(“Dime un número: ”);
+   scanf(“%f”, &num);
 
-	while(num != 0) {
-		media = media + num;
-		total++;
-		printf(“Dime otro número: ”);
-		scanf(“%f”, &num);
-	}
+   while(num != 0) {
+      media = media + num;
+      total++;
+      printf(“Dime otro número: ”);
+      scanf(“%f”, &num);
+   }
 
-	if(total != 0)
-		printf(“La media es %f.\n”, media/total);
-	else
-		printf(“No hay media.\n”);
+   if(total != 0)
+      printf(“La media es %f.\n”, media/total);
+   else
+      printf(“No hay media.\n”);
 }
 ~~~
 
@@ -489,19 +544,19 @@ terminará cuando se introduzca un número negativo
 o cero. */
 
 void main() {
-	int num, max = 0;
+   int num, max = 0;
 
-	do {
-		printf(“Dame un número: ”);
-		scanf(“%d”, &num);
-		if(num > max)
-			max = num;
-	} while(num>0);
+   do {
+      printf(“Dame un número: ”);
+      scanf(“%d”, &num);
+      if(num > max)
+      max = num;
+   } while(num>0);
 
-	if(max != 0)
-		printf(“El número más grande es %d.\n”, max);
-	else
-		printf(“No hay máximo.\n”);
+   if(max != 0)
+      printf(“El número más grande es %d.\n”, max);
+   else
+      printf(“No hay máximo.\n”);
 }
 ~~~
 
@@ -511,25 +566,25 @@ Ejemplo con bucle `for` y `do-while`
 const int NUM_PARCIALES = 5; // Número de exámenes parciales
 int main() {
 
-	float nota_parcial, nota_final;
-	float suma;
-	int i;
-	bool nota_incorrecta; // true si la nota introducida es incorrecta (dato auxiliar)
-	suma = 0;
-	// Introducir las notas de todos los parciales y sumarlas (sólo cuando el dato introducido sea correcto)
-	for (i = 1; i <= NUM_PARCIALES; i++) {
-		do {
-			printf("Dime tu nota del parcial %d\n", i);
-			scanf("%f", &nota_parcial);
-			nota_incorrecta = (nota_parcial < 0.0 || nota_parcial > 10.0);
-			if (nota_incorrecta)
-				printf("La nota introducida es incorrecta\n");
-		} while (nota_incorrecta);
-		suma = suma + nota_parcial;
-	}
-	// Calcular la nota media e imprimirla por pantalla
-	nota_final = suma / NUM_PARCIALES;
-	printf("Tu nota final es: %.2f\n", nota_final); //%.2f imprime sólo dos decimales
+   float nota_parcial, nota_final;
+   float suma;
+   int i;
+   bool nota_incorrecta; // true si la nota introducida es incorrecta (dato auxiliar)
+   suma = 0;
+   // Introducir las notas de todos los parciales y sumarlas (sólo cuando el dato introducido sea correcto)
+   for (i = 1; i <= NUM_PARCIALES; i++) {
+      do {
+         printf("Dime tu nota del parcial %d\n", i);
+         scanf("%f", &nota_parcial);
+         nota_incorrecta = (nota_parcial < 0.0 || nota_parcial > 10.0);
+         if (nota_incorrecta)
+            printf("La nota introducida es incorrecta\n");
+      } while (nota_incorrecta);
+      suma = suma + nota_parcial;
+   }
+   // Calcular la nota media e imprimirla por pantalla
+   nota_final = suma / NUM_PARCIALES;
+   printf("Tu nota final es: %.2f\n", nota_final); //%.2f imprime sólo dos decimales
 }
 
 ~~~
@@ -546,12 +601,12 @@ Ejemplo:
 >
 ~~~c
 void main() {
-	int i, res;
-	res=0;
-	for (i = 1; i <= 10; i++) {
-		res += i * i;
-	}
-	printf("%d\n", res);
+   int i, res;
+   res = 0;
+   for (i = 1; i <= 10; i++) {
+      res += i * i;
+   }
+   printf("%d\n", res);
 }
 ~~~
 > Para realizar la traza tenemos que hacer una tabla de este estilo:
