@@ -94,20 +94,20 @@ Ejemplo: ¿Qué salida produce el siguiente programa para un determinado valor d
 int f (int x);  // Prototipo de la función f
 
 void main() {
-	int num1, num2 num3;
+   int num1, num2 num3;
 
-	printf("\n- Introduzca un número: ");
-	scanf("%d", &num1);
+   printf("\n- Introduzca un número: ");
+   scanf("%d", &num1);
 
-	num2 = f(5);
-	num2 = f(num1) + num1 - num2;
-	num3 = f(num2+1);
+   num2 = f(5);
+   num2 = f(num1) + num1 - num2;
+   num3 = f(num2+1);
 
-	printf("\n- Valores: %d, %d y %d.", num1, num2, f(num3));
+   printf("\n- Valores: %d, %d y %d.", num1, num2, f(num3));
 }
 
 int f (int x) {   // Definición de la función f
-	return x + 5;
+   return x + 5;
 }
 ~~~
 
@@ -169,11 +169,11 @@ otras funciones, incluyendo la función `main()`.
 
 ~~~c
 int f (int x){
-	return x + 5;
+   return x + 5;
 }
 
 void g (char x){
-	printf("%c", x);
+   printf("%c", x);
 }
 
 ~~~
@@ -185,14 +185,20 @@ Otros ejemplos de funciones:
 
 ~~~c
 // Esta función recibe dos argumentos y devuelve el menor de ellos
-int minimo(int a, int b) {	int menor; // el menor de dos números	menor = a;	if (b < menor)		menor = b;
+int minimo(int a, int b) {
+   int menor; // el menor de dos números
+
+   menor = a;
+   if (b < menor)
+      menor = b;
 
 	return(menor);}
 ~~~
 
 ~~~c
 // Esta función no recibe argumentos e imprime la cadena de texto "hola mundo"
-void holamundo(void) {	printf("Hola mundo\n");}
+void holamundo(void) {
+   printf("Hola mundo\n");}
 ~~~
 
 
@@ -207,10 +213,15 @@ Otros ejemplos de funciones:
 Ejemplos:
 
 ~~~c
-int main() {	int a = 1;
+int main() {
+   int a = 1;
 
-	if(a > 0) {		int b = 8; // variable local al if
-	}	printf("El valor de la variable es: %d", b); //Error, variable no definida	return 0;
+   if(a > 0) {
+      int b = 8; // variable local al if
+   }
+   printf("El valor de la variable es: %d", b); //Error, variable no definida
+
+   return 0;
 }
 ~~~
 
@@ -259,21 +270,21 @@ Ejemplo:
 float func (float x, float y); // prototipo
 
 void main(){
-	float x, y, z;
+   float x, y, z;
 
-	printf("\n- Introduzca un número: ");
-	scanf("%f",&x);
+   printf("\n- Introduzca un número: ");
+   scanf("%f",&x);
 
-	y = x + x;
-	z = func(y,x);
+   y = x + x;
+   z = func(y,x);
 
-	printf("\n- Valores: %.1f, %.1f y %.1f.", x, y, z);
+   printf("\n- Valores: %.1f, %.1f y %.1f.", x, y, z);
 }
 
 float func (float x, float y){
-	x = x + 1;
-	y = y + 2;
-	return x - y;
+   x = x + 1;
+   y = y + 2;
+   return x - y;
 }
 
 ~~~
@@ -306,19 +317,19 @@ Ejemplo 1:
 void swap (int*, int*); // prototipo de la función swap
 
 int main(){
-	int x = 1, y = 2, z = 3;
+   int x = 1, y = 2, z = 3;
 
-	swap(&x, &y);
-	swap(&y, &z);
+   swap(&x, &y);
+   swap(&y, &z);
 
-    printf("x: %d, y: %d, z:%d\n", x, y, z);
+   printf("x: %d, y: %d, z:%d\n", x, y, z);
 }
 
 /* Intercambio de valores entre dos variables */
 void swap (int *x, int *y){ // definición de la función swap
-	int aux = *x;
-	*x = *y;
-	*y = aux;
+   int aux = *x;
+   *x = *y;
+   *y = aux;
 }
 ~~~
 
@@ -330,12 +341,15 @@ void dividirSeguro(int , int , int *, bool *);
 
 int main() {
     int valor1, valor2, result;
+    bool error;
 
     printf("Introduce dos numeros:\n");
     scanf("%d",&valor1);
     scanf("%d",&valor2);
 
-    if(dividirSeguro(valor1, valor2, &result))
+    dividirSeguro(valor1, valor2, &result, &error);
+
+    if(error)
         printf("Error: Division por cero\n");
     else
         printf("%d/%d = %d\n",valor1, valor2, result);
@@ -360,15 +374,76 @@ Ejemplo 3:
 
 ~~~c
 int elevarAlCuadrado(int entrada); // prototipo
-int main() {	int valor = 7, resultado;
+int main() {
+   int valor = 7, resultado;
 
-	resultado = elevarAlCuadrado(valor);
-		printf("El resultado es: %d \n", resultado);}
+   resultado = elevarAlCuadrado(valor);
 
-int elevarAlCuadrado(int entrada) { // definición	return entrada * entrada;
+   printf("El resultado es: %d \n", resultado);
+}
+
+int elevarAlCuadrado(int entrada) { // definición
+      return entrada * entrada;
 }
 
 ~~~
+
+Ejemplo 4:
+
+// Prototipo o declaración de la función
+int potencia(int base, int exponente);
+// int potencia(int, int);
+
+int main() {
+   int res;
+
+   res = potencia(2,4);  // Llamada a la función
+}
+
+
+// Definición de la función
+int potencia(int base, int exponente) {
+   int resultado, i;
+
+   resultado = base;
+
+   for (i = 0; i < exponente; i++)
+      resultado *= base;
+
+   return resultado;
+}
+
+Ejemplo 5:
+
+// Prototipos
+int pedirDato();
+void pedirXY(int* , int*);
+
+int main() {
+   int numero, posX, posY;
+
+   pedirXY(&posX, &posY);
+   printf("X: %d, Y: %d\n", posX, posY);
+}
+
+// Definiciones de funciones
+
+int pedirDato() {
+   int dato;
+
+   do {
+      printf("Introduce un num entre 1 y 8: ");
+      scanf("%d", &dato);
+   }while(dato < 1 || dato > 8);
+
+   return dato;
+}
+
+void pedirXY(int *x, int *y) {
+
+   *x = pedirDato();
+   *y = pedirDato();
+}
 
 Por lo general, usaremos funciones con paso de parámetros **por valor** cuando sólo queramos devolver **un resultado**, y éste se devuelve con `return`. Y cuando se necesite devolver **más de un resultado**, usaremos funciones con paso de parámetros **por referencia**, siendo esta función tipo `void`.
 

@@ -660,9 +660,39 @@ Iteración | dia | capacidadActual
 ##<a name="5"/> 5.  Ejercicios resueltos
 
 #### Ejercicio 1
-Escribe un programa que lea cantidades y precios y al final indique el total de la factura. Primero se pregunta la cantidad vendida, tras lo cual el usuario introducirá un número entero positivo.Después se pregunta el precio que será un número decimal positivo. La lectura termina cuando en la cantidad se introduzca un cero. Si es así se escribirá el total.~~~cint main(){	int n;	double precio, total=0;	do{		do{			printf("\nIntroduzca la cantidad vendida: ");			scanf("%d",&n);			if(n<0)
-				printf("Cantidad no valida");		}while(n<0); 		if (n>0){			printf("Introduzca el precio: ");			do{				scanf("%lf",&precio);				if(precio<0)
-					printf("Precio no valido");				else total+=n*precio;			}while(precio<0);		}	}while(n!=0); 	printf("Total vendido = %.2f", total);}~~~
+Escribe un programa que lea cantidades y precios y al final indique el total de la factura. Primero se pregunta la cantidad vendida, tras lo cual el usuario introducirá un número entero positivo.Después se pregunta el precio que será un número decimal positivo. La lectura termina cuando en la cantidad se introduzca un cero. Si es así se escribirá el total.
+
+~~~c
+
+int main(){
+   int n;
+   double precio, total=0;
+
+   do{
+      do{
+         printf("\nIntroduzca la cantidad vendida: ");
+         scanf("%d",&n);
+
+         if(n<0)
+            printf("Cantidad no valida");
+      }while(n<0);
+
+      if (n>0){
+         printf("Introduzca el precio: ");
+         do{
+            scanf("%lf",&precio);
+            if(precio<0)
+               printf("Precio no valido");
+            else
+               total+=n*precio;
+         }while(precio<0);
+      }
+   }while(n!=0); 
+
+   printf("Total vendido = %.2f", total);
+}
+
+~~~
 
 #### Ejercicio 2
 
@@ -670,16 +700,16 @@ Escribe un programa que escriba la tabla de multiplicar de un número pedido ent
 
 ~~~c
 int main() {
-	int num, i;
+   int num, i;
 
-	do {
-		printf("Introduce un num entre 1 y 10: ");
-		scanf("%d", &num);
-	}while(num < 1 || num > 10);
+   do {
+      printf("Introduce un num entre 1 y 10: ");
+      scanf("%d", &num);
+   }while(num < 1 || num > 10);
 
-	for(i = 1; i <= 10; i++) {
-		printf("%d x %d = %d\n", i, num, i * num);		
-	}
+   for(i = 1; i <= 10; i++) {
+      printf("%d x %d = %d\n", i, num, i * num);		
+   }
 }
 ~~~
 
@@ -723,43 +753,47 @@ Escribe un programa que muestre un menú como este:
 - si se elige 2 se calcula el sumatorio del número
 - si se elige 3 se calcula el factorial
 
-En las opciones 2 y 3 el programa pedirá el número sobre el que se calcula el sumatorio o el factorial. Tras calcular el sumatorio o el factorial e indicar el resultado, el programa volverá a mostrar el menú y así sucesivamente.~~~cint main(){
-	int seleccion;
-	int n, aux;
-	double res;
+En las opciones 2 y 3 el programa pedirá el número sobre el que se calcula el sumatorio o el factorial. Tras calcular el sumatorio o el factorial e indicar el resultado, el programa volverá a mostrar el menú y así sucesivamente.
 
-	do{
-	/* Mostrar el menú*/
-		do{
-			printf("******************\n");
-			printf("1 Salir\n");
-			printf("2 Sumatorio\n");
-			printf("3 Factorial\n");
-			printf("******************\n");
-			printf("Escriba su opcion: ");
-			scanf("%d", &seleccion);
-		} while(seleccion!=1 && seleccion!=2 && seleccion!=3);
+~~~c
 
-		switch(seleccion){
-			case 2:/* Sumatorio */
-				printf("Escriba el numero sobre el que quiere el sumatorio: ");
-				scanf("%d", &n);
-				res = 0;
-				for(aux = n;aux >= 1;aux--)
-					res += aux;
-				printf("El sumatorio es: %.0lf\n\n\n", res);
-				break;
+int main(){
+   int seleccion;
+   int n, aux;
+   double res;
 
-			case 3: /* Factorial */
-				printf("Escriba el numero sobre el que quiere el factorial: ");
-				scanf("%d", &n);
-				res = 1;
-				for(aux = n;aux >= 1;aux--)
-					res *= aux;
-				printf("El factorial es: %.0lf\n\n\n", res);
-				break;
-			}
-	}while(seleccion!=1);
+   do{
+      /* Mostrar el menú*/
+      do{
+         printf("******************\n");
+         printf("1 Salir\n");
+         printf("2 Sumatorio\n");
+         printf("3 Factorial\n");
+         printf("******************\n");
+         printf("Escriba su opcion: ");
+         scanf("%d", &seleccion);
+      } while(seleccion!=1 && seleccion!=2 && seleccion!=3);
+
+      switch(seleccion){
+         case 2:/* Sumatorio */
+            printf("Escriba el numero sobre el que quiere el sumatorio: ");
+            scanf("%d", &n);
+            res = 0;
+            for(aux = n;aux >= 1;aux--)
+            res += aux;
+            printf("El sumatorio es: %.0lf\n\n\n", res);
+            break;
+
+         case 3: /* Factorial */
+            printf("Escriba el numero sobre el que quiere el factorial: ");
+            scanf("%d", &n);
+            res = 1;
+            for(aux = n;aux >= 1;aux--)
+            res *= aux;
+            printf("El factorial es: %.0lf\n\n\n", res);
+            break;
+      }
+   }while(seleccion!=1);
 }~~~
 
 #### Ejercicio 5
