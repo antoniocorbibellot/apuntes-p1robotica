@@ -303,7 +303,7 @@ que permite a una función modificar variables utilizadas como argumentos actual
 
 La función recibe la referencia a la posición de memoria donde se encuentra el valor a utilizar.Este parámetro debe ser una variable, la cual puede o no contener un valor inicial.Las modificaciones realizadas sobre el parámetro dentro de la función se trasladan a la variable actual ya que se realizan sobre su zona de memoria.
 
-#####Cómo pasar argumentos por referencia:
+##### Cómo pasar argumentos por referencia:
 
 1. En la llamada a la función:
 	- usar el operador de dirección `&` (ampersand) delante del argumento en la llamada. El operador `&` indica que dicha variable puede verse modificada por la función.
@@ -388,6 +388,7 @@ int elevarAlCuadrado(int entrada) { // definición
 
 ~~~
 
+~~~c
 Ejemplo 4:
 
 // Prototipo o declaración de la función
@@ -412,9 +413,11 @@ int potencia(int base, int exponente) {
 
    return resultado;
 }
+~~~
 
 Ejemplo 5:
 
+~~~c
 // Prototipos
 int pedirDato();
 void pedirXY(int* , int*);
@@ -444,6 +447,8 @@ void pedirXY(int *x, int *y) {
    *x = pedirDato();
    *y = pedirDato();
 }
+
+~~~
 
 Por lo general, usaremos funciones con paso de parámetros **por valor** cuando sólo queramos devolver **un resultado**, y éste se devuelve con `return`. Y cuando se necesite devolver **más de un resultado**, usaremos funciones con paso de parámetros **por referencia**, siendo esta función tipo `void`.
 
