@@ -88,9 +88,11 @@ numero$2    /* Carácter no válido ($) */
 **Ejercicio**:
 Indica qué identificadores son válidos en C:
 
+~~~c
 casa     mi-casa     mi*casa     micasa1
 _MES     MES_1       MES%1       mes$1
 a980     890a        _890        $a890
+~~~
 
 Solución: Son inválidos `mi-casa mi*casa MES%1 mes$1 $a89 890a`
 
