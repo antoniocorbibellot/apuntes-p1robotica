@@ -70,27 +70,27 @@ Un *identificador* es un nombre que se asigna a los distintos elementos de un pr
 Ejemplo de identificadores válidos:
 
 ~~~c
-X		Y12		sum_1		_temperature
-names 	area 	tax_rate 	TABLE
+X        Y12      sum_1       _temperature
+names    area     tax_rate    TABLE
 ~~~
 
 Ejemplo de identificadores **no** válidos:
 
 ~~~c
-4th 		/* El primer carácter debe ser una letra o (_) */
-"x" 		/* Carácter no válido (") */
-num-orden	/* Carácter no válido (-) */
-error flag	/* Carácter no válido (espacio) */
-numero%1		/* Carácter no válido (%) */
-numero$2		/* Carácter no válido ($) */
+4th         /* El primer carácter debe ser una letra o (_) */
+"x"         /* Carácter no válido (") */
+num-orden   /* Carácter no válido (-) */
+error flag  /* Carácter no válido (espacio) */
+numero%1    /* Carácter no válido (%) */
+numero$2    /* Carácter no válido ($) */
 ~~~
 
 **Ejercicio**:
 Indica qué identificadores son válidos en C:
 
-	casa		mi-casa		mi*casa		micasa1
-	_MES		MES_1		MES%1		mes$1
-	a980		890a		_890		$a890
+casa     mi-casa     mi*casa     micasa1
+_MES     MES_1       MES%1       mes$1
+a980     890a        _890        $a890
 
 Solución: Son inválidos `mi-casa mi*casa MES%1 mes$1 $a89 890a`
 
@@ -99,15 +99,15 @@ Las *palabras reservadas* son identificadores que tienen un significado especial
 Palabras reservadas en C:
 
 ~~~c
-auto			else		long 		 	typedef
-break			enum		register	union
-case			extern	return		unsigned
-char			float	 	short		 	void
-const			for		 	signed		volatile
-continue	goto		sizeof		while
-default		if			static		_Bool
-do				inline	struct		_Complex
-double		int		 	switch		_Imaginary
+auto     else     long        typedef
+break    enum     register    union
+case     extern   return      unsigned
+char     float    short       void
+const    for      signed      volatile
+continue goto     sizeof      while
+default  if       static      _Bool
+do       inline   struct      _Complex
+double   int      switch      _Imaginary
 ~~~
 
 ## <a name="3"/> 3. Variables y constantes
@@ -529,7 +529,8 @@ La sentencia `scanf` nos permite leer un dato que ha introducido el usuario desd
 
 Su **sintaxis** es similar a `printf`:
 
-~~~cscanf(cadena de control, &var1, &var2, ..., &varN);
+~~~c
+scanf(cadena de control, &var1, &var2, ..., &varN);
 ~~~
 
 - La cadena de control debe ir entre comillas dobles e incluir tantas marcas como valores queramos solicitar al usuario. Cada marca consta de un `%` y una letra indicando el tipo esperado.
@@ -657,7 +658,7 @@ int main()
    limpiarBuffer();
    scanf("%c", &c);
    printf("c = %c\n", c);
-   
+
    printf("letra 3:\n");
    limpiarBuffer();
    scanf("%c", &c);
