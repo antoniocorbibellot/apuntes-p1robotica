@@ -92,17 +92,19 @@ int vectorD[5]={1, 20, 3, 40, 5, 60};
 - También podemos inicializar un array haciendo que el usuario introduzca los datos por teclado:
 
 ~~~c
+#define TAM 10
+
 void inicializarArray(float calificaciones[]);
 
 int main () {
-    float calificaciones[50];
+    float calificaciones[TAM];
     inicializarArray(calificaciones);
 }
 
 // función para inicializar el array
 void inicializarArray(float calificaciones[]) {
     int i;
-    for (i = 0;i < 50 ;i++) {
+    for (i = 0;i < TAM ;i++) {
         printf("Introduce la calificación %d: ", i);
         scanf("%f", &calificaciones[i]);
 	}
