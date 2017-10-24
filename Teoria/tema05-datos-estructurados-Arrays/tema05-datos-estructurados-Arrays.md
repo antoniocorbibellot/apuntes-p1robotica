@@ -1,7 +1,7 @@
 
 # Tema 5: Datos estructurados: Arrays
 
-## Contenidos 
+## Contenidos
 
 - [1. Tipos de datos estructurados](#1)
 - [2. Tipo Array](#2)
@@ -9,11 +9,11 @@
 	- [2-2. Arrays y funciones](#2-2)
 - [3. Arrays multidimensionales](#3)
 - [4. Cadenas de caracteres](#4)
- 
+
 
 ## <a name="1"/> 1. Tipos de datos estructurados
 
-A partir de los tipos de datos simples que hemos visto, se pueden definir en C otros tipos de datos compuestos por colecciones o agrupaciones de elementos de tipos simples. 
+A partir de los tipos de datos simples que hemos visto, se pueden definir en C otros tipos de datos compuestos por colecciones o agrupaciones de elementos de tipos simples.
 Los tipos estructurados o compuestos pueden almacenar más de un elemento (valor) a la vez. Se dividen en:
 
 - **Arrays**: todos los elementos que almacena una variable de tipo array deben ser del **mismo tipo**. Pueden ser:
@@ -26,7 +26,7 @@ Los tipos estructurados o compuestos pueden almacenar más de un elemento (valor
 
 Es una estructura de datos que contiene una colección de datos finita, homogénea y ordenada de elementos, y se almacena en posiciones de memoria contiguas.- **finita**: debe determinarse cuál será el número máximo de elementos que podrán almacenarse en el array- **homogénea**: todos los elementos deben ser del mismo tipo- **ordenada**: se puede determinar cuál es el n-ésimo elemento del array   
 
-A un elemento específico de un array se accede mediante un **índice**, que siempre empieza en la posición 0 (la primera posición del array). La última posición tendrá como índice el número de elementos del array menos uno. 
+A un elemento específico de un array se accede mediante un **índice**, que siempre empieza en la posición 0 (la primera posición del array). La última posición tendrá como índice el número de elementos del array menos uno.
 
 ###<a name="2-1"/> 2.1  Definición de un array
 
@@ -66,8 +66,8 @@ ser usado en cualquier contexto donde es usado un entero
 - Si se conocen los valores que toman las componentes del array al definirlo, podemos definir y asignar valores simultáneamente. Un array se puede inicializar en su declaración utilizando llaves {}:
 
 ~~~c
-int vector[5] = {10, 20, 30, 40, 50}; 
-~~~	
+int vector[5] = {10, 20, 30, 40, 50};
+~~~
 Los valores se asignan uno a uno consecutivamente:
 
 <img src="imagenes/array2.png" width="300px"/>
@@ -75,14 +75,14 @@ Los valores se asignan uno a uno consecutivamente:
 - Tamaño automático: si no especificamos el tamaño del array, el compilador cuenta el número de elementos de la inicialización y ése es el tamaño del array
 
 ~~~c
-int vectorB[] = {11, 23, 3, 10}; 
+int vectorB[] = {11, 23, 3, 10};
 ~~~
 
 - Inicialización incompleta:  
 
 ~~~c
 // Se inicializan sólo los 4 primeros elementos
-int vectorC[10] = {7, 7, 7, 7}; 
+int vectorC[10] = {7, 7, 7, 7};
 ~~~
 ~~~c
 // Si hay más valores, da ERROR:
@@ -125,7 +125,7 @@ float maximo(float *arr, int tama);
 Ejemplo 1:
 
 ~~~c
-//Función que calcula la media de notas de alumnosfloat calculaMedia(float a[], int len) {    int i;    float suma;    suma = 0.0;    for (i = 0; i < len; i++)        suma = suma + a[i];    // suponemos len > 0    return(suma / len); 
+//Función que calcula la media de notas de alumnosfloat calculaMedia(float a[], int len) {    int i;    float suma;    suma = 0.0;    for (i = 0; i < len; i++)        suma = suma + a[i];    // suponemos len > 0    return(suma / len);
 }
 ~~~
 
@@ -143,10 +143,10 @@ void printArray(double array[], int len){
 Ejemplo 3:
 
 ~~~c
-/* Dado un array de enteros, mover todos sus elementos una posición a la derecha. 
+/* Dado un array de enteros, mover todos sus elementos una posición a la derecha.
 El desplazamiento será circular, es decir, el último elemento pasará a ser el primero*/
-void moverEnCircular (int v[]) {    int i, ult;    // guardar el valor de la última posición del array    ult = v[LMAX-1];    // mover todos los elementos una posición a la derecha, excepto el último    for (i = LMAX-1; i > 0; i--) 
-        v[i] = v[i-1];    // actualizar la primera posición con el valor que teníamos en la última    v[0] = ult; 
+void moverEnCircular (int v[]) {    int i, ult;    // guardar el valor de la última posición del array    ult = v[LMAX-1];    // mover todos los elementos una posición a la derecha, excepto el último    for (i = LMAX-1; i > 0; i--)
+        v[i] = v[i-1];    // actualizar la primera posición con el valor que teníamos en la última    v[0] = ult;
 }
 ~~~
 
@@ -209,9 +209,9 @@ Ejemplos:
 
 ~~~c
 // Array bidimensional de 6*10 enteros (matriz de 60 elems):
-int matriz[6][10]; 
+int matriz[6][10];
 //Array tridimensional de 3*2*5 reales (cubo de 30 elems):
-float cubo[3][2][5]; 
+float cubo[3][2][5];
 ~~~
 
 #### Almacenamiento en memoria arrays multidimensionales
@@ -223,13 +223,13 @@ Los elementos se almacenan contiguos en memoria:
 #### Inicialización arrays multidimensionales
 
 - Si se conocen todos los elementos al declarar el array, hay dos modos de escribir la lista de inicializaciones:
-	
+
 	-  Todos los valores seguidos:
-	
+
 	~~~c
 	int matriz[2][3]={0,1,2,10,11,12};
 	~~~
-	
+
 	- Por partes (mejor, mayor claridad):
 
 	~~~c
@@ -251,12 +251,12 @@ Un array multidimensional, al igual que uno unidimensional, también puede pasar
 ~~~c
 // Recibe una matriz en la cual cada fila
 // tiene 10 enteros y con cualquier número de filas
-void func(int mat[][10]); 
+void func(int mat[][10]);
 
-// También es CORRECTO: 
+// También es CORRECTO:
 void func(int (*mat)[10]);
 
-// Es INCORRECTO: 
+// Es INCORRECTO:
 void func1(int **mat);
 ~~~
 
@@ -289,7 +289,7 @@ Ejemplo 2:
 
 ~~~c
 //Programa que muestra los valores almacenados en
-//un array bidimensional 2 por 3 
+//un array bidimensional 2 por 3
 
 #define FILAS 2
 #define COLUMNAS 3
@@ -314,7 +314,7 @@ El valor de [1][2] es 6
 */
 ~~~
 
-Ejemplo 3: 
+Ejemplo 3:
 
 ~~~c
 // Suma de matrices
@@ -368,8 +368,8 @@ int main() {
 ~~~
 
 
-## <a name="4"/> 4. Cadenas de caracteres 
-              
+## <a name="4"/> 4. Cadenas de caracteres
+
 - En C no existe un tipo específico para trabajar concadenas de caracteres (en otros lenguajes es el tipo `String`).
 - En C, una cadena de caracteres es un array unidimensional de tipo
 `char`.
@@ -393,7 +393,7 @@ al carácter ‘\0’).
 ##### `printf` y `scanf` con cadenas
 Las funciones `printf` y `scanf` tratan el `'\0'` automáticamente con `%s`
 
-~~~cprintf("%s\n",cadena); 
+~~~cprintf("%s\n",cadena);
 scanf("%s", cadena);scanf(%[^\n], cadena); //lee la entrada estandar hasta encontrar \n, sin detenerse en espacios
 ~~~
 
@@ -420,7 +420,7 @@ Ejemplo 1:
 // devuelve la longitud de una cadena de caracteres// esta función es equivalente a strlen()
 int longitudCadena(char cad[]){    int len;
 	    len = 0;    while (cad[len] != '\0')        len++;
-		    return(len); 
+		    return(len);
 }
 ~~~
 
@@ -453,7 +453,7 @@ Para solucionar el problema anterior (en `cad1`no cabe la cadena), podemos compr
 
 ~~~c
 // comprobar si se puede concatenar antes de hacerlo:
-if(strlen(cad1) + strlen(cad2) < 10) 
+if(strlen(cad1) + strlen(cad2) < 10)
     strcat(cad1,cad2);
 ~~~
 
@@ -510,15 +510,15 @@ printf( "Convertimos la cadena \"%s\" en un long int: %u\n", numPtr, atol(numero
 
 ~~~c
 int numero = 123;
-char cadena[4]; 
+char cadena[4];
 sprintf(cadena, "%d", numero);
-printf("%s\n", cadena); // imprime "123" 
+printf("%s\n", cadena); // imprime "123"
 ~~~
 
 ### Ejemplos de arrays utilizando `typedef`
 
 
-1. Escribe un programa completo que lea un vector de enteros positivos e imprima el número mayor.Para la realización del programa utilizaremos tres funciones, una para leer el vector, otra para imprimir el vector por pantalla y otra para encontrar el elemento mayor. 
+1. Escribe un programa completo que lea un vector de enteros positivos e imprima el número mayor.Para la realización del programa utilizaremos tres funciones, una para leer el vector, otra para imprimir el vector por pantalla y otra para encontrar el elemento mayor.
 
 ~~~c
 #include <stdio.h>
@@ -578,14 +578,14 @@ int mayorVector(TVector vector)
    mayor = vector[0]; // Al principio el mayor será el primer elemento.
 
    for(i = 1; i < TAM; i++)
-      if(vector[i] > mayor) 
+      if(vector[i] > mayor)
          mayor = vector[i];
-         
-   return mayor; 
+
+   return mayor;
 }
 ~~~
 
-2. Escribe un programa que pida una cadena de caracteres (de máximo 15 caracteres) y devuelva la cadena escrita al revés. 
+2. Escribe un programa que pida una cadena de caracteres (de máximo 15 caracteres) y devuelva la cadena escrita al revés.
 
 ~~~c
 #include <stdio.h>
@@ -656,10 +656,6 @@ void escribirMatriz(TMatriz matriz) {
 }
 ~~~
 
-### Ejercicios propuestos
-
-
-1. Define una función que reciba una cadena de caracteres y compruebe si se trata de un palíndromo.2. Define una función que reciba dos parámetros: una cadena de caracteres y un carácter. La función realizará la búsqueda del carácter en la cadena y nos devolverá la posición de la primera ocurrencia del carácter en la cadena o -1 en caso de que no lo encuentre.3. Define una función similar a la del ejercicio anterior pero que devuelva la posición de la última ocurrencia del carácter.
 
 ----
 
