@@ -291,17 +291,18 @@ Ejemplo 2:
 
 ~~~c
 //Programa que muestra los valores almacenados en
-//un array bidimensional 2 por 3
+//un array bidimensional 2 x 3
 
 #define FILAS 2
 #define COLUMNAS 3
 
 int main() {
-    int matriz[FILAS][COLUMNAS]= {{1,2,3},{4,5,6}};
+    int matriz[FILAS][COLUMNAS]= {{1,2,3},
+                                  {4,5,6}};
     int fil,col;
 
-    for(fil=0;fil<FILAS;fil++)
-        for(col=0;col<COLUMNAS;col++)
+    for(fil = 0; fil < FILAS; fil++)
+        for(col = 0; col < COLUMNAS; col++)
             printf("El valor de [%d][%d] es %d\n", fil, col, matriz[fil][col]);
 }
 
@@ -395,8 +396,10 @@ al carácter ‘\0’).
 ##### `printf` y `scanf` con cadenas
 Las funciones `printf` y `scanf` tratan el `'\0'` automáticamente con `%s`
 
-~~~cprintf("%s\n",cadena);
-scanf("%s", cadena);scanf(%[^\n], cadena); //lee la entrada estandar hasta encontrar \n, sin detenerse en espacios
+~~~c
+printf("%s\n",cadena);
+scanf("%s", cadena);
+scanf("%[^\n]s", cadena); //lee la entrada estandar hasta encontrar \n, sin detenerse en espacios
 ~~~
 
 ##### Librería `string.h`
@@ -408,7 +411,10 @@ Para trabajar con cadenas de caracteres, en C tenemos la librería `string.h`:
 
 Algunas de las funciones que incluye:
 
-- **`int strlen(const char *s);`** Devuelve el tamaño de la cadena antes de `'\0'`- **`char *strcpy(char *dest, const char *src);`**Copia la cadena origen src en la cadena destino dest.- **`char *strcat(char *dest, const char *src);`**Concatena la cadena origen src al final de la cadena destino dest- **`int strcmp(const char *s1, const char *s2);`**
+- **`int strlen(const char *s);`** Devuelve el tamaño de la cadena antes de `'\0'`
+- **`char *strcpy(char *dest, const char *src);`**Copia la cadena origen `src` en la cadena destino `dest`.
+- **`char *strcat(char *dest, const char *src);`**Concatena la cadena origen `src` al final de la cadena destino `dest`
+- **`int strcmp(const char *s1, const char *s2);`**
 Compara dos cadenas. Devuelve 0 en caso de que sean iguales. <0 si la primera cadena es menor y >0 si la primera cadena es mayor. Orden lexicográfico
 
 `strcpy` y `strcat` devuelven un puntero a la cadena
