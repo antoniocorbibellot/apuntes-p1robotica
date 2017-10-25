@@ -176,7 +176,7 @@ int rellenaDatos(float vector[]) {
 Ejemplo 2:
 
 ~~~c
-void printArray(double array[], int len){
+void printArray(float array[], int len){
     int i;
 
     for (i = 0; i < len; i++)
