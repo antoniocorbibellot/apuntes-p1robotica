@@ -127,8 +127,50 @@ float maximo(float *arr, int tama);
 Ejemplo 1:
 
 ~~~c
-//Función que calcula la media de notas de alumnosfloat calculaMedia(float a[], int len) {    int i;    float suma;    suma = 0.0;    for (i = 0; i < len; i++)        suma = suma + a[i];    // suponemos len > 0    return(suma / len);
+#define TAM 20
+float calculaMedia(float [], int);
+int rellenaDatos(float []);
+
+int main()
+{
+    int longitud;
+    float v[TAM];
+    float media;
+
+    longitud = rellenaDatos(v);
+    media = calculaMedia(v, longitud);
+    printf("La nota media es %.2f\n", media);
 }
+
+float calculaMedia(float a[], int len) {
+    int i;
+    float suma;
+
+    suma = 0.0;
+
+    for (i = 0; i < len; i++)
+        suma = suma + a[i];
+
+    // suponemos len > 0
+    return(suma / len);
+}
+
+int rellenaDatos(float vector[]) {
+    int indice = 0;
+    float nota;
+
+    do {
+        printf("Introduce nota: ");
+        scanf("%f", &nota);
+        if (nota != -1) {
+            vector[indice] = nota;
+            indice++;
+        }
+    }while(nota != -1);
+
+    return indice;
+}
+
 ~~~
 
 Ejemplo 2:
