@@ -478,6 +478,28 @@ Ejemplo 2:
 
 ~~~c
 int main() {
+    int n;
+    char nombre1[20], nombre2[20];
+
+    printf("Teclea el primer nombre: ");
+    scanf("%s", nombre1);
+    printf("Teclea el segundo nombre: ");
+    scanf("%s", nombre2);
+
+    n = strcmp(nombre1,nombre2);
+    if(n == 0)
+        printf("Nombres iguales\n");
+    else if (n>0)
+        printf("Primer nombre mayor que el segundo\n");
+    else
+        printf("Primer nombre menor que el segundo\n");
+}
+~~~
+
+Ejemplo 3:
+
+~~~c
+int main() {
     char cad1[10], cad2[10];
 
     strcpy(cad1, "Hola "); /* Se guardan en cad1 6
@@ -507,27 +529,6 @@ if(strlen(cad1) + strlen(cad2) < 10)
     strcat(cad1,cad2);
 ~~~
 
-Ejemplo 3:
-
-~~~c
-int main() {
-    int n;
-    char nombre1[20], nombre2[20];
-
-    printf("Teclea el primer nombre: ");
-    scanf("%s", nombre1);
-    printf("Teclea el segundo nombre: ");
-    scanf("%s", nombre2);
-
-    n = strcmp(nombre1,nombre2);
-    if(n == 0)
-        printf("Nombres iguales\n");
-    else if (n>0)
-        printf("Primer nombre mayor que el segundo\n");
-    else
-        printf("Primer nombre menor que el segundo\n");
-}
-~~~
 
 #### Funciones relacionadas con cadenas de caracteres
 
