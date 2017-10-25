@@ -534,7 +534,7 @@ if(strlen(cad1) + strlen(cad2) < 10)
 
 Algunas funciones de conversión incluidas en la librería `stdlib.h`
 
-- **`double atof(char *s)`**: convierte la cadena `s` a `double`
+- **`double atof(char *s)`**: convierte la cadena `s` a `float`
 
 ~~~c
 char numero[11] = "123.456789";
