@@ -112,7 +112,7 @@ void inicializarArray(float calificaciones[]) {
 
 ###<a name="2-2"/> 2.2   Arrays y funciones
 
-- En lenguaje C, el paso de parámetros de los arrays siempre es por **referencia**.- En lenguaje C, las funciones no pueden devolver un tipo array. Para modificar un array, ha de ser pasado como parámetro (siempre es por referencia y por tanto se modificará el array original)
+- En lenguaje C, el paso de parámetros de los arrays siempre es por **referencia**.- En lenguaje C, las funciones no pueden devolver un tipo array (estático). Para modificar un array, ha de ser pasado como parámetro (siempre es por referencia y por tanto se modificará el array original)
 - Los siguientes prototipos de funciones son equivalentes:
 
 ~~~c
