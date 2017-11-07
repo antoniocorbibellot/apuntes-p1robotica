@@ -112,14 +112,8 @@ void inicializarArray(float calificaciones[]) {
 
 ###<a name="2-2"/> 2.2   Arrays y funciones
 
-- En lenguaje C, el paso de parámetros de los arrays siempre es por **referencia**.- En lenguaje C, las funciones no pueden devolver un tipo array (estático). Para modificar un array, ha de ser pasado como parámetro (siempre es por referencia y por tanto se modificará el array original)
-- Los siguientes prototipos de funciones son equivalentes:
-
-~~~c
-float maximo(float arr[], int tama);
-float maximo(float *arr, int tama);
-~~~
-
+- En lenguaje C, el paso de parámetros de los arrays siempre es por **referencia**.
+- En lenguaje C, las funciones no pueden devolver un tipo array estático. Para modificar un array, ha de ser pasado como parámetro (siempre es por referencia y por tanto se modificará el array original)
 - Es imposible que la función determine el tamaño del array.
 - Si se necesita el tamaño en la función, se tiene que pasar como argumento
 - Si el tamaño es fijo, se puede utilizar una constante#### Ejemplos
@@ -296,12 +290,6 @@ Un array multidimensional, al igual que uno unidimensional, también puede pasar
 // Recibe una matriz en la cual cada fila
 // tiene 10 enteros y con cualquier número de filas
 void func(int mat[][10]);
-
-// También es CORRECTO:
-void func(int (*mat)[10]);
-
-// Es INCORRECTO:
-void func1(int **mat);
 ~~~
 
 #### Acceso a los elementos (por índices)
@@ -427,9 +415,8 @@ Ejemplos:
 
 ~~~c
 char cadena[20];
-char *cadena="Hola";
 char cadena[]="Adios";
-~~~                                                                                                             
+~~~                                                                                                          
 
 En las dos últimas declaraciones el tamaño del array será el
 número de caracteres dado en la inicialización más 1 (que corresponde
@@ -448,7 +435,8 @@ scanf("%[^\n]s", cadena); //lee la entrada estandar hasta encontrar \n, sin dete
 
 Para trabajar con cadenas de caracteres, en C tenemos la librería `string.h`:
 
-~~~c#include <string.h>
+~~~c
+#include <string.h>
 ~~~
 
 Algunas de las funciones que incluye:
@@ -468,9 +456,14 @@ Ejemplo 1:
 
 ~~~c
 // devuelve la longitud de una cadena de caracteres// esta función es equivalente a strlen()
-int longitudCadena(char cad[]){    int len;
-	    len = 0;    while (cad[len] != '\0')        len++;
-		    return(len);
+int longitudCadena(char cad[]){    
+   int len;
+
+   len = 0;    
+   while (cad[len] != '\0')       
+      len++;
+      
+   return(len);
 }
 ~~~
 
