@@ -1,7 +1,7 @@
 
 # Tema 6: Punteros y memoria dinámica
 
-## Contenidos 
+## Contenidos
 
 - [1. Punteros](#1)
     - [1.1 Operadores para el manejo de punteros](#1-1)
@@ -9,7 +9,7 @@
     - [1.3 Punteros a cadenas de caracteres](#1-3)
     - [1.4 Operaciones aritméticas con punteros](#1-4)
 - [2. Manejo de memoria dinámica](#2)
-    - [2.1. Memoria dinámica](#2-1) 
+    - [2.1. Memoria dinámica](#2-1)
     - [2.2. Funciones para gestionar la memoria dinámica: `malloc`, `calloc`, `realloc`, `free`](#2-2)
     - [2.3 Arrays dinámicos multidimensionales](#2-3)
 - [3. Punteros y funciones](#3)
@@ -17,7 +17,7 @@
 
 ## <a name="1"/> 1. Punteros
 
-Como hemos visto, la **memoria** del ordenador es el lugar donde se almacenan los datos y las instrucciones de un programa. Esta memoria es la memoria RAM, que es diferente a la memoria de almacenamiento como discos duros, etc. Está compuesta por un gran número de **celdas** (bytes) de información. A cada una de estas celdas se le asigna una **dirección de memoria**, que permite distinguir unas celdas de otras. De forma que, dada la dirección de memoria de una celda, se podrá obtener su valor actual y modificarlo (como ya hemos visto por ejemplo en el paso de parámetros por referencia). 
+Como hemos visto, la **memoria** del ordenador es el lugar donde se almacenan los datos y las instrucciones de un programa. Esta memoria es la memoria RAM, que es diferente a la memoria de almacenamiento como discos duros, etc. Está compuesta por un gran número de **celdas** (bytes) de información. A cada una de estas celdas se le asigna una **dirección de memoria**, que permite distinguir unas celdas de otras. De forma que, dada la dirección de memoria de una celda, se podrá obtener su valor actual y modificarlo (como ya hemos visto por ejemplo en el paso de parámetros por referencia).
 
 Cuando se accede a una variable almacenada en memoria el compilador necesita saber:
 
@@ -102,18 +102,16 @@ Ejemplo 3:
 
 ~~~c
 void main() {
-	int x, 		/* Entero */
-		y, 		/* Entero */
-		*py; 	/* Puntero */
+   int x, y, *py; 
 
-	printf ("\n- Introduzca un número: ");
-	scanf("%i",&y);
+   printf ("\n- Introduzca un número: ");
+   scanf("%i",&y);
 
-	py = &y;
-	x = *py + 10; /* Suma 10 con el contenido de la dirección py */
+   py = &y;
+   x = *py + 10; /* Suma 10 con el contenido de la dirección py */
 
-	printf("\n- Enteros: %d, %d y %d.", y, *py, x);
-	printf("\n- Direcciones: %p y %p.", &y, py);
+   printf("\n- Enteros: %d, %d y %d.", y, *py, x);
+   printf("\n- Direcciones: %p y %p.", &y, py);
 }
 
 /* Salida por pantalla:
@@ -166,13 +164,13 @@ int *p;
 
 `*p`: designa un puntero a entero, por lo tanto puede acceder a una posición de memoria. Sin embargo,
 como se ha dicho antes `v` también puede considerarse como un puntero a entero, de tal forma que las
-siguientes expresiones son equivalentes: 
+siguientes expresiones son equivalentes:
 
 ~~~c
 p = v       ===>  p = &v[0]
 x = *p      ===>  x = v[0]
 *(v + 1)    ===>  v[1]
-v + i       ===>  &v[i] 
+v + i       ===>  &v[i]
 ~~~
 
 
@@ -198,8 +196,8 @@ Para poder modificar el valor de este puntero, éste tendría que apuntar a una 
 char nombre[] = "Cristina Pomares"; //declaramos un array de caracteres
 char *puntero = nombre;//Asignamos al puntero el comienzo del array
 printf("%s \nOtro nombre: ", puntero);
-scanf("%s", puntero); 
-printf("%s\n",puntero); 
+scanf("%s", puntero);
+printf("%s\n",puntero);
 ~~~
 
 Aunque hayamos modificado el nombre, la cantidad de caracteres esta limitada por el array original, mas adelante veremos como solucionar esto con memoria dinámica.
@@ -211,7 +209,7 @@ Un puntero nos permite sumar o restar números enteros, pero su funcionamiento e
 ~~~c
 int x[100],b,*pa,*pb;
 //...
-x[50] = 10; 
+x[50] = 10;
 pa = &x[50]; //Le asignamos al puntero pa, la direccion de memoria que tiene x[50]
 
 //Operaciones:
@@ -259,21 +257,24 @@ void *malloc(size_t size);
 ~~~c
 #include <stdlib.h>
 
-int *vect1, n;
-printf("Número de elementos del vector: ");
-scanf("%d", &n);
+int main() {
+   int *vect1, n;
 
-/* reservamos memoria para almacenar n enteros */
-vect1 = (int *) malloc(n * sizeof(int));
+   printf("Número de elementos del vector: ");
+   scanf("%d", &n);
 
-/* Verificamos que la asignación se haya realizado correctamente */
-if (vect1  == NULL) {
-	/* Error al intentar reservar memoria */
+   /* reservamos memoria para almacenar n enteros */
+   vect1 = (int *) malloc(n * sizeof(int));
+
+   /* Verificamos que la asignación se haya realizado correctamente */
+   if (vect1  == NULL) {
+   	/* Error al intentar reservar memoria */
+   }
 }
 
 ~~~
 
-El operador `sizeof(tipo)` nos devuelve el número de *bytes* que ocupa el tipo de dato pasado como parámetro. 
+El operador `sizeof(tipo)` nos devuelve el número de *bytes* que ocupa el tipo de dato pasado como parámetro.
 
 Uno de los usos más comunes de la memoria dinámica es la creación de vectores/matrices cuyo número de elementos se define en tiempo de ejecución.
 
@@ -295,13 +296,14 @@ void *calloc(size_t num, size_t size);
 #define TAM = 25
 
 int main() {
-	float *vectorFloat;
-	vectorFloat = (float *)calloc(TAM, sizeof(float));
-	
-	/* Verificamos que la asignación se haya realizado correctamente */
+   float *vectorFloat;
+   vectorFloat = (float *)calloc(TAM, sizeof(float));
+
+   /* Verificamos que la asignación se haya realizado correctamente */
    if (vectorFloat  == NULL) {
-	  /* Error al intentar reservar memoria */
-	}
+      /* Error al intentar reservar memoria */
+      ...
+   }
 }
 ~~~
 
@@ -309,7 +311,7 @@ int main() {
 
 La función `realloc` redimensiona el espacio asignado de forma dinámica anteriormente a un puntero
 
-Sintaxis: 
+Sintaxis:
 
 ~~~c
 void *realloc(void *ptr, size_t size);
@@ -322,10 +324,10 @@ void *realloc(void *ptr, size_t size);
 #define TAM = 20
 
 int main() {
-	float *vectorFloat;
-	vectorFloat = (float *)malloc(sizeof(float) * TAM);
-	
-	vectorFloat = (float *)realloc(vectorFloat, sizeof(float)*50);
+   float *vectorFloat;
+   vectorFloat = (float *)malloc(sizeof(float) * TAM);
+
+   vectorFloat = (float *)realloc(vectorFloat, sizeof(float)*50);
 }
 ~~~
 
@@ -333,7 +335,7 @@ Cuando se redimensiona la memoria con `realloc`, si el nuevo tamaño es mayor qu
 
 #### free
 
-La función `free` sirve para liberar memoria que se asignó dinámicamente. Requiere como parámetro la dirección de memoria inicial de una zona de memoria reservada en la memoria dinámica (tal cual se reservó con `malloc` o `realloc`). La función `free`se encarga de marcar como libre esta memoria. Si el puntero es nulo, `free` no hace nada. 
+La función `free` sirve para liberar memoria que se asignó dinámicamente. Requiere como parámetro la dirección de memoria inicial de una zona de memoria reservada en la memoria dinámica (tal cual se reservó con `malloc` o `realloc`). La función `free`se encarga de marcar como libre esta memoria. Si el puntero es nulo, `free` no hace nada.
 
 Además existe la función `cfree`, que sirve para liberar memoria de los elementos que han sido reservados con `calloc`.
 
@@ -358,11 +360,11 @@ void cfree (void *ptr);
 #define TAM = 20
 
 int main() {
-	float *vectorFloat;
-	vectorFloat = (float *)malloc(sizeof(float) * TAM);
-	...
-	free(vectorFloat);
-	vectorFloat = NULL;
+   float *vectorFloat;
+   vectorFloat = (float *)malloc(sizeof(float) * TAM);
+   ...
+   free(vectorFloat);
+   vectorFloat = NULL;
 }
 ~~~
 
@@ -392,7 +394,7 @@ int main()
    int ***tabla3D;  //será de 5x7x20
 
    int dim1, dim2, dim3;
-   
+
    // Reservamos la memoria
    tabla3D = (int***)malloc(sizeof(int**) * X);
 
@@ -405,11 +407,11 @@ int main()
          }
        }
    }
-   
+
    // Rellenamos sus valores en una función
    rellenarTabla3D(tabla3D);
    printf("%d", tabla3D[2][3][1]); // comprobamos una posición al azar
-  
+
    //Liberamos la memoria de la tabla3D
    for(dim1 = 0; dim1 < X; dim1++){
       for(dim2 = 0; dim2 < Y; dim2++){
@@ -440,7 +442,7 @@ void rellenarTabla3D(int ***tabla){
 Uno de los usos de los punteros es el paso de
 parámetros por referencia a una función.
 Recordemos que los parámetros de una función se
-pueden pasar por valor o por referencia. 
+pueden pasar por valor o por referencia.
 
 En C todos los parámetros de las funciones se pasan por valor. Para simular un
 paso de parámetro por referencia en C, lo que se
@@ -519,10 +521,10 @@ int main()
    vector[0] = 1;  //Rellenamos al azar
    vector[2] = 2;
    printf("Pos 2: %d\n", vector[2]); //Comprobamos
-   
+
    // Liberamos memoria
-	free(vector);
-	vector = NULL;
+   free(vector);
+   vector = NULL;
 }
 
 void creaVector(int **v){
@@ -579,8 +581,8 @@ Ejemplo:
 
 ~~~c
 // Modificamos el ejemplo de la tabla3D
-// Ahora la memoria de la tabla3D se reserva en una función 
-// y se devuelve con return 
+// Ahora la memoria de la tabla3D se reserva en una función
+// y se devuelve con return
 
 int*** creaTabla(){
    int ***tabla;
@@ -591,9 +593,9 @@ int*** creaTabla(){
    for(dim1 = 0; dim1 < X; dim1++){
      tabla[dim1] = (int**)malloc(sizeof(int*) * Y);
      for(dim2 = 0; dim2 < Y; dim2++){
-         tabla[dim1][dim2] = (int*)malloc(sizeof(int) * Z);
-         for(dim3 = 0; dim3 < Z; dim3++){
-             tabla[dim1][dim2][dim3] = 0; /*inicialización*/
+        tabla[dim1][dim2] = (int*)malloc(sizeof(int) * Z);
+        for(dim3 = 0; dim3 < Z; dim3++){
+           tabla[dim1][dim2][dim3] = 0; /*inicialización*/
          }
      }
    }
@@ -602,10 +604,10 @@ int*** creaTabla(){
 
 int main()
 {
-  int ***tabla3D;  //será de 5x7x20
-  int dim1, dim2, dim3;
+   int ***tabla3D;  //será de 5x7x20
+   int dim1, dim2, dim3;
 
-  tabla3D = creaTabla();
+   tabla3D = creaTabla();
 
    ...
 }
@@ -620,7 +622,7 @@ int main()
 ~~~c
 /* El puntero void devuelto por malloc es convertido explícitamente a puntero int */
 int *i = (int *)malloc(sizeof(int));
-~~~ 
+~~~
 
 - Se recomienda que después de liberar un puntero siempre se establezca su valor a `NULL`.
 
@@ -658,7 +660,7 @@ int main()
       printf("%d\n", tabla3D[2][3][1]); // comprobamos una posición al azar
       freeTabla3D(tabla3D);
       tabla3D = NULL;
-      // Si queremos poner tabla3D=NULL dentro de la función
+      // Si queremos poner tabla3D = NULL dentro de la función
       // freeTabla3D, tenemos que pasar el puntero tabla3D por
       // referencia para poder modificarlo
    }
