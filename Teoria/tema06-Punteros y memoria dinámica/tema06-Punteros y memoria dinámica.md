@@ -179,7 +179,7 @@ v + i       ===>  &v[i]
 Podemos hacer un array de caracteres usando punteros.
 
 ~~~c
-char *nombre = "Cristina Pomares";//Es una cadena de 17 caracteres
+char *nombre = "hola qué tal";//Es una cadena de 13 caracteres
 printf("%s",nombre);
 ~~~
 
@@ -193,7 +193,7 @@ strcpy(nombre, "hola");
 Para poder modificar el valor de este puntero, éste tendría que apuntar a una dirección que no sea una constante, como un array.
 
 ~~~c
-char nombre[] = "Cristina Pomares"; //declaramos un array de caracteres
+char nombre[] = "hola qué tal"; //declaramos un array de caracteres
 char *puntero = nombre;//Asignamos al puntero el comienzo del array
 printf("%s \nOtro nombre: ", puntero);
 scanf("%s", puntero);
