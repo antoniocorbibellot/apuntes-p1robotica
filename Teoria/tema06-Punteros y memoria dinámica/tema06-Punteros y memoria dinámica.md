@@ -102,7 +102,7 @@ Ejemplo 3:
 
 ~~~c
 void main() {
-   int x, y, *py; 
+   int x, y, *py;
 
    printf ("\n- Introduzca un número: ");
    scanf("%i",&y);
@@ -200,34 +200,8 @@ scanf("%s", puntero);
 printf("%s\n",puntero);
 ~~~
 
-Aunque hayamos modificado el nombre, la cantidad de caracteres esta limitada por el array original, mas adelante veremos como solucionar esto con memoria dinámica.
+Aunque hayamos modificado el nombre, la cantidad de caracteres esta limitada por el array original, se soluciona con memoria dinámica.
 
-###<a name="1.4"/> 1.4 Operaciones aritméticas
-
-Un puntero nos permite sumar o restar números enteros, pero su funcionamiento es de posiciones, es decir que nos permitirá movernos a la siguiente dirección de memoria.
-
-~~~c
-int x[100],b,*pa,*pb;
-//...
-x[50] = 10;
-pa = &x[50]; //Le asignamos al puntero pa, la direccion de memoria que tiene x[50]
-
-//Operaciones:
-
-b = *pa + 1; //11. igual a: b=x[50]+1; => 11
-
-b = *(pa+1); //Primero pasa a la siguiente direccion de memoria y luego lo referencia
-             //El resultado es: b = x[51];
-
-pb = &x[10]; //al puntero pb se le asigna la direccion de x[10]
-
-*pb = 0; //Al valor que tiene el puntero se le asigna 0
-         //Equivalente a: x[10] = 0
-
-*pb += 2; //El valor del puntero se incrementa en dos unidades, es decir x[10] += 2
-
-(*pb)--; //El valor del puntero se decrementa en una unidad.
-~~~
 
 ## <a name="2"/> 2. Manejo de memoria dinámica
 
