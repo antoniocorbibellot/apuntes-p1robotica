@@ -363,8 +363,7 @@ Se interpreta como un puntero a un tipo que es un puntero que a su vez es un pun
 
 void rellenarTabla3D(int ***);
 
-int main()
-{
+int main() {
    int ***tabla3D;  //será de 5x7x20
 
    int dim1, dim2, dim3;
@@ -379,7 +378,7 @@ int main()
          for(dim3 = 0; dim3 < Z; dim3++){
             tabla3D[dim1][dim2][dim3] = 0; /*inicialización*/
          }
-       }
+      }
    }
 
    // Rellenamos sus valores en una función
@@ -397,7 +396,7 @@ int main()
    tabla3D = NULL;
 }
 
-void rellenarTabla3D(int ***tabla){
+void rellenarTabla3D(int ***tabla) {
   int dim1, dim2, dim3;
 
   for(dim1 = 0; dim1 < X; dim1++){
@@ -440,8 +439,7 @@ void funcion(char *cad){
 }
 
 
-int main()
-{
+int main() {
   char *cadena = {"Hola mundo"};
 
   printf("Main. Valor: %s, Dirección: %p, Referencia: %p\n", cadena, cadena, &cadena);
@@ -459,12 +457,11 @@ Como vemos, en `funcion` hay una referencia a los elementos del array pero no al
 ### Paso de parámetros por referencia
 
 ~~~c
-void funcionRef(char **cad){
+void funcionRef(char **cad) {
   printf("Función. Valor: %s, Dirección: %p, Referencia: %p\n", *cad, *cad, cad);
 }
 
-int main()
-{
+int main() {
    char *cadena = {"Hola mundo"};
 
    printf("Main. Valor: %s, Dirección: %p, Referencia: %p\n", cadena, cadena, &cadena);
@@ -486,8 +483,7 @@ Ejemplo con vector:
 
 void creaVector(int **);
 
-int main()
-{
+int main() {
    int *vector;
 
    // Reservamos la memoria
@@ -501,7 +497,7 @@ int main()
    vector = NULL;
 }
 
-void creaVector(int **v){
+void creaVector(int **v) {
    *v = (int*)malloc(sizeof(int) * TAM);
 }
 ~~~
@@ -511,8 +507,7 @@ void creaVector(int **v){
 // Ahora pasamos la tabla3D como parámetro por referencia
 // a una función que reserva la memoria necesaria para su creación
 
-int main()
-{
+int main() {
    int ***tabla3D;  
 
    creaMatriz(&tabla3D);
@@ -532,7 +527,7 @@ void creaMatriz(int ****tabla3D) {
          for(dim3 = 0; dim3 < Z; dim3++){
             (*tabla3D)[dim1][dim2][dim3] = 0; /*inicialización*/
          }
-       }
+      }
    }
 }
 
@@ -558,7 +553,7 @@ Ejemplo:
 // Ahora la memoria de la tabla3D se reserva en una función
 // y se devuelve con return
 
-int*** creaTabla(){
+int*** creaTabla() {
    int ***tabla;
    int dim1, dim2, dim3;
 
@@ -571,13 +566,12 @@ int*** creaTabla(){
         for(dim3 = 0; dim3 < Z; dim3++){
            tabla[dim1][dim2][dim3] = 0; /*inicialización*/
          }
-     }
+      }
    }
    return tabla;
 }
 
-int main()
-{
+int main() {
    int ***tabla3D;  //será de 5x7x20
    int dim1, dim2, dim3;
 
@@ -591,19 +585,7 @@ int main()
 ### Consejos para el manejo de memoria dinámica
 
 - Siempre que se reserve memoria de forma dinámica con `malloc`, `realloc` o `calloc`, se debe verificar que no haya habido errores (verificando que el puntero no sea NULL).
-- Las funciones de asignación dinámica de memoria devuelven un puntero `void`. En C un puntero `void` se puede convertir automáticamente a un puntero de cualquier otro tipo, por lo que no es necesario hacer una conversión (*cast*). En la asignatura vamos a usar la conversión explícita por claridad.
-
-~~~c
-/* El puntero void devuelto por malloc es convertido explícitamente a puntero int */
-int *i = (int *)malloc(sizeof(int));
-~~~
-
 - Se recomienda que después de liberar un puntero siempre se establezca su valor a `NULL`.
-
-~~~c
-free(i);
-i = NULL;
-~~~
 
 
 ## Ejemplo completo con `typedef`
@@ -623,8 +605,7 @@ TTabla3D crearTabla3D();
 void freeTabla3D(TTabla3D);
 void rellenarTabla3D(TTabla3D);
 
-int main()
-{
+int main() {
    TTabla3D tabla3D;
 
    tabla3D = crearTabla3D();
@@ -659,7 +640,7 @@ TTabla3D crearTabla3D() {
    return tabla3D;
 }
 
-void freeTabla3D(TTabla3D tabla){
+void freeTabla3D(TTabla3D tabla) {
    int dim1, dim2, dim3;
 
    for(dim1 = 0; dim1 < X; dim1++){
@@ -671,7 +652,7 @@ void freeTabla3D(TTabla3D tabla){
    free(tabla);
 }
 
-void rellenarTabla3D(TTabla3D tabla){
+void rellenarTabla3D(TTabla3D tabla) {
    int dim1, dim2, dim3;
 
    for(dim1 = 0; dim1 < X; dim1++){
