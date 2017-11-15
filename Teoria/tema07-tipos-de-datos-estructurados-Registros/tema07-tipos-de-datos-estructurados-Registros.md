@@ -71,23 +71,23 @@ typedef struct {...} nombreRegistro;
 
 ~~~c
 typedef struct {
-	char nombre[20];
-	char apellidos[30];
-	char nif[10];
-	int edad;
-	char genero;
+   char nombre[20];
+   char apellidos[30];
+   char nif[10];
+   int edad;
+   char genero;
 } TPersona;
 
 typedef struct{
-	int codCliente;
-	TPersona *datosCliente;
-	char direccion[100];
-	char nombreEmpresa[50];
+   int codCliente;
+   TPersona *datosCliente;
+   char direccion[100];
+   char nombreEmpresa[50];
 } TCliente;
 
 int main() {
-	TCliente cliente1;
-	TCliente *cliente2;
+   TCliente cliente1;
+   TCliente *cliente2;
 }
 ~~~
 
@@ -105,13 +105,13 @@ Para acceder a los campos de una variable de tipo registro utilizamos el operado
 
 ~~~c
 int main() {
-	TCliente cliente1;
-	TCliente *cliente2; // puntero a registro
+   TCliente cliente1;
+   TCliente *cliente2; // puntero a registro
 
-	cliente1.codCliente = 2;
-	cliente1.datosCliente = NULL;
-	strcpy(cliente1.direccion, "Desconocida");
-	strcpy(cliente1.nombreEmpresa, "Unknown Inc.");
+   cliente1.codCliente = 2;
+   cliente1.datosCliente = NULL;
+   strcpy(cliente1.direccion, "Desconocida");
+   strcpy(cliente1.nombreEmpresa, "Unknown Inc.");
 }
 ~~~
 
@@ -127,22 +127,22 @@ Ya hemos visto que una variable de tipo puntero almacena direcciones de memoria,
 
 ~~~c
 // A partir de la dirección de otro registro:
-   TCliente cliente1;
-   TCliente *cliente2;
+TCliente cliente1;
+TCliente *cliente2;
 
-   cliente2 = &cliente1;
+cliente2 = &cliente1;
 ~~~
 
 ~~~c
 // Reservando una zona de memoria dinámica:
 
-   cliente2 = (TCliente *)malloc(sizeof(TCliente));
+cliente2 = (TCliente *)malloc(sizeof(TCliente));
 
-   ...
+...
 
 // Después de su uso hay que liberar la memoria:
 
-   free(cliente2);
+free(cliente2);
 ~~~
 
 #### El operador `->`
@@ -150,16 +150,16 @@ Ya hemos visto que una variable de tipo puntero almacena direcciones de memoria,
 Para acceder a los campos de una variable de tipo puntero a registro utilizamos el operador `->`. Este operador indica que en la parte izquierda está la dirección de memoria de un registro, y la parte derecha los campos del mismo.
 
 ~~~c
-    cliente2 = (TCliente *)malloc(sizeof(TCliente));
-	cliente2->codCliente = 2;
-	cliente2->datosCliente = (TPersona *)malloc(sizeof(TPersona));
-	strcpy(cliente2->datosCliente->nombre, "Pepe");
-	strcpy(cliente2->datosCliente->apellidos, "Pérez");
-	strcpy(cliente2->datosCliente->nif, "22444555A");
-	cliente2->datosCliente->edad = 20;
-	cliente2->datosCliente->genero = 'm';
-	strcpy(cliente2->direccion, "Calle street, 23");
-	strcpy(cliente2->nombreEmpresa, "Horchatería Pepe");
+cliente2 = (TCliente *)malloc(sizeof(TCliente));
+cliente2->codCliente = 2;
+cliente2->datosCliente = (TPersona *)malloc(sizeof(TPersona));
+strcpy(cliente2->datosCliente->nombre, "Pepe");
+strcpy(cliente2->datosCliente->apellidos, "Pérez");
+strcpy(cliente2->datosCliente->nif, "22444555A");
+cliente2->datosCliente->edad = 20;
+cliente2->datosCliente->genero = 'm';
+strcpy(cliente2->direccion, "Calle street, 23");
+strcpy(cliente2->nombreEmpresa, "Horchatería Pepe");
 ~~~
 
 ### <a name="1-3"/> 1.3  Paso de registro como parámetro a función
@@ -207,10 +207,10 @@ Podemos definir arrays donde su tipo base sea un registro, es decir, cada elemen
 
 ~~~c
 typedef struct {
-	char nombre[50];
-	char descripcion[100];
-	float precio;
-	int stock;
+   char nombre[50];
+   char descripcion[100];
+   float precio;
+   int stock;
 } TProducto;
 
 TProducto vectorProductos[100];
@@ -406,18 +406,18 @@ Declaración de registros:
 #define MAX_CLIENTES 100
 
 typedef struct {
-	char nombre[20];
-	char apellidos[30];
-	char nif[10];
-	int edad;
-	char genero;
+   char nombre[20];
+   char apellidos[30];
+   char nif[10];
+   int edad;
+   char genero;
 } TPersona;
 
 typedef struct{
-	int codCliente;
-	TPersona *datosCliente;
-	char direccion[100];
-	char nombreEmpresa[50];
+   int codCliente;
+   TPersona *datosCliente;
+   char direccion[100];
+   char nombreEmpresa[50];
 } TCliente;
 
 ~~~
@@ -426,14 +426,14 @@ Registros por valor:
 
 ~~~c
 void imprimirDatosPersona(TPersona persona) {
-	printf("Nombre: \t%s\n", persona.nombre);
-	printf("Apellidos: \t%s\n", persona.apellidos);
-	printf("NIF: \t\t%s\n", persona.nif);
-	printf("Edad: \t\t%d años \nGénero: \t%s\n", persona.edad, persona.genero == 'm'?"Masculino":"Femenino");
+   printf("Nombre: \t%s\n", persona.nombre);
+   printf("Apellidos: \t%s\n", persona.apellidos);
+   printf("NIF: \t\t%s\n", persona.nif);
+   printf("Edad: \t\t%d años \nGénero: \t%s\n", persona.edad, persona.genero == 'm'?"Masculino":"Femenino");
 }
 
 void imprimirDatosCliente(TCliente cliente) {
-...
+   ...
 }
 ~~~
 
@@ -441,19 +441,19 @@ Registros por referencia:
 
 ~~~c
 void obtenerDatosPersona(TPersona *persona) {
-...
+   ...
 }
 
 void cambiarDireccionCliente(TCliente *cliente) {
-...
+   ...
 }
 
 void cambiarEmpresaCliente(TCliente *cliente) {
-...
+   ...
 }
 
 int crearNuevoCliente(TCliente **cliente, int id) {
-...
+   ...
 }
 ~~~
 
