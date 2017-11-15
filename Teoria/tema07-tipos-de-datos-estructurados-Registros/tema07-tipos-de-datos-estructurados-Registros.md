@@ -125,6 +125,8 @@ TCliente *cliente2; // puntero a registro
 
 Ya hemos visto que una variable de tipo puntero almacena direcciones de memoria, en este caso, direcciones de memoria que almacenan registros. Podemos dar una dirección válida de dos maneras:
 
+- Apuntando a otro registro:
+
 ~~~c
 // A partir de la dirección de otro registro:
 TCliente cliente1;
@@ -132,6 +134,8 @@ TCliente *cliente2;
 // Comparten la misma zona de memoria:
 cliente2 = &cliente1;
 ~~~
+
+- Reservando una nueva zon de memoria:
 
 ~~~c
 // Reservando una zona de memoria dinámica:
