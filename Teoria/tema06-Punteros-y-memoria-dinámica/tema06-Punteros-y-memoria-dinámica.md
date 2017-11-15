@@ -15,7 +15,7 @@
 - [3. Punteros y funciones](#3)
 
 
-## <a name="1"/> 1. Punteros
+## <a name="1"/> 1. Punteros 
 
 Como hemos visto, la **memoria** del ordenador es el lugar donde se almacenan los datos y las instrucciones de un programa. Esta memoria es la memoria RAM, que es diferente a la memoria de almacenamiento como discos duros, etc. Está compuesta por un gran número de **celdas** (bytes) de información. A cada una de estas celdas se le asigna una **dirección de memoria**, que permite distinguir unas celdas de otras. De forma que, dada la dirección de memoria de una celda, se podrá obtener su valor actual y modificarlo (como ya hemos visto por ejemplo en el paso de parámetros por referencia).
 
