@@ -164,9 +164,9 @@ strcpy(cliente2->nombreEmpresa, "Horchatería Pepe");
 
 ### <a name="1-3"/> 1.3  Paso de registro como parámetro a función
 
-- De forma general:	- Paso por valor cuando se use la información delregistro sin modificarlo	- Paso por referencia cuando modifiquemos algúncampo del registro	- Puntero doble a registro cuando reservemosmemoria para el registro dentro de la función
+- De forma general:	- Paso por valor cuando se use la información delregistro sin modificarlo	- Paso por referencia cuando modifiquemos algún campo del registro	- Puntero doble a registro cuando reservemosmemoria para el registro dentro de la función
 
-- Tenemos que tener en cuenta que el tamaño del registro en memoria es elevado (paso por valor), por lo que valoraremos en la implementación cuándo nos conviene pasarlo por valor o por referencia.
+- Particularmente, tenemos que tener en cuenta que el tamaño del registro en memoria es elevado (paso por valor), por lo que valoraremos en la implementación cuándo nos conviene pasarlo por valor o por referencia, independientemente de si se modifican o no sus campos.
 
 ### <a name="1-4"/> 1.4 Funciones que devuelven registros
 
