@@ -129,7 +129,7 @@ Ya hemos visto que una variable de tipo puntero almacena direcciones de memoria,
 // A partir de la dirección de otro registro:
 TCliente cliente1;
 TCliente *cliente2;
-
+// Comparten la misma zona de memoria:
 cliente2 = &cliente1;
 ~~~
 
