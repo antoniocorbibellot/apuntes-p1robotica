@@ -1,5 +1,5 @@
 
-# Tema 7: Tipos de datos estructurados: Registros o estructuras de datos
+# Tema 7: Tipos de datos estructurados: Registros
 
 ## Contenidos
 
@@ -7,7 +7,7 @@
 	- [1-1. Definición ](#1-1)
 	- [1-2. Operadores ](#1-2)
 	- [1-3. Registros como paso de parámetros a funciones](#1-3)
-- [2. Arrays de registros](#2) 
+- [2. Arrays de registros](#2)
 
 
 ## <a name="1"/> 1. Registros
@@ -31,28 +31,28 @@ Caraterísticas:
 - Cada uno de los elementos de un registro se denomina **campo**. Para referirse a un determinado elemento de un registro se deberá utilizar el identificador del registro, seguido de un punto ‘.’ y del identificador del campo correspondiente
 
 > Persona:
-> 
+>
 > 	- Nombre
 > 	- Apellidos
 > 	- NIF
 > 	- edad
 > 	- género
-> 
+>
 > Dirección:
-> 
+>
 > 	- Calle
 > 	- Número
 > 	- CP
 > 	- Población
 > 	- Provincia
-> 
+>
 > Cliente:
-> 
+>
 > 	- NumCliente
 > 	- Persona
 > 	- Dirección
 > 	- Empresa
-> 
+>
 
 Diferencias respecto a los arrays:
 
@@ -107,9 +107,9 @@ Para acceder a los campos de una variable de tipo registro utilizamos el operado
 int main() {
 	TCliente cliente1;
 	TCliente *cliente2; // puntero a registro
-	
+
 	cliente1.codCliente = 2;
-	cliente1.datosCliente = NULL;	
+	cliente1.datosCliente = NULL;
 	strcpy(cliente1.direccion, "Desconocida");
 	strcpy(cliente1.nombreEmpresa, "Unknown Inc.");
 }
@@ -137,9 +137,9 @@ Ya hemos visto que una variable de tipo puntero almacena direcciones de memoria,
 // Reservando una zona de memoria dinámica:
 
    cliente2 = (TCliente *)malloc(sizeof(TCliente));
-   
+
    ...
-   
+
 // Después de su uso hay que liberar la memoria:
 
    free(cliente2);
@@ -179,13 +179,13 @@ TCliente * creaCliente();
 
 int main() {
    TCliente *cliente3 = NULL;
-   
+
    // Reservar memoria
    cliente3 = creaCliente();
-      
+
    // Resto del código
    ...
-   
+
    // Liberar memoria
    free(cliente3);
    cliente3 = NULL;
@@ -199,7 +199,7 @@ TCliente * creaCliente() {
    return cliente;
 }
 ~~~
- 
+
 
 ## <a name="3"/> 2. Arrays de registros
 
@@ -263,8 +263,8 @@ typedef TFichaAlumno TAlumnos [NUMALU];
 Escribe un programa en C que guarde información de 30 alumnos. De cada alumno leeremos su número de expediente, nombre, fecha de nacimiento, fecha de ingreso y su nota media. El programa debe permitir dar de alta un alumno y mostrar todos los alumnos.
 
 ~~~c
-#define TAMCAD 45 
-#define NUMALU 30 
+#define TAMCAD 45
+#define NUMALU 30
 
 typedef struct {
    int dia;
@@ -385,16 +385,16 @@ void darDeAltaAlumno(TAlumnos alumnos, int *numAlumnos) {
 Cartera de clientes: Una empresa quiere manejar una cartera de hasta 100 clientes. La información a manejar de cada cliente es:
 
 > Persona:
-> 
+>
 > 	- Nombre
 > 	- Apellidos
 > 	- NIF
 > 	- edad
 > 	- género
-> 
-> 
+>
+>
 > Cliente:
-> 
+>
 > 	- NumCliente
 > 	- Persona
 > 	- Dirección
@@ -420,7 +420,7 @@ typedef struct{
 	char nombreEmpresa[50];
 } TCliente;
 
-~~~ 
+~~~
 
 Registros por valor:
 
@@ -436,7 +436,7 @@ void imprimirDatosCliente(TCliente cliente) {
 ...
 }
 ~~~
- 
+
 Registros por referencia:
 
 ~~~c
