@@ -135,7 +135,7 @@ TCliente *cliente2;
 cliente2 = &cliente1;
 ~~~
 
-- Reservando una nueva zon de memoria:
+- Reservando una nueva zona de memoria:
 
 ~~~c
 // Reservando una zona de memoria dinámica:
