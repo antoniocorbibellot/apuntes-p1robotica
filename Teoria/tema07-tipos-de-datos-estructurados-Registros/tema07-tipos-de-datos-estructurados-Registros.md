@@ -232,9 +232,11 @@ numProductos++;
 
 ---
 
-### Ejercicio 1
+### Ejemplos
 
-Define los tipos de datos necesarios que permitan almacenar los datos de 100 alumnos. De cada alumno se quiere almacenar su nombre, apellidos y dirección. Cada uno tiene 10 asignaturas compuestas de código de la asignatura y nota.
+#### Ejemplo 1: tipos de datos estáticos
+
+Define los tipos de datos necesarios que permitan almacenar los datos de 100 alumnos. De cada alumno se quiere almacenar su nombre, apellidos y dirección. Cada uno tiene 10 asignaturas compuestas de código de la asignatura y nota. 
 
 ~~~c
 //En primer lugar definimos las constantes necesarias.
@@ -262,9 +264,9 @@ typedef struct {
 typedef TFichaAlumno TAlumnos [NUMALU];
 ~~~
 
-### Ejercicio 2
+#### Ejemplo 2: Arrays y registros estáticos
 
-Escribe un programa en C que guarde información de 30 alumnos. De cada alumno leeremos su número de expediente, nombre, fecha de nacimiento, fecha de ingreso y su nota media. El programa debe permitir dar de alta un alumno y mostrar todos los alumnos.
+Escribe un programa que guarde información de 30 alumnos. De cada alumno leeremos su número de expediente, nombre, fecha de nacimiento, fecha de ingreso y su nota media. El programa debe permitir dar de alta un alumno y mostrar todos los alumnos. 
 
 ~~~c
 #define TAMCAD 45
@@ -383,10 +385,147 @@ void darDeAltaAlumno(TAlumnos alumnos, int *numAlumnos) {
 }
 ~~~
 
-### Ejercicio 3
+#### Ejemplo 3: Array de tipo puntero a registro
+
+Mismo ejercicio anterior, pero ahora el array de los alumnos es de tipo puntero a registro `TFichaAlumno`.
+
+~~~c
+//Se muestra los cambios respecto al ejercicio anterior
+
+typedef TFichaAlumno* TAlumnos[NUMALU];
+
+int main(){
+
+   // ... código del menú ...
+
+   // Liberar memoria
+   for (i = 0; i < numAlumnos; i++)
+      free(alumnos[i]);
+}
+
+void mostrarAlumnos(TAlumnos alumnos, int numAlumnos) {
+   int i;
+
+   for(i = 0; i<numAlumnos;i++) {
+      printf("Alumno: %d\n", alumnos[i]->exp);
+      printf("Nombre: %s\n", alumnos[i]->nombre);
+      printf("Fecha de nacimiento: ");
+      mostrarFecha(alumnos[i]->fechaNac);
+      printf("Fecha de ingreso: ");
+      mostrarFecha(alumnos[i]->fechaIng);
+      printf("Nota media: %.2f\n", alumnos[i]->notaMedia);
+   }
+}
+
+//Solicita los datos de los alumnos
+void darDeAltaAlumno(TAlumnos alumnos, int *numAlumnos) {
+   int i;
+
+   i = *numAlumnos;
+   alumnos[i] = (TFichaAlumno *)malloc(sizeof(TFichaAlumno));
+   printf("Introduce el número de expediente: ");
+   scanf("%d", &alumnos[i]->exp);
+   printf("Introduce el nombre: ");
+   scanf("%s",alumnos[i]->nombre);
+   printf("Fecha de nacimiento:\n");
+   pedirFecha(&alumnos[i]->fechaNac);
+   printf("Fecha de ingreso:\n");
+   pedirFecha(&alumnos[i]->fechaIng);
+   printf("Introduce la nota media: ");
+   scanf("%f", &alumnos[i]->notaMedia);
+   (*numAlumnos)++;
+}
+~~~
+
+#### Ejemplo 4: Array dinámico de registros
+
+Escribe un programa que guarde información de vehículos. De cada vehículo interesa almacenar la matrícula, la marca, el propietario y el precio. Del propietario guardaremos sus datos personales: nombre, dirección, teléfono y nif. Se almacenarán en un array dinámico que irá aumentando conforme se vayan añadiendo coches.
+
+~~~c
+#define TAMCAD 15
+
+typedef struct {
+   char nombre[TAMCAD];
+   char nif[TAMCAD];
+}TPersona;
+
+typedef struct {
+   char matricula[TAMCAD];
+   char marca[TAMCAD];
+   float precio;
+   TPersona propietario;
+}TFichaCoche;
+
+typedef TFichaCoche *TCoches; // Array dinámico de tipo TFichaCoche
+
+void nuevoCoche(TCoches*, int);
+void datosNuevoCoche(TCoches, int*);
+void muestraCoches(TCoches, int);
+
+int main() {
+   TCoches coches; // Array dinámico que va aumentando conforme se añaden coches
+   int numCoches = 0, i;
+
+// Probamos: añadimos 3 coches
+   coches = (TFichaCoche*) malloc(sizeof(TFichaCoche));  //Inicializamos
+   datosNuevoCoche(coches, &numCoches);
+   nuevoCoche(&coches, numCoches);
+   datosNuevoCoche(coches, &numCoches);
+   nuevoCoche(&coches, numCoches);
+   datosNuevoCoche(coches, &numCoches);
+
+// Los mostramos
+   muestraCoches(coches, numCoches);
+
+// Liberamos memoria
+   free(coches);
+}
+
+void nuevoCoche(TCoches *coches, int num) {
+   *coches = (TFichaCoche *)realloc(*coches, sizeof(TFichaCoche)*(num+1));
+}
+
+void datosNuevoCoche(TCoches coches, int *numCoches){
+   int num;
+
+   num = *numCoches;
+
+   printf("**** Coche %d ****\n", num);
+   printf("Introduce matrícula: ");
+   scanf("%s",coches[num].matricula);
+   printf("Introduce marca: ");
+   scanf("\n%[^\n]s",coches[num].marca);
+   printf("Introduce precio: ");
+   scanf("%f", &coches[num].precio);
+
+   // propietario
+   printf("Nombre propietario: ");
+   scanf("\n%[^\n]s",coches[num].propietario.nombre);
+   printf("NIF propietario: ");
+   scanf("\n%s", coches[num].propietario.nif);
+
+   (*numCoches)++;
+}
+
+void muestraCoches(TCoches coches, int num) {
+   int i;
+
+   for (i = 0; i < num; i++) {
+      printf("***********************\n");
+      printf("Matrícula: %s\n", coches[i].matricula);
+      printf("Marca: %s\n", coches[i].marca);
+      printf("Precio: %f\n", coches[i].precio);
+      printf("Propietario: %s con nif: %s\n", coches[i].propietario.nombre, coches[i].propietario.nif);
+      printf("***********************\n");
+   }
+}
+~~~
+___
+
+### Ejercicio: paso de parámetros (registros) por valor y referencia
 
 
-Cartera de clientes: Una empresa quiere manejar una cartera de hasta 100 clientes. La información a manejar de cada cliente es:
+Una empresa quiere manejar una cartera de hasta 100 clientes. La información a manejar de cada cliente es:
 
 > Persona:
 >
@@ -404,14 +543,15 @@ Cartera de clientes: Una empresa quiere manejar una cartera de hasta 100 cliente
 > 	- Dirección
 > 	- Empresa
 
-Declaración de registros:
+La declaración de registros es:
 
 ~~~c
-#define MAX_CLIENTES 100
+#define MAXCLIENTES 100
+#define MAXCAD 50 
 
 typedef struct {
-   char nombre[20];
-   char apellidos[30];
+   char nombre[MAXCAD];
+   char apellidos[MAXCAD];
    char nif[10];
    int edad;
    char genero;
@@ -420,13 +560,13 @@ typedef struct {
 typedef struct{
    int codCliente;
    TPersona *datosCliente;
-   char direccion[100];
-   char nombreEmpresa[50];
+   char direccion[MAXCAD];
+   char nombreEmpresa[MAXCAD];
 } TCliente;
 
 ~~~
 
-Registros por valor:
+Nos dan la siguiente definición de función pasando como parámetro un registro por valor:
 
 ~~~c
 void imprimirDatosPersona(TPersona persona) {
@@ -435,27 +575,32 @@ void imprimirDatosPersona(TPersona persona) {
    printf("NIF: \t\t%s\n", persona.nif);
    printf("Edad: \t\t%d años \nGénero: \t%s\n", persona.edad, persona.genero == 'm'?"Masculino":"Femenino");
 }
+~~~
 
+Completa la definición de las siguientes funciones:
+
+~~~c
+// Paso como parámetro un registro por valor
 void imprimirDatosCliente(TCliente cliente) {
    ...
 }
-~~~
 
-Registros por referencia:
-
-~~~c
+// Paso como parámetro un registro por referencia (puntero a registro)
 void obtenerDatosPersona(TPersona *persona) {
    ...
 }
 
+// Paso como parámetro un registro por referencia (puntero a registro)
 void cambiarDireccionCliente(TCliente *cliente) {
    ...
 }
 
+// Paso como parámetro un registro por referencia (puntero a registro)
 void cambiarEmpresaCliente(TCliente *cliente) {
    ...
 }
 
+// Paso como parámetro un puntero a registro por referencia (doble puntero a registro)
 int crearNuevoCliente(TCliente **cliente, int id) {
    ...
 }
@@ -469,20 +614,50 @@ int main() {
 }
 ~~~
 
-Realizar:
 
-1. Completar el código del ejercicio anterior
-2. Sobre el ejercicio resuelto anterior, añadir un registro para la dirección y crear las funciones que permitan leer el registro de la entrada estándar y escribir el registro en la salida estándar. Modificar el código del ejercicio anterior para incorporar el nuevo código.
+#### Solución
 
-- Dirección:
-	- Calle
-	- Número
-	- CP
-	- Ciudad
-	- Provincia
-	- País
+~~~c
+/// Ejercicio 1
+void imprimirDatosCliente(TCliente cliente) {
+   printf("CodCliente: %d\n", cliente.codCliente);
+   printf("Datos cliente:\n");
+   imprimirDatosPersona(*cliente.datosCliente); // * para pasar el contenido, y no el puntero
+   printf("Dirección: %s\n", cliente.direccion);
+   printf("Nombre empresa: %s\n", cliente.nombreEmpresa);
+}
+
+void obtenerDatosPersona(TPersona *persona) {
+   printf("Introduzca el nombre: ");
+   scanf("%s", persona->nombre);
+   printf("Introduzca los apellidos: ");
+   scanf("%s", persona->apellidos);
+   printf("Introduzca el nif: ");
+   scanf("%s", persona->nif);
+   printf("Introduzca la edad: ");
+   scanf("%d", &persona->edad);
+   printf("Introduzca el género: ");
+   scanf("\n%c", &persona->genero);
+}
+
+void cambiarDireccionCliente(TCliente *cliente) {
+   printf("Introduzca dirección: ");
+   scanf("%s", cliente->direccion);
+}
 
 
+void cambiarEmpresaCliente(TCliente *cliente) {
+   printf("Introduzca nombre empresa: ");
+   scanf("%s", cliente->nombreEmpresa);
+}
+
+void crearNuevoCliente(TCliente **cliente, int id) {
+      *cliente = (TCliente*) malloc(sizeof(TCliente*));
+      (*cliente)->codCliente = id;
+      (*cliente)->datosCliente = (TPersona*) malloc(sizeof(TPersona*));
+      obtenerDatosPersona((*cliente)->datosCliente);
+}
+~~~
 
 ----
 
