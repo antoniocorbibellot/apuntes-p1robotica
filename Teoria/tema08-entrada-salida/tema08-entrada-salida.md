@@ -1,7 +1,7 @@
 
 # Tema 8: Entrada / salida
 
-## Contenidos 
+## Contenidos
 
 - [1. Introducción](#1)
     - [1.1 Ficheros](#1-1)
@@ -24,23 +24,23 @@ C ofrece un conjunto de funciones para realizar operaciones de entrada y salida 
 
 ###<a name="1.2"/> 1.2 Streams (flujos) de E/S
 
-Cuando se crea o abre un fichero, se crea un ***stream*** asociado al fichero, y se genera un descriptor de archivo para poder identificarlo. 
+Cuando se crea o abre un fichero, se crea un ***stream*** asociado al fichero, y se genera un descriptor de archivo para poder identificarlo.
 
-Además, se crea un ***buffer*** (almacén intermedio) por donde pasan los datos del archivo. Se utiliza para optimizar las lecturas y escrituras, sobre todo si se realizan de pocos datos y de forma continua. 
+Además, se crea un ***buffer*** (almacén intermedio) por donde pasan los datos del archivo. Se utiliza para optimizar las lecturas y escrituras, sobre todo si se realizan de pocos datos y de forma continua.
 
 Todo archivo abierto lleva asociado un puntero de posición que indica el lugar donde realizará la siguiente lectura o escritura. Cuando se crea un archivo, el **puntero de la posición** es cero (inicio). Se va actualizando conforme se lee o se escribe. Se puede indicar una nueva posición con la función *fseek*.
 
-Hay dos tipos de *streams*: 
+Hay dos tipos de *streams*:
 
-- Uno es el *stream* de **texto**, consistente en líneas de texto. Una línea es una secuencia de caracteres terminada en el carácter de línea nueva ('\n' ó '\r\n'). 
+- Uno es el *stream* de **texto**, consistente en líneas de texto. Una línea es una secuencia de caracteres terminada en el carácter de línea nueva ('\n' ó '\r\n').
 - El otro formato es el del *stream* **binario**, que consiste en una secuencia de bytes que representan datos internos como números, estructuras o arrays. Se utiliza principalmente para datos que no son de tipo texto, pueden contener cualquier información. La codificación de estos ficheros ha de estar especificada mediante un estándar o con la documentación del programa.
 
 En el momento de abrir o crear un *stream*, hay que indicar de qué tipo de archivo se trata:
 
-- **Texto**. Formado por líneas de caracteres, terminadas en un salto de línea. 
+- **Texto**. Formado por líneas de caracteres, terminadas en un salto de línea.
 - **Binario**. Formado por una secuencia ordenada de caracteres, sin separadores especiales, que pueden almacenar cualquier tipo de información.
 
-No hay diferencia real entre uno y otro, salvo que en un fichero en modo texto hay fines de línea y hay funciones de ficheros que pueden buscarlos. Si se abre en modo binario, la información puede ser de cualquier tipo y las funciones de ficheros no buscarán fines de línea. 
+No hay diferencia real entre uno y otro, salvo que en un fichero en modo texto hay fines de línea y hay funciones de ficheros que pueden buscarlos. Si se abre en modo binario, la información puede ser de cualquier tipo y las funciones de ficheros no buscarán fines de línea.
 
 
 ## <a name="2"/> 2. Manejo de ficheros
@@ -59,19 +59,19 @@ FILE *ptr_fich;
 ###<a name="2.1"/> 2.1 Abrir el fichero
 
 La función `fopen` abre o crea un fichero y lo asocia a un *stream*.
-Sintaxis: 
+Sintaxis:
 ~~~cFILE *fopen(char *nombre, char *modo)
 ~~~Los parámetros que recibe `fopen` son:- `nombre`: cadena de caracteres con la ruta del fichero a abrir- `modo`: cadena de caracteres que indica cómo vamos a abrir el fichero. Lo veremos más adelante.
 
 La función `fopen` devuelve un puntero de tipo `FILE`. Si ha ocurrido algún error al abrirse, devuelve NULL.
 
-El parámetro `modo` es una combinación de los caracteres r (read, lectura), w (write, escritura), b (binario), a (append, añadir), y + (actualizar). 
+El parámetro `modo` es una combinación de los caracteres r (read, lectura), w (write, escritura), b (binario), a (append, añadir), y + (actualizar).
 
 
 #### Modos de apertura de `fopen`
 
-- **"r"** modo lectura. El flujo se posiciona al principio del fichero. 
-- **"r+"** modo lectura y escritura. El flujo se posiciona al principio del fichero- **"w"** modo escritura. Si el fichero no existe, se crea. Si existe, se trunca a 0. El flujo se posiciona al principio del fichero- **"w+"** modo lectura y escritura. Si el fichero no existe, se crea. Si existe, se trunca a 0. El flujo se posiciona al principio del fichero 
+- **"r"** modo lectura. El flujo se posiciona al principio del fichero.
+- **"r+"** modo lectura y escritura. El flujo se posiciona al principio del fichero- **"w"** modo escritura. Si el fichero no existe, se crea. Si existe, se trunca a 0. El flujo se posiciona al principio del fichero- **"w+"** modo lectura y escritura. Si el fichero no existe, se crea. Si existe, se trunca a 0. El flujo se posiciona al principio del fichero
 - **"a"** modo escritura añadir al final. Si el fichero no existe, se crea. El flujo se posiciona al final del fichero.- **"a+"** modo lectura y escritura añadir al final. Si el fichero no existe, se crea. El flujo se posiciona al final del fichero.
 - Podemos combinar modos: **"rw"**
 
@@ -82,7 +82,7 @@ Después de abrir un fichero y leer o escribir en él, hay que desenlazarlo del 
 
 ~~~cint fclose(FILE *f)
 ~~~
-- La función devuelve 0 si se cerró con éxito- Cuando se termina la ejecución de un programa, el sistema operativo se "suele" encargar de cerrar todos los ficheros abiertos- Si no cerramos los ficheros abiertos podemos tener problemas. 
+- La función devuelve 0 si se cerró con éxito- Cuando se termina la ejecución de un programa, el sistema operativo se "suele" encargar de cerrar todos los ficheros abiertos- Si no cerramos los ficheros abiertos podemos tener problemas.
 
 
 ###<a name="2.3"/> 2.3 Leer y escribir en un fichero
@@ -91,7 +91,7 @@ Después de abrir un fichero y leer o escribir en él, hay que desenlazarlo del 
 
 #### Lectura y escritura con formato: `fscanf`y `fprintf`
 
-~~~cfscanf (FILE *f, char *formato...)fprintf (FILE *f, char * formato...) 
+~~~cfscanf (FILE *f, char *formato...)fprintf (FILE *f, char * formato...)
 ~~~
 
 La función `fscanf`permite leer datos de un *stream*. Todos los formatos y opciones de `scanf`se pueden aplicar a `fscanf`.
@@ -123,12 +123,12 @@ int main() {
 
 Sintaxis:
 
-~~~cint fgetc (FILE *f) 
+~~~cint fgetc (FILE *f)
 ~~~
 
 `fgetc` devuelve el carácter siguiente del *stream* como `unsigned char` y lo convierte a `int`. Devuelve el carácter `EOF` si hemos llegado al final del fichero.
 
-~~~cint fputc (int carácter, FILE *f) 
+~~~cint fputc (int carácter, FILE *f)
 ~~~
 
 `putc` escribe el carácter en la posición a la que apunta el indicador de posición. Si todo es correcto, avanza el puntero de posición. Si se produce error, devuelve `EOF`.
@@ -139,20 +139,17 @@ Ejemplo:
 int main() {
    FILE *f1, *f2;
    char ch;
-   int ret;
 
    f1 = fopen("file1.txt","r");
    f2 = fopen("file2.txt","w");
 
    if (f1 == NULL) {
-      printf ("Error al abrir ejemplo1.c\n");
-      ret = 1;
+      printf ("Error al abrir file1.txt\n");
    }
    else {
       if (f2 == NULL) {
-         printf ("Error al abrir ejemplo2.c \n");
+         printf ("Error al abrir file2.txt \n");
          fclose(f1);
-         ret = 1;
       }
       else {
          //Bucle de copia carácter a carácter
@@ -164,11 +161,10 @@ int main() {
 
       }
    }
-   return ret;
 }
 ~~~
 
-### Lectura y escritura de líneas completas: `fgets`y `fputs` 
+### Lectura y escritura de líneas completas: `fgets`y `fputs`
 
 Para leer o escribir una línea completa:
 
@@ -189,20 +185,17 @@ int main() {
    FILE *f;
    FILE *f2;
    char cad[TAM];
-   int ret = 0;
 
    f = fopen("ejemplo1.c","r");
    f2 = fopen("ejemplo3.c","w");
 
    if (f == NULL) {
       printf ("Error al abrir ejemplo1.c\n");
-      ret = 1;
    }
    else {
       if (f2 == NULL) {
          printf ("Error al abrir ejemplo2.c \n");
          fclose(f);
-         ret = 1;
       }
       else {
          while (!feof(f)) {
@@ -214,7 +207,6 @@ int main() {
          fclose(f2);
       }
    }
-   return ret;
 }
 ~~~
 
@@ -255,7 +247,6 @@ typedef struct {
 int main() {
    TPersona alumno;
    FILE *f, *f2;
-   int ret = 0;
 
    strcpy(alumno.nombre, "Pepe");
    strcpy(alumno.apellidos, "Garcia Sanchez");
@@ -265,7 +256,6 @@ int main() {
 
    if (f == NULL) {
       printf ("Error al abrir fichero\n");
-      ret = 1;
    }
    else {
       // Escribimos el registro de una sola vez
@@ -273,18 +263,17 @@ int main() {
              sizeof(alumno),  // tamaño
              1,               // número de elementos
              f);              // descriptor del fichero
-            
+
       fclose(f);
    }
-   
+
    f2 = fopen("alumno.txt","w");
 
    if (f2 == NULL) {
       printf ("Error al abrir fichero\n");
-      ret = 1;
    }
    else {
-    
+
       // Escribimos a continuación el registro campo a campo
       fprintf(f2, "\n%s\n", alumno.nombre);
       fprintf(f2, "%s\n", alumno.apellidos);
@@ -292,7 +281,6 @@ int main() {
 
       fclose(f2);
    }
-   return ret;
 }
 ~~~
 
@@ -305,8 +293,8 @@ Para poder pasar parámetros a un programa a través de la línea de comandos ut
 int main(int argc, char *argv[])
 ~~~
 
-- El primer agumento entero `argc`, contiene el número de argumentos recibidos por el programa, debemos considerar que siempre será el número de argumentos pasados más 1, ya que el primer agumento se reserva para contener el nombre del programa. 
-- El segundo `argv`es un puntero a un array de chars que contiene los parámetros pasados en el mismo orden en que fueron escritors. 
+- El primer agumento entero `argc`, contiene el número de argumentos recibidos por el programa, debemos considerar que siempre será el número de argumentos pasados más 1, ya que el primer agumento se reserva para contener el nombre del programa.
+- El segundo `argv`es un puntero a un array de chars que contiene los parámetros pasados en el mismo orden en que fueron escritors.
 
 Supongamos que llamemos a un programa de la siguiente manera:
 
@@ -314,10 +302,10 @@ Supongamos que llamemos a un programa de la siguiente manera:
 ./miprograma fichero1.txt fichero2.txt
 ~~~
 
-- `argc` contendrá el valor 3, debido al nombre del programa, y los dos argumentos pasados. 
-- argv[0] contendrá el nombre del ejecutable `miprograma` 
-- arg[1] será fichero1.txt 
-- arg[2] será fichero2.txt 
+- `argc` contendrá el valor 3, debido al nombre del programa, y los dos argumentos pasados.
+- argv[0] contendrá el nombre del ejecutable `miprograma`
+- arg[1] será fichero1.txt
+- arg[2] será fichero2.txt
 
 ~~~c
 #define TAM 2048
@@ -327,14 +315,13 @@ Supongamos que llamemos a un programa de la siguiente manera:
 int main(int argc, char **argv) {
    FILE *fe, *fs;
    char buffer[TAM];
-   int bytesLeidos, ret = 0;
+   int bytesLeidos;
 
    // Abrir el fichero de entrada en lectura y binario
    fe = fopen(argv[1], "r");
 
    if(!fe) {
       printf("El fichero %s no existe o no puede ser abierto.\n", argv[1]);
-      ret = 1;
    } else {
       // Crear o sobreescribir el fichero de salida en binario
       fs = fopen(argv[2], "wb");
@@ -342,7 +329,6 @@ int main(int argc, char **argv) {
       if(!fs) {
          printf("El fichero %s no puede ser creado.\n", argv[2]);
          fclose(fe);
-         ret = 1;
       }else {
       // Bucle de copia:
          while((bytesLeidos = fread(buffer, 1, TAM, fe)))
@@ -352,7 +338,6 @@ int main(int argc, char **argv) {
          fclose(fs);
       }
    }
-   return ret;
 }
 ~~~
 
@@ -402,7 +387,7 @@ int main() {
 int main() {
    FILE* f;
    char linea[TAMLINEA], nombre[TAM];
-   int ret = 0, i;
+   int i;
 
    printf("\nIntroduzca el nombre de fichero: ");
    scanf("%s",nombre);
