@@ -28,7 +28,7 @@ Es una estructura de datos que contiene una colección de datos finita, homoge�
 
 A un elemento específico de un array se accede mediante un **índice**, que siempre empieza en la posición 0 (la primera posición del array). La última posición tendrá como índice el número de elementos del array menos uno.
 
-###<a name="2-1"/> 2.1  Definición de un array
+### <a name="2-1"/> 2.1  Definición de un array
 
 **Sintaxis** para definir un array **unidimensional** en C:
 
@@ -110,7 +110,7 @@ void inicializarArray(float calificaciones[]) {
 	}
 }~~~
 
-###<a name="2-2"/> 2.2   Arrays y funciones
+### <a name="2-2"/> 2.2   Arrays y funciones
 
 - En lenguaje C, el paso de parámetros de los arrays siempre es por **referencia**.
 - En lenguaje C, las funciones no pueden devolver un tipo array estático. Para modificar un array, ha de ser pasado como parámetro (siempre es por referencia y por tanto se modificará el array original)
@@ -462,7 +462,7 @@ int longitudCadena(char cad[]){
    len = 0;    
    while (cad[len] != '\0')       
       len++;
-      
+
    return(len);
 }
 ~~~
