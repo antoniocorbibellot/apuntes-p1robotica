@@ -17,12 +17,12 @@
 
 C ofrece un conjunto de funciones para realizar operaciones de entrada y salida (E/S) con las cuales puedes leer y escribir cualquier tipo de fichero.
 
-###<a name="1.1"/> 1.1 Ficheros
+### <a name="1.1"/> 1.1 Ficheros
 
 - Toda la información manejada hasta ahora se pierde cuando termina la ejecución de un programa, tanto la introducida como la generada.- Si tenemos que manejar una gran cantidad de información (un número elevado de variables, valores, etc.) no parece razonable definir esa información en el código.- Además, puede que la información a tratar no la tengamos, sino que queramos procesar información que nos suministran almacenada.- Un fichero almacena de manera permanente la información, usando la memoria permanente (disco duro) del ordenador.- Para C todo en el ordenador es un fichero: teclado, impresora, cualquier otro dispositivo conectado al ordenador.
 
 
-###<a name="1.2"/> 1.2 Streams (flujos) de E/S
+### <a name="1.2"/> 1.2 Streams (flujos) de E/S
 
 Cuando se crea o abre un fichero, se crea un ***stream*** asociado al fichero, y se genera un descriptor de archivo para poder identificarlo.
 
@@ -56,7 +56,7 @@ FILE *ptr_fich;
 ~~~
 
 
-###<a name="2.1"/> 2.1 Abrir el fichero
+### <a name="2.1"/> 2.1 Abrir el fichero
 
 La función `fopen` abre o crea un fichero y lo asocia a un *stream*.
 Sintaxis:
@@ -76,7 +76,7 @@ El parámetro `modo` es una combinación de los caracteres r (read, lectura), w 
 - Podemos combinar modos: **"rw"**
 
 
-###<a name="2.2"/> 2.2 Cerrar un fichero
+### <a name="2.2"/> 2.2 Cerrar un fichero
 
 Después de abrir un fichero y leer o escribir en él, hay que desenlazarlo del flujo de datos al que fue asociado. Esto se hace con la función `fclose`:
 
@@ -85,7 +85,7 @@ Después de abrir un fichero y leer o escribir en él, hay que desenlazarlo del 
 - La función devuelve 0 si se cerró con éxito- Cuando se termina la ejecución de un programa, el sistema operativo se "suele" encargar de cerrar todos los ficheros abiertos- Si no cerramos los ficheros abiertos podemos tener problemas.
 
 
-###<a name="2.3"/> 2.3 Leer y escribir en un fichero
+### <a name="2.3"/> 2.3 Leer y escribir en un fichero
 
 - La estructura `FILE` contiene una posición (marca) de por dónde vamos leyendo en el fichero.- Si leemos algo del fichero, la marca avanza hasta el siguiente carácter/dato disponible.- Si volvemos a leer del fichero, leemos a partir de la marca.- Para saber si hemos llegado al final del fichero, usaremos la función `feof (FILE *f)` (devuelve 0 si no se ha encontrado).
 
