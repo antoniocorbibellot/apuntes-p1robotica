@@ -665,9 +665,12 @@ void rellenarTabla3D(TTabla3D tabla) {
 }
 ~~~
 
-La función `crearTabla3D` también se puede hacer pasando la tabla3D por referencia para poder reservar la memoria dinámicamente:
+La función `crearTabla3D` también se puede hacer pasando la `tabla3D` por referencia para poder reservar la memoria dinámicamente:
 
 ~~~c
+void crear2Tabla3D(TTabla3D*);
+...
+
 int main() {
    ...
    crear2Tabla3D(&tabla3D);
