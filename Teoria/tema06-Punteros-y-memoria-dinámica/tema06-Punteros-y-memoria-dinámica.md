@@ -15,7 +15,7 @@
 - [3. Punteros y funciones](#3)
 
 
-## <a name="1"/> 1. Punteros 
+## <a name="1"/> 1. Punteros
 
 Como hemos visto, la **memoria** del ordenador es el lugar donde se almacenan los datos y las instrucciones de un programa. Esta memoria es la memoria RAM, que es diferente a la memoria de almacenamiento como discos duros, etc. Está compuesta por un gran número de **celdas** (bytes) de información. A cada una de estas celdas se le asigna una **dirección de memoria**, que permite distinguir unas celdas de otras. De forma que, dada la dirección de memoria de una celda, se podrá obtener su valor actual y modificarlo (como ya hemos visto por ejemplo en el paso de parámetros por referencia).
 
@@ -665,6 +665,31 @@ void rellenarTabla3D(TTabla3D tabla) {
 }
 ~~~
 
+La función `crearTabla3D` también se puede hacer pasando la tabla3D por referencia para poder reservar la memoria dinámicamente:
+
+~~~c
+int main() {
+   ...
+   crear2Tabla3D(&tabla3D);
+   ...
+}
+
+void crear2Tabla3D(TTabla3D *tabla3D) {
+   int dim1, dim2, dim3;
+
+   *tabla3D = (int***)malloc(sizeof(int**) * X);
+
+   for(dim1 = 0; dim1 < X; dim1++){
+      (*tabla3D)[dim1] = (int**)malloc(sizeof(int*) * Y);
+      for(dim2 = 0; dim2 < Y; dim2++){
+         (*tabla3D)[dim1][dim2] = (int*)malloc(sizeof(int) * Z);
+         for(dim3 = 0; dim3 < Z; dim3++){
+            (*tabla3D)[dim1][dim2][dim3] = 0; /*inicialización*/
+         }
+      }
+   }
+}
+~~~
 ----
 
 Programación 1, Grado de Robótica, curso 2017-18  
