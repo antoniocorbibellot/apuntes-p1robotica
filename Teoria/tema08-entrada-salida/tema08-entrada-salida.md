@@ -402,6 +402,7 @@ int main() {
                 printf("%s\n",linea);
             }
          }
+         getchar();
       }
       fclose(f);
    }
