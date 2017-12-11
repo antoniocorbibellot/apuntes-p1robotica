@@ -54,7 +54,7 @@ Si nos fijamos en estos ejemplos, vemos que el `factorial(4)` forma parte de la 
 factorial(5) = 5 * factorial(4)
 ~~~
 
-Ya tenemos el caso general o caso recursivo. Necesitamos un caso base, porque si no es así, se llamaría indefinidamente a sí mismo. El caso base es el caso más pequeño que podemos encontrar, que no depende de ninguna llamada recursiva y que conocemos su solución de forma inmediata. En el caso del factorial, se trata de:
+Ya tenemos el **caso general** o caso recursivo. Necesitamos un **caso base**, porque si no es así, se llamaría indefinidamente a sí mismo. El caso base es el caso más pequeño que podemos encontrar, que no depende de ninguna llamada recursiva y que conocemos su solución de forma inmediata. En el caso del factorial, se trata de:
 
 ~~~c
 factorial(1) = 1
