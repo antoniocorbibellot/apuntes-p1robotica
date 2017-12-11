@@ -18,8 +18,7 @@ prácticas de 2 h. a la semana
 
 ### Recursos de la asignatura
 
-* [Sitio Moodle](https://moodle2017-18.ua.es/moodle/course/view.php?id=247)
-  abierto y accesible a toda la comunidad educativa, contiene los
+* [Sitio Moodle](https://moodle2017-18.ua.es/moodle/course/view.php?id=247) contiene los
   apuntes, transparencias, prácticas y otros materiales docentes
 * [Foro de consultas y anuncios](https://moodle2017-18.ua.es/moodle/mod/forum/view.php?id=12384)
   en el sitio Moodle (sólo accesible a estudiantes)
