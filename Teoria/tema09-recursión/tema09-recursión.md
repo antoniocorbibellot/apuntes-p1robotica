@@ -1,9 +1,15 @@
 
 # Tema 5: Recursión
 
-## Contenidos 
+## Contenidos
 
-## <a name="1"/> 1. Qué es la recursión
+- [1. Qué es la recursividad](#1)
+- [2. Cómo diseñar una función recursiva](#2)
+- [3. La pila de llamadas y el proceso de la recursión](#3)
+- [4. Ventajas y desventajas de la recursión](#4)
+- [5. Ejemplos](#5)
+
+## <a name="1"/> 1. Qué es la recursividad
 
 Una función es recursiva si en su definición hay una llamada a sí misma. La recursión o recursividad es una forma diferente de realizar las acciones repetitivas, permitiendo que un subprograma se llame a sí mismo para resolver una versión más pequeña del problema original.
 
@@ -11,19 +17,19 @@ Una vez que uno se acostumbra a su uso, se comprueba que la recursión es una fo
 
 El primer lenguaje de programación que permitió el uso de expresiones recursivas fue Lisp. En el momento de su creación existía ya Fortran, que no permitía que una función se llamase a si misma.  
 
-Hay muchas funciones matemáticas que se definen de forma natural de manera recursiva. 
+Hay muchas funciones matemáticas que se definen de forma natural de manera recursiva.
 
 Por ejemplo:
 - Factorial de un número n: `factorial(n) = n * factorial(n-1) `	 
 
-- Potencia de dos números: 
+- Potencia de dos números:
 `x^n = x * x^n-1`
 
 ## <a name="2"/> 2. Cómo diseñar una función recursiva
 
 #### Esquema básico de una función recursiva
 
-- **Caso general o recursivo**: Incluye una o más llamadas recursivas. Estas llamadas recursivas deben resolver versiones "más pequeñas" del problema que tiene que resolver la función. 
+- **Caso general o recursivo**: Incluye una o más llamadas recursivas. Estas llamadas recursivas deben resolver versiones "más pequeñas" del problema que tiene que resolver la función.
 - **Caso base**: Es el problema más pequeño que podemos encontrar y del cual sabemos su solución inmediata (sin necesidad de hacer una llamada recursiva).
 
 
@@ -85,7 +91,7 @@ int main() {
 }
 ~~~
 
-Como ves, no hemos empezado a programar directamente. Hemos planteado ejemplos, a continuación los hemos expresado de forma recursiva y por último hemos expresado la solución general. El último paso es traducirlo a C. 
+Como ves, no hemos empezado a programar directamente. Hemos planteado ejemplos, a continuación los hemos expresado de forma recursiva y por último hemos expresado la solución general. El último paso es traducirlo a C.
 
 ## <a name="3"/> 3. La pila de llamadas y el proceso de la recursión
 
@@ -136,12 +142,12 @@ int factorial (int n)
 La llamada a `factorial(4)` realiza la siguiente secuencia de operaciones (traza):
 
 ~~~c
- factorial(4) 
-  => 4 * factorial(3) 
-  => 4 * 3 * factorial(2) 
+ factorial(4)
+  => 4 * factorial(3)
+  => 4 * 3 * factorial(2)
   => 4 * 3 * 2 * factorial(1)  
   => 4 * 3 * 2 * 1
-  => 4 * 3 * 2 
+  => 4 * 3 * 2
   => 4 * 6
   => 24
 ~~~
@@ -150,13 +156,13 @@ Cada llamada a la recursión deja una función **en espera de ser evaluada** cua
 
 Cuando la recursión devuelve un valor, los valores se recuperan de la **pila**, se realiza la llamada y se devuelve el valor a la anterior llamada en espera.
 
-Si la recursión está mal hecha y nunca termina se genera un *stack overflow* porque la memoria que se almacena en la pila sobrepasa la memoria reservada. 
+Si la recursión está mal hecha y nunca termina se genera un *stack overflow* porque la memoria que se almacena en la pila sobrepasa la memoria reservada.
 
 > Ejercicio: Haz las trazas de las funciones recursivas `potencia`y `sumatorio`.
 
 ¿Cuál será el proceso que genera una llamada a Fibonacci? El caso de Fibonacci es distinto, porque en cada función se realizan dos llamadas recursivas, de forma que la pila crece exponencialmente.
 
-## <a name="5"/> 5. Ventajas y desventajas de la recursión
+## <a name="4"/> 4. Ventajas y desventajas de la recursión
 
 ##### Ventajas
 
@@ -171,7 +177,7 @@ Si la recursión está mal hecha y nunca termina se genera un *stack overflow* p
 
 El valor de la recursividad reside en el hecho de que se puede usar para resolver problemas cuya solución iterativa no es fácil de obtener, y sin embargo resueltos de forma recursiva resultan muy concisos y claros.
 
-## <a name="4"/> 4. Más ejemplos de recursión
+## <a name="5"/> 5. Más ejemplos de recursión
 
 #### Sumatorio
 Vamos a resolver el sumatorio desde 0 hasta un número n.
@@ -189,7 +195,7 @@ Ya podemos deducir cuál es el caso general:
 sumatorio(n) = n + sumatorio(n-1)
 ~~~
 
-¿Cuál es el caso base? 
+¿Cuál es el caso base?
 
 ~~~c
 sumatorio(0) = 0
@@ -247,7 +253,7 @@ int potencia (int num, int pow)
     }
     else
     	res = 1;
-    	
+
     return res;
 }
 ~~~
@@ -289,10 +295,10 @@ int main() {
 }
 ~~~
 
-Fibonacci es un ejemplo especial en el que el caso general está compuesto por la suma de dos llamadas recursivas. 
+Fibonacci es un ejemplo especial en el que el caso general está compuesto por la suma de dos llamadas recursivas.
 
 
-## <a name="6"/> 6. Ejercicios 
+## <a name="6"/> 6. Ejercicios
 
 #### Ejercicios resueltos
 
