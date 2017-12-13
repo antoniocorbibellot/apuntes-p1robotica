@@ -338,7 +338,7 @@ int main() {
 Se trata de una estrategia recursiva para resolver problemas como los de los laberintos, el sudoku, algunos problemas de ajedrez como el recorrido del caballo o las ocho damas y similares, en los que mediante una búsqueda en profundidad se puede dar con la solución.
 El nombre vuelta atrás (*backtracking*) viene del hecho de que en la búsqueda de la solución se va volviendo a un punto anterior para probar alternativas.
 
-Si estáis interesados en el tema, podéis hacer una variante de la práctica en la que habéis trabajado este tiempo. Se trata de que, dado un mapa con obstáculos y una posición inicial del robot y una posición objetivo, el robot sea capaz de encontrar el objetivo. Podéis utilizar las estructuras de datos de la última práctica y leer el mapa con los obstáculos desde línea de comandos. Pero el camino ahora lo resolverá el algoritmo recursivo. Podéis encontrar más información en el siguiente [enlace](https://www.cs.bu.edu/teaching/alg/maze/).
+Si estáis interesados en el tema, podéis hacer una variante de la práctica en la que habéis trabajado este tiempo. Se trata de que, dado un mapa con obstáculos y una posición inicial del robot y una posición objetivo, el robot sea capaz de encontrar el objetivo. Podéis utilizar las estructuras de datos de la última práctica y leer el mapa con los obstáculos desde línea de comandos. Pero el camino ahora lo resolverá el algoritmo recursivo. Podéis encontrar mucha información al respecto en internet, como por ejemplo en el siguiente [enlace](https://www.cs.bu.edu/teaching/alg/maze/).
 
 ----
 
