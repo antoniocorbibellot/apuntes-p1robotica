@@ -328,8 +328,19 @@ int main() {
 
 #### Ejercicios propuestos
 
-1. Define una función recursiva que para un número natural n muestre por pantalla la serie creciente de números naturales del 1 al n, es decir, 1 2 3... n.2. Define una función recursiva que para un número natural n devuelva la suma de los cuadrados de los números del 1 hasta el n. Por ejemplo, para n=4, debe devolver 30 ya que 12+ 22 + 32 + 42 = 30.3. Define una función recursiva que, dado un número natural, muestre por pantalla el número formado por los mismos dígitos en sentido contrario. Por ejemplo: para el número 2089 debe mostrar 9802.4. Define una función recursiva que devuelva el número de dígitos impares de un número. Ejemplo: rec(321)=2, rec(28)=0.
+1. Define una función recursiva que para un número natural n muestre por pantalla la serie creciente de números naturales del 1 al n, es decir, 1 2 3... n.
+2. Define una función recursiva que para un número natural n devuelva la suma de los cuadrados de los números del 1 hasta el n. Por ejemplo, para n=4, debe devolver 30 ya que 12+ 22 + 32 + 42 = 30.
+3. Define una función recursiva que, dado un número natural, muestre por pantalla el número formado por los mismos dígitos en sentido contrario. Por ejemplo: para el número 2089 debe mostrar 9802.
+4. Define una función recursiva que devuelva el número de dígitos impares de un número. Ejemplo: rec(321)=2, rec(28)=0.
 
+#### Algoritmos recursivos de vuelta a atrás (*backtracking*)
+
+Se trata de una estrategia recursiva para resolver problemas como los de los laberintos, el sudoku, algunos problemas de ajedrez como el recorrido del caballo o las ocho damas y similares, en los que mediante una búsqueda en profundidad se puede dar con la solución.
+El nombre vuelta atrás (*backtracking*) viene del hecho de que en la búsqueda de la solución se va volviendo a un punto anterior para probar alternativas.
+
+Si estáis interesados en el tema, podéis hacer una variante de la práctica en la que habéis trabajado este tiempo. Se trata de que, dado un mapa con obstáculos y una posición inicial del robot y una posición objetivo, el robot sea capaz de encontrar el objetivo. Podéis utilizar las estructuras de datos de la última práctica y leer el mapa con los obstáculos desde línea de comandos. Pero el camino ahora lo resolverá el algoritmo recursivo. Podéis encontrar más información en el siguiente enlace:
+
+https://www.cs.bu.edu/teaching/alg/maze/
 
 ----
 
