@@ -39,16 +39,18 @@ desde i = 1 hasta n hacer   desde j = 0 hasta n-i hacer      si elemento[j] > 
 Implementación:
 
 ~~~c
-int temp, i, j;
+void burbuja(int v[], int elems) {
+   int temp, i, j;
 
-for (i = 1; i < elems; i++) {
-   for (j = 0; j < elems-i ; j++) {
-      if (v[j] > v[j+1]) {
-         temp = v[j];
-         v[j] = v[j+1];
-         v[j+1] = temp;
+   for (i = 1; i < elems; i++) {
+      for (j = 0; j < elems-i ; j++) {
+         if (v[j] > v[j+1]) {
+            temp = v[j];
+            v[j] = v[j+1];
+            v[j+1] = temp;
+         }
       }
-   }         
+   }
 }
 ~~~
 
@@ -84,18 +86,21 @@ fin para
 Implementación:
 
 ~~~c
-  int minimo=0,i,j;
-  int swap;
-  for(i=0 ; i<n-1 ; i++)
-  {
-     minimo=i;
-     for(j=i+1 ; j<n ; j++)
-        if (x[minimo] > x[j])
-           minimo=j;
-     swap=x[minimo];
-     x[minimo]=x[i];
-     x[i]=swap;
-  }
+void seleccion(int v[], int tam) {
+   int minimo=0, i, j;
+   int swap;
+
+   for(i=0 ; i<tam-1 ; i++)
+   {
+      minimo=i;
+      for(j=i+1 ; j<tam ; j++)
+         if (v[minimo] > v[j])
+            minimo=j;
+      swap=v[minimo];
+      v[minimo]=v[i];
+      v[i]=swap;
+   }
+}
 ~~~
 
 ### <a name="1.3"/> 1.3  Algoritmo de inserción
@@ -110,7 +115,7 @@ Este método consiste en insertar un elemento del vector en la parte izquierda d
 Implementación:
 
 ~~~c
-void Insercion(int numbers[], int array_size) {
+void insercion(int numbers[], int array_size) {
   int i, a, index;
   for (i=1; i < array_size; i++) {
     index = numbers[i];
