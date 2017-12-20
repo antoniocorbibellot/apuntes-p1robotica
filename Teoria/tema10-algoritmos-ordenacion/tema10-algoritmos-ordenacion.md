@@ -152,7 +152,7 @@ void mergesort(int a[],int i,int j)
 
 ## Ejercicio
 
-Utilizando los cuatro métodos de ordenación vistos anteriormente, ordena los arrays de registros de alumnos y vehículos de los ejercicios del tema 7.
+Utilizando los cuatro métodos de ordenación vistos anteriormente, ordena los arrays de registros de alumnos (por apellido) y vehículos (por matrícula) de los ejercicios del tema 7.
 
 ----
 
