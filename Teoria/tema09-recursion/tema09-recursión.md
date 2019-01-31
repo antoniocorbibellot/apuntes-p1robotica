@@ -1,4 +1,3 @@
-
 # Tema 9: Recursión
 
 ## Contenidos
@@ -15,12 +14,12 @@ Una función es recursiva si en su definición hay una llamada a sí misma. La r
 
 Una vez que uno se acostumbra a su uso, se comprueba que la recursión es una forma mucho más natural que la iteración de expresar un gran número de funciones.
 
-El primer lenguaje de programación que permitió el uso de expresiones recursivas fue Lisp. En el momento de su creación existía ya Fortran, que no permitía que una función se llamase a si misma.  
+El primer lenguaje de programación que permitió el uso de expresiones recursivas fue Lisp. En el momento de su creación existía ya Fortran, que no permitía que una función se llamase a si misma.
 
 Hay muchas funciones matemáticas que se definen de forma natural de manera recursiva.
 
 Por ejemplo:
-- Factorial de un número n: `factorial(n) = n * factorial(n-1) `	 
+- Factorial de un número n: `factorial(n) = n * factorial(n-1) `
 
 - Potencia de dos números:
 `x^n = x * x^n-1`
@@ -145,7 +144,7 @@ La llamada a `factorial(4)` realiza la siguiente secuencia de operaciones (traza
  factorial(4)
   => 4 * factorial(3)
   => 4 * 3 * factorial(2)
-  => 4 * 3 * 2 * factorial(1)  
+  => 4 * 3 * 2 * factorial(1)
   => 4 * 3 * 2 * 1
   => 4 * 3 * 2
   => 4 * 6
@@ -246,13 +245,13 @@ Lo pasamos a C:
 ~~~c
 int potencia (int num, int pow)
 {
-	int res;
+    int res;
 
     if (pow){
         res = (num * potencia(num, pow - 1));
     }
     else
-    	res = 1;
+        res = 1;
 
     return res;
 }
@@ -265,12 +264,12 @@ La secuencia de Fibonacci es 0,1,1,2,3,5,8,13,...
 Formulación matemática de la secuencia de Fibonacci:
 
 ~~~c
-Fibonacci(n) = Fibonacci(n-1) + Fibonacci(n-2)  
-Fibonacci(0) = 0  
+Fibonacci(n) = Fibonacci(n-1) + Fibonacci(n-2)
+Fibonacci(0) = 0
 Fibonacci(1) = 1
 ~~~
 
-Lo pasadmos a C:
+Lo pasamos a C:
 
 ~~~c
 int fib(int n)
@@ -346,6 +345,6 @@ laberintos, se ve muy claro el avance, decisión y retroceso.
 
 ----
 
-Programación 1, Grado de Robótica, curso 2017-18  
-© Departamento Ciencia de la Computación e Inteligencia Artificial, Universidad de Alicante  
+Programación 1, Grado de Robótica, curso 2017-18
+© Departamento Ciencia de la Computación e Inteligencia Artificial, Universidad de Alicante
 Cristina Pomares Puig
